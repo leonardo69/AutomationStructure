@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<typePathes>
+  <type name="Тип фасада 1" folder ="scheme 1" imagePath="kitchen-upper-module-LIB-type1.png">
+    <subType name="Подтип 1" folder ="scheme 1" imagePath="kitchen-upper-module-table-type1-subtype1_F1-01-0001.png" />
+  </type>
+</typePathes>

@@ -1,0 +1,9 @@
+obj
+/AutomationStructure/Automation/Automation/bin/Release
+bin
+.vs
+/AutomationStructure/Automation/Automation/bin
+/AutomationStructure/Automation/Automation/obj
+/AutomationStructure/Automation.Module.KitchenUp/obj
+/AutomationStructure/Automation.Module.KitchenUp/bin
+packages

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{998769D3-13F4-4B4B-A6F5-AC77ED12DC1A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Automation</RootNamespace>
+    <AssemblyName>AutomationGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="View\Helps\Helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Helps\Helper.Designer.cs">
+      <DependentUpon>Helper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BigModuleImageInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BigModuleImageInfo.Designer.cs">
+      <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModuleViewGenerator\KitchenUpView.cs" />
+    <Compile Include="View\ModuleViewGenerator\ViewGenerator.cs" />
+    <Compile Include="View\Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubSchemeModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubSchemeModule.Designer.cs">
+      <DependentUpon>SubSchemeModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter.cs" />
+    <Compile Include="View\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Model\CustomerTable.cs" />
+    <Compile Include="View\Model\Dialogs.cs" />
+    <Compile Include="View\Model\ModulesTable.cs" />
+    <Compile Include="View\ModuleConfigurator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModuleConfigurator.Designer.cs">
+      <DependentUpon>ModuleConfigurator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SimilarModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SimilarModule.Designer.cs">
+      <DependentUpon>SimilarModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThicknessMaterialEssential.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ThicknessMaterialEssential.Designer.cs">
+      <DependentUpon>ThicknessMaterialEssential.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModuleManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModuleManager.Designer.cs">
+      <DependentUpon>ModuleManager.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="View\Helps\Helper.resx">
+      <DependentUpon>Helper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BigModuleImageInfo.resx">
+      <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubSchemeModule.resx">
+      <DependentUpon>SubSchemeModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\ModuleConfigurator.resx">
+      <DependentUpon>ModuleConfigurator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SimilarModule.resx">
+      <DependentUpon>SimilarModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ThicknessMaterialEssential.resx">
+      <DependentUpon>ThicknessMaterialEssential.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ModuleManager.resx">
+      <DependentUpon>ModuleManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-up-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Automation.Infrastructure\Automation.Infrastructure.csproj">
+      <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
+      <Name>Automation.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Automation.Model\Automation.Model.csproj">
+      <Project>{2f62a103-3468-4957-9a2a-faf8dec4d44c}</Project>
+      <Name>Automation.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutomationControls\Automation.Controls.csproj">
+      <Project>{2924AFF0-EF4B-4419-B89C-0E86349E9C34}</Project>
+      <Name>Automation.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
