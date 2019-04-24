@@ -2,4 +2,5 @@
 Furniture creator
 
 1. Download telerik controls and install: https://drive.google.com/open?id=1fv2MUyLnYVnt5xhUV6u-gCeFLuaYoRLe
-2. Download project from repository and rebuild
+2. Download project from repository and rebuild.
+3. Set Automation.UI project startup and Start
