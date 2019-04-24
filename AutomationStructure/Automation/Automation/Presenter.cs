@@ -22,6 +22,7 @@ namespace Automation
         public Presenter(BLService model, MainForm view)
         {
             _blService = model;
+            var number = 10;
             _view = view;
         }
 
