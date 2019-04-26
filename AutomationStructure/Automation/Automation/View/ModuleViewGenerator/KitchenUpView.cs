@@ -52,20 +52,22 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewComboBoxColumn GetFacadeMaterial()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
-            column.Name = "Материал фасада2";
-            column.HeaderText = "Материал фасада";
-            column.FieldName = "Материал фасада";
-            column.DataSource = new List<string>
+            return new GridViewComboBoxColumn
             {
-                "нет",
-                "ЛДСП вертик. фактура",
-                "ЛДСП гориз. фактура",
-                "на заказ глухой",
-                "на заказ витрина",
-                "на заказ особый"
+                Name = "Материал фасада2",
+                HeaderText = "Материал фасада",
+                FieldName = "Материал фасада",
+                DataSource = new List<string>
+                {
+                    "нет",
+                    "ЛДСП вертик. фактура",
+                    "ЛДСП гориз. фактура",
+                    "на заказ глухой",
+                    "на заказ витрина",
+                    "на заказ особый",
+                    "на заказ РЕШЁТКА"
+                }
             };
-            return column;
         }
 
         private GridViewComboBoxColumn GetFacadeType()
