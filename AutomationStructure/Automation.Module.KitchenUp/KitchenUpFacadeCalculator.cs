@@ -6,26 +6,20 @@ namespace Automation.Module.KitchenUp
     [Serializable]
     class KitchenUpFacadeCalculator
     {
-        public void CalculateFacadeDimentions(Facade _facade, Dimensions _dimentions, string formula, int index)
+        public void CalculateFacadeDimensions(Facade facade, Dimensions dimensions, string formula, int index)
         {
-            switch (formula)
+            if (formula == "F1-01-0001")
             {
-                case "F1-01-0001":
-
-                    _facade._records[index].HorisontalDimension = _dimentions.Width - 4;
-                    _facade._records[index].VerticalDimension = _dimentions.Height - 4;
-                    break;
+                facade._records[index].HorisontalDimension = dimensions.Width - 4;
+                facade._records[index].VerticalDimension = dimensions.Height - 4;
             }
         }
-        public void CalculateModuleDimentions(Facade _facade, Dimensions _dimentions, string formula)
+        public void CalculateModuleDimensions(Facade facade, Dimensions dimensions, string formula)
         {
-            switch (formula)
+            if (formula == "F1-01-0001")
             {
-                case "F1-01-0001":
-
-                    _dimentions.Width = _facade._records[0].HorisontalDimension + 4;
-                    _dimentions.Height = _facade._records[0].VerticalDimension + 4;
-                    break;
+                dimensions.Width = facade._records[0].HorisontalDimension + 4;
+                dimensions.Height = facade._records[0].VerticalDimension + 4;
             }
         }
     }

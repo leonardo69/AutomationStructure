@@ -73,7 +73,7 @@ namespace Automation.Module.KitchenUp
                 _facade._records[0].HorisontalDimension = double.Parse(row["Ширина"].ToString());
                 _facade._records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
                 KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
-                calculator.CalculateModuleDimentions(_facade, _dimentions, formula);
+                calculator.CalculateModuleDimensions(_facade, _dimentions, formula);
             }
 
             if (!double.TryParse(row["Глубина модуля (мм)"].ToString(), out double depth))
@@ -118,7 +118,7 @@ namespace Automation.Module.KitchenUp
                 if (_calcMode == "авт. фас.")
                 {
                     KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
-                    calculator.CalculateFacadeDimentions(_facade, _dimentions, formula, i);
+                    calculator.CalculateFacadeDimensions(_facade, _dimentions, formula, i);
                 }
                 else
                 {
@@ -243,15 +243,15 @@ namespace Automation.Module.KitchenUp
             KitchenUpCalculator calculator = new KitchenUpCalculator
             {
                 Name = Name,
-                Sсheme = Sсheme,
+                Scheme = Sсheme,
                 IconPath = IconPath,
                 BackPanelAssembly = BackPanelAssembly,
                 Number = Number,
                 SubScheme = SubScheme,
-                _dimentions = _dimentions,
-                _facade = _facade,
-                _shelfAssembly = _shelfAssembly,
-                _shelfsCount = _shelfsCount
+                Dimensions = _dimentions,
+                Facade = _facade,
+                ShelfAssembly = _shelfAssembly,
+                ShelvesCount = _shelfsCount
             };
 
             Result result = new Result
