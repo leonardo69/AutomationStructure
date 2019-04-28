@@ -33,7 +33,7 @@ namespace Automation.Modules.Tests
         }
         private void AddRow(DataTable input)
         {
-            DataRow row = input.NewRow();
+            var row = input.NewRow();
             row["Номер модуля"] = "1";
             row["Форма модуля"] = "Тип фасада 1";
             row["Изображение"] = "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_icon.png";

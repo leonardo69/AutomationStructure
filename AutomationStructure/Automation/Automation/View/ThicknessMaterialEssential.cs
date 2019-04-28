@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Automation.Infrastructure;
 using Automation.Model;
 using Automation.View.Model;
 

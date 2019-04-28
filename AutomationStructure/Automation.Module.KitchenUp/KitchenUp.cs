@@ -29,19 +29,19 @@ namespace Automation.Module.KitchenUp
 
         public override void AddFacade()
         {
-            if (_facade._records.Count == 4)
+            if (_facade.Records.Count == 4)
                 throw new ArgumentException("Количество фасадов не может быть больше четырёх");
             FacadeRecord facade = new FacadeRecord()
             {
-                NumberOnScheme = _facade._records.Count + 1
+                NumberOnScheme = _facade.Records.Count + 1
             };
-            _facade._records.Add(facade);
+            _facade.Records.Add(facade);
         }
         public override void DeleteFacade()
         {
-            if (_facade._records.Count == 0)
+            if (_facade.Records.Count == 0)
                 throw new ArgumentException("Количество фасадов не может быть меньше нуля");
-            _facade._records.RemoveAt(_facade._records.Count - 1);
+            _facade.Records.RemoveAt(_facade.Records.Count - 1);
         }
 
 
@@ -51,7 +51,7 @@ namespace Automation.Module.KitchenUp
             DataRow row = changedInfo.Rows[0];
             Number = row["Номер модуля"].ToString();
             IconPath = row["Изображение"].ToString();
-            Sсheme = row["Форма модуля"].ToString();
+            Scheme = row["Форма модуля"].ToString();
             if (!double.TryParse(row["Высота модуля (мм)"].ToString(), out double height))
                 throw new ArgumentException("Высота модуля должна быть числом");
             if (height < 0)
@@ -70,8 +70,8 @@ namespace Automation.Module.KitchenUp
             var formula = IconPath.Split('_')[1];
             if ((facadeNumber > 0) && (_calcMode == "авт. мод."))
             {
-                _facade._records[0].HorisontalDimension = double.Parse(row["Ширина"].ToString());
-                _facade._records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
+                _facade.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
+                _facade.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
                 KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
                 calculator.CalculateModuleDimensions(_facade, _dimentions, formula);
             }
@@ -108,9 +108,9 @@ namespace Automation.Module.KitchenUp
 
             if (facadeNumber <= 0)
                 return;
-            _facade._records[0].NumberOnScheme = facadeNumber;
-            _facade._records[0].Type = row["Тип фасада"].ToString();
-            _facade._records[0].Material = row["Материал фасада"].ToString();
+            _facade.Records[0].NumberOnScheme = facadeNumber;
+            _facade.Records[0].Type = row["Тип фасада"].ToString();
+            _facade.Records[0].Material = row["Материал фасада"].ToString();
 
             for (int i = 0; i < changedInfo.Rows.Count; i++)
             {
@@ -122,8 +122,8 @@ namespace Automation.Module.KitchenUp
                 }
                 else
                 {
-                    _facade._records[i].HorisontalDimension = double.Parse(row["Ширина"].ToString());
-                    _facade._records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
+                    _facade.Records[i].HorizontalDimension = double.Parse(row["Ширина"].ToString());
+                    _facade.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
                 }
             }
 
@@ -133,7 +133,7 @@ namespace Automation.Module.KitchenUp
         {
             DataRow row = table.NewRow();
             row["Номер модуля"] = Number;
-            row["Форма модуля"] = Sсheme;
+            row["Форма модуля"] = Scheme;
             row["Изображение"] = IconPath;
             row["Высота модуля (мм)"] = _dimentions.Height;
             row["Ширина модуля (мм)"] = _dimentions.Width;
@@ -147,25 +147,25 @@ namespace Automation.Module.KitchenUp
             row["Крепление полки"] = _shelfAssembly;
             row["Кол-во полок"] = _shelfsCount;
 
-            if (_facade._records.Count != 0)
+            if (_facade.Records.Count != 0)
             {
-                row["№ схемы фасада"] = _facade._records[0].NumberOnScheme;
-                row["Тип фасада"] = _facade._records[0].Type;
+                row["№ схемы фасада"] = _facade.Records[0].NumberOnScheme;
+                row["Тип фасада"] = _facade.Records[0].Type;
                 row["Режим расчёта"] = _calcMode;
-                row["Высота"] = _facade._records[0].VerticalDimension;
-                row["Ширина"] = _facade._records[0].HorisontalDimension;
-                row["Материал фасада"] = _facade._records[0].Material;
+                row["Высота"] = _facade.Records[0].VerticalDimension;
+                row["Ширина"] = _facade.Records[0].HorizontalDimension;
+                row["Материал фасада"] = _facade.Records[0].Material;
             }
             else
                 row["№ схемы фасада"] = 0;
             table.Rows.Add(row);
 
-            for (int i = 1; i < _facade._records.Count; i++)
+            for (int i = 1; i < _facade.Records.Count; i++)
             {
                 DataRow anotherRow = table.NewRow();
-                anotherRow["№ схемы фасада"] = _facade._records[i].NumberOnScheme;
-                anotherRow["Высота"] = _facade._records[i].VerticalDimension;
-                anotherRow["Ширина"] = _facade._records[i].HorisontalDimension;
+                anotherRow["№ схемы фасада"] = _facade.Records[i].NumberOnScheme;
+                anotherRow["Высота"] = _facade.Records[i].VerticalDimension;
+                anotherRow["Ширина"] = _facade.Records[i].HorizontalDimension;
                 table.Rows.Add(anotherRow);
             }
 
@@ -176,7 +176,7 @@ namespace Automation.Module.KitchenUp
         {
             int count = 1;
 
-            switch (Sсheme)
+            switch (Scheme)
             {
                 case "1.jpg":
                     count = 1;
@@ -243,7 +243,7 @@ namespace Automation.Module.KitchenUp
             KitchenUpCalculator calculator = new KitchenUpCalculator
             {
                 Name = Name,
-                Scheme = Sсheme,
+                Scheme = Scheme,
                 IconPath = IconPath,
                 BackPanelAssembly = BackPanelAssembly,
                 Number = Number,

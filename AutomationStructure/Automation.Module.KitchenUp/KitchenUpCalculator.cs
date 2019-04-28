@@ -2,7 +2,6 @@
 using System.Data;
 using System.Globalization;
 using Automation.Infrastructure;
-using Automation.Model;
 
 namespace Automation.Module.KitchenUp
 {
@@ -152,9 +151,9 @@ namespace Automation.Module.KitchenUp
 
         private string Mat_txt_1_2()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return "";
-            var type = Facade._records[0].Type;
+            var type = Facade.Records[0].Type;
             if (type == null)
                 return "";
             if (type == "накладной")
@@ -200,11 +199,11 @@ namespace Automation.Module.KitchenUp
 
         private int Mat1()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return 0;
-            if (Facade._records[0].Type == "нет")
+            if (Facade.Records[0].Type == "нет")
                 return 0;
-            var height = Facade._records[0].VerticalDimension;
+            var height = Facade.Records[0].VerticalDimension;
             if (height < 900)
                 return 2;
             if (height < 1600)
@@ -261,10 +260,10 @@ namespace Automation.Module.KitchenUp
             if (BackPanelAssembly == "ЛДСП внутрь")
                 backPanel = FL7() * FW7() * 0.001 * FN7();
             double facades = 0;
-            if (Facade._records.Count != 0)
-                if (Facade._records[0].Type != "нет" &&
-                    (Facade._records[0].Material == "ЛДСП вертик. фактура" ||
-                     Facade._records[0].Material == "ЛДСП гориз. фактура"))
+            if (Facade.Records.Count != 0)
+                if (Facade.Records[0].Type != "нет" &&
+                    (Facade.Records[0].Material == "ЛДСП вертик. фактура" ||
+                     Facade.Records[0].Material == "ЛДСП гориз. фактура"))
                     facades = FL5() * FW5() * 0.001 * FN5();
             return Fl1() * Fw1() * 0.001 * FN1() + Fl2() * Fw2() * 0.001 * FN2() + ldspShelfs + backPanel + facades;
         }
@@ -614,20 +613,20 @@ namespace Automation.Module.KitchenUp
 
         private double FL5()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return 0;
-            if (Facade._records[0].Material == "нет")
+            if (Facade.Records[0].Material == "нет")
                 return 0;
-            return Facade._records[0].VerticalDimension;
+            return Facade.Records[0].VerticalDimension;
         }
 
         private double FW5()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return 0;
-            if (Facade._records[0].Material == "нет")
+            if (Facade.Records[0].Material == "нет")
                 return 0;
-            return Facade._records[0].HorisontalDimension;
+            return Facade.Records[0].HorizontalDimension;
         }
 
         private int FN5()
@@ -637,10 +636,10 @@ namespace Automation.Module.KitchenUp
 
         private string FP5()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return "";
             var result = "";
-            switch (Facade._records[0].Material)
+            switch (Facade.Records[0].Material)
             {
                 case "нет":
                     result = "";
@@ -742,10 +741,10 @@ namespace Automation.Module.KitchenUp
         {
             var moduleForm = 1;
             double result = 0;
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return result;
             if (moduleForm == 1)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Height - 4;
@@ -758,7 +757,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 2)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Height - Dimensions.A - 4;
@@ -771,7 +770,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 3)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Height - Dimensions.A - 4;
@@ -790,10 +789,10 @@ namespace Automation.Module.KitchenUp
         {
             var moduleForm = 1;
             double result = 0;
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return 0;
             if (moduleForm == 1)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Width - 4;
@@ -806,7 +805,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 2)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Width - 4;
@@ -819,7 +818,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 3)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = Dimensions.Width - 4;
@@ -839,7 +838,7 @@ namespace Automation.Module.KitchenUp
             var moduleForm = 1;
             var result = "";
             if (moduleForm == 1)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = "фактура ЛДСП вертик.";
@@ -852,7 +851,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 2)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = "фактура ЛДСП вертик.";
@@ -865,7 +864,7 @@ namespace Automation.Module.KitchenUp
                         break;
                 }
             else if (moduleForm == 3)
-                switch (Facade._records[0].Material)
+                switch (Facade.Records[0].Material)
                 {
                     case "Верт.":
                         result = "фактура ЛДСП вертик.";
@@ -994,10 +993,10 @@ namespace Automation.Module.KitchenUp
 
         private string DF17()
         {
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return "";
-            if (Facade._records[0].Type == "нет" || Facade._records[0].Material == "на заказ глухой" ||
-                Facade._records[0].Material == "на заказ витрина" || Facade._records[0].Material == "на заказ особый")
+            if (Facade.Records[0].Type == "нет" || Facade.Records[0].Material == "на заказ глухой" ||
+                Facade.Records[0].Material == "на заказ витрина" || Facade.Records[0].Material == "на заказ особый")
                 return "";
             return GetEdgeThickness(ModuleThickness.Facade);
         }
@@ -1020,13 +1019,13 @@ namespace Automation.Module.KitchenUp
         private string DF21()
         {
             var result = string.Empty;
-            if (Facade._records.Count == 0)
+            if (Facade.Records.Count == 0)
                 return "";
-            if (Facade._records[0].Type == "нет" || (int) ModuleThickness.Facade == 0) result = "";
+            if (Facade.Records[0].Type == "нет" || (int) ModuleThickness.Facade == 0) result = "";
 
-            if (Facade._records[0].Type != "нет" && ModuleThickness.Facade == 0.4) result = "I";
+            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 0.4) result = "I";
 
-            if (Facade._records[0].Type != "нет" && ModuleThickness.Facade == 2) result = "V";
+            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 2) result = "V";
 
             return result;
         }

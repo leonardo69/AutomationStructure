@@ -6,8 +6,8 @@ namespace Automation.View.Model
     {
         public static string GetOpenProjectPath()
         {
-            string pathToFile=string.Empty;
-            using (OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "файл dat (*dat) | *.dat" })
+            var pathToFile=string.Empty;
+            using (var openFileDialog = new OpenFileDialog { Filter = @"файл dat (*dat) | *.dat" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -20,8 +20,8 @@ namespace Automation.View.Model
 
         public static string GetSaveProjectPath()
         {
-            string pathToFile = string.Empty;
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = "файл dat (*dat) | *.dat" })
+            var pathToFile = string.Empty;
+            using (var saveFileDialog = new SaveFileDialog { Filter = @"файл dat (*dat) | *.dat" })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {

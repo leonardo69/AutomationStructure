@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using PositionChangedEventArgs = Telerik.WinControls.UI.Data.PositionChangedEventArgs;
 
 namespace Automation.View.ModuleViewGenerator
 {
     [Serializable]
-    public class KitchenUpView: ViewGenerator
+    public class KitchenUpView : ViewGenerator
     {
+        private string _columnName = string.Empty;
+
+        private DataTable _resultTable;
 
 
         private GridViewComboBoxColumn GetBackPanelAssemblyColumns()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
+            var column = new GridViewComboBoxColumn();
 
-            column.Name = "Задняя стенка2";
-            column.HeaderText = "Задняя стенка";
+            column.Name = @"Задняя стенка2";
+            column.HeaderText = @"Задняя стенка";
             column.FieldName = "Задняя стенка";
             column.DataSource = new List<string>
             {
@@ -30,14 +33,13 @@ namespace Automation.View.ModuleViewGenerator
                 "что это?"
             };
             return column;
-          
         }
 
         private GridViewComboBoxColumn GetModuleAssembly()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
+            var column = new GridViewComboBoxColumn();
             column.Name = "Сборка модуля2";
-            column.HeaderText = "Сборка модуля";
+            column.HeaderText = @"Сборка модуля";
             column.FieldName = "Сборка модуля";
             column.DataSource = new List<string>
             {
@@ -55,7 +57,7 @@ namespace Automation.View.ModuleViewGenerator
             return new GridViewComboBoxColumn
             {
                 Name = "Материал фасада2",
-                HeaderText = "Материал фасада",
+                HeaderText = @"Материал фасада",
                 FieldName = "Материал фасада",
                 DataSource = new List<string>
                 {
@@ -72,9 +74,9 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewComboBoxColumn GetFacadeType()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
+            var column = new GridViewComboBoxColumn();
             column.Name = "Тип фасада2";
-            column.HeaderText = "Тип фасада";
+            column.HeaderText = @"Тип фасада";
             column.FieldName = "Тип фасада";
             column.DataSource = new List<string>
             {
@@ -94,10 +96,10 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewComboBoxColumn GetShelfPO()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn
+            var column = new GridViewComboBoxColumn
             {
                 Name = "Крепление полки",
-                HeaderText = "Крепление полки",
+                HeaderText = @"Крепление полки",
                 FieldName = "Крепление полки",
                 DataSource = new List<string>
                 {
@@ -114,7 +116,7 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewComboBoxColumn GetCalculationType()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn
+            var column = new GridViewComboBoxColumn
             {
                 Name = "Режим расчёта2",
                 HeaderText = @"Режим расчёта",
@@ -131,10 +133,10 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewComboBoxColumn GetShelfMinus2MM()
         {
-            GridViewComboBoxColumn column = new GridViewComboBoxColumn
+            var column = new GridViewComboBoxColumn
             {
                 Name = "Кол-во полок",
-                HeaderText = "Кол-во полок",
+                HeaderText = @"Кол-во полок",
                 FieldName = "Кол-во полок",
                 DataSource = new List<string>
                 {
@@ -162,30 +164,24 @@ namespace Automation.View.ModuleViewGenerator
 
         private GridViewImageColumn GetIcon()
         {
-            GridViewImageColumn column = new GridViewImageColumn
+            var column = new GridViewImageColumn
             {
-                Name ="Icon",
-                HeaderText = "Изображение"
-        };
+                Name = "Icon",
+                HeaderText = @"Изображение"
+            };
 
             return column;
-
         }
-
-        private  DataTable resultTable;
 
         public override void SetupView(RadGridView dgv, DataTable table)
         {
             dgv.Columns.Clear();
             dgv.DataSource = null;
-            resultTable = table;
+            _resultTable = table;
             dgv.DataSource = table;
             dgv.MasterTemplate.AllowAddNewRow = false;
 
-            foreach (var row in dgv.Rows)
-            {
-                row.Height = 50;
-            }
+            foreach (var row in dgv.Rows) row.Height = 50;
 
             dgv.Columns["Изображение"].IsVisible = false;
             dgv.Columns["Задняя стенка"].IsVisible = false;
@@ -200,13 +196,13 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns.Insert(10, GetBackPanelAssemblyColumns());
             dgv.Columns.Insert(20, GetFacadeMaterial());
             dgv.Columns.Insert(16, GetFacadeType());
-            dgv.Columns.Insert(17,GetCalculationType());
+            dgv.Columns.Insert(17, GetCalculationType());
             dgv.Columns.Insert(11, GetShelfPO());
             dgv.Columns.Insert(12, GetShelfMinus2MM());
             dgv.Columns.Insert(3, GetIcon());
 
 
-            foreach (var column in dgv.Columns )
+            foreach (var column in dgv.Columns)
             {
                 column.WrapText = true;
                 column.Width = 150;
@@ -216,8 +212,8 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns[1].Width = 90;
             dgv.Columns[2].Width = 90;
             dgv.Columns[3].Width = 90;
-       
-            var view = SetColumnGroupsView(dgv);
+
+            var view = SetColumnGroupsView();
             dgv.ViewDefinition = view;
 
             dgv.CellFormatting += Dgv_CellFormatting;
@@ -226,18 +222,17 @@ namespace Automation.View.ModuleViewGenerator
 
 
             dgv.Refresh();
-
         }
 
         private void Dgv_CellClick(object sender, GridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 3)
             {
-                var path = resultTable.Rows[e.RowIndex][2].ToString();
+                var path = _resultTable.Rows[e.RowIndex][2].ToString();
                 var parts = path.Split('_');
                 var bigImagePath = parts[0] + "_" + parts[1] + "_big.png";
 
-                Form customerHelpForm = Application.OpenForms["BigModuleImageInfo"];
+                var customerHelpForm = Application.OpenForms["BigModuleImageInfo"];
                 if (customerHelpForm == null)
                 {
                     customerHelpForm = new BigModuleImageInfo(bigImagePath);
@@ -247,13 +242,12 @@ namespace Automation.View.ModuleViewGenerator
                 {
                     customerHelpForm.Focus();
                 }
-               
             }
         }
 
-        private ColumnGroupsViewDefinition SetColumnGroupsView(RadGridView dgv)
+        private ColumnGroupsViewDefinition SetColumnGroupsView()
         {
-            ColumnGroupsViewDefinition view = new ColumnGroupsViewDefinition();
+            var view = new ColumnGroupsViewDefinition();
 
             view.ColumnGroups.Add(new GridViewColumnGroup("Num"));
             view.ColumnGroups[0].Rows.Add(new GridViewColumnGroupRow());
@@ -271,8 +265,6 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[2].ShowHeader = false;
 
 
-           
-
             view.ColumnGroups.Add(new GridViewColumnGroup("Размеры"));
             view.ColumnGroups[3].Rows.Add(new GridViewColumnGroupRow());
             view.ColumnGroups[3].Rows[0].ColumnNames.Add("Высота модуля (мм)");
@@ -283,7 +275,7 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[3].Rows[0].ColumnNames.Add("C размер (мм)");
             view.ColumnGroups[3].Rows[0].ColumnNames.Add("D размер (мм)");
 
-         
+
             view.ColumnGroups.Add(new GridViewColumnGroup("zertg"));
             view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
             view.ColumnGroups[4].Rows[0].ColumnNames.Add("Сборка модуля2");
@@ -311,42 +303,36 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[7].Rows[0].ColumnNames.Add("Тип фасада2");
             view.ColumnGroups[7].Rows[0].ColumnNames.Add("Режим расчёта2");
             view.ColumnGroups[7].Rows[0].ColumnNames.Add("Материал фасада2");
-    
 
 
             return view;
         }
 
-        private string _columnName=string.Empty;
-
         private void Dgv_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
         {
-
             if (e.Column.Name == "Задняя стенка2" ||
                 e.Column.Name == "Тип фасада2")
             {
                 _columnName = e.Column.Name;
-                ((RadDropDownListEditorElement)((RadDropDownListEditor)e.ActiveEditor).EditorElement).SelectedIndexChanged-=  Form1_SelectedIndexChanged;
-                ((RadDropDownListEditorElement)((RadDropDownListEditor)e.ActiveEditor).EditorElement).SelectedIndexChanged += Form1_SelectedIndexChanged;
+                ((RadDropDownListEditorElement) ((RadDropDownListEditor) e.ActiveEditor).EditorElement)
+                    .SelectedIndexChanged -= Form1_SelectedIndexChanged;
+                ((RadDropDownListEditorElement) ((RadDropDownListEditor) e.ActiveEditor).EditorElement)
+                    .SelectedIndexChanged += Form1_SelectedIndexChanged;
             }
         }
 
-        private void Form1_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        private void Form1_SelectedIndexChanged(object sender, PositionChangedEventArgs e)
         {
-            RadDropDownListEditorElement editor = sender as RadDropDownListEditorElement;
-          
-            if (editor?.SelectedItem != null && editor.SelectedItem.Text == "что это?")
-            {
-                ShowHelpForm(_columnName);
-                
-            }
+            var editor = sender as RadDropDownListEditorElement;
+
+            if (editor?.SelectedItem != null && editor.SelectedItem.Text == "что это?") ShowHelpForm(_columnName);
         }
 
         private void ShowHelpForm(string columnName)
         {
-            var path = resultTable.Rows[0][2].ToString();
+            var path = _resultTable.Rows[0][2].ToString();
             var parts = path.Split('_');
-            string bigImagePath = string.Empty;
+            string bigImagePath;
 
             switch (columnName)
             {
@@ -358,24 +344,20 @@ namespace Automation.View.ModuleViewGenerator
                     bigImagePath = parts[0] + "_" + parts[1] + "_fasad-help.png";
                     new BigModuleImageInfo(bigImagePath).Show();
                     break;
-                    
             }
         }
-        
+
         private void Dgv_CellFormatting(object sender, CellFormattingEventArgs e)
         {
             try
             {
-                if (e.CellElement.ColumnIndex == 3 )
-                {
-                    if (resultTable.Rows[e.RowIndex]["Изображение"].ToString().Length != 0)
+                if (e.CellElement.ColumnIndex == 3)
+                    if (_resultTable.Rows[e.RowIndex]["Изображение"].ToString().Length != 0)
                     {
-                        var pathToImage = Environment.CurrentDirectory + "\\" + resultTable.Rows[e.RowIndex]["Изображение"];
+                        var pathToImage = Environment.CurrentDirectory + "\\" +
+                                          _resultTable.Rows[e.RowIndex]["Изображение"];
                         e.CellElement.Image = Image.FromFile(pathToImage);
                     }
-                   
-                }
-
             }
             catch (Exception)
             {
