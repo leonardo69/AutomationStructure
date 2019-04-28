@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace Automation.Infrastructure
 {
@@ -32,7 +33,6 @@ namespace Automation.Infrastructure
     [Serializable]
     public class Dimensions
     {
-
         public double Depth { get; set; }
         public double Height { get; set; }
         public double Width { get; set; }
@@ -40,8 +40,6 @@ namespace Automation.Infrastructure
         public double B { get; set; }
         public double C { get; set; }
         public double D { get; set; }
-
-
     }
 
     [Serializable]
