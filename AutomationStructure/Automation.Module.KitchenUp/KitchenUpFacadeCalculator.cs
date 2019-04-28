@@ -10,16 +10,16 @@ namespace Automation.Module.KitchenUp
         {
             if (formula == "F1-01-0001")
             {
-                facade._records[index].HorisontalDimension = dimensions.Width - 4;
-                facade._records[index].VerticalDimension = dimensions.Height - 4;
+                facade.Records[index].HorizontalDimension = dimensions.Width - 4;
+                facade.Records[index].VerticalDimension = dimensions.Height - 4;
             }
         }
         public void CalculateModuleDimensions(Facade facade, Dimensions dimensions, string formula)
         {
             if (formula == "F1-01-0001")
             {
-                dimensions.Width = facade._records[0].HorisontalDimension + 4;
-                dimensions.Height = facade._records[0].VerticalDimension + 4;
+                dimensions.Width = facade.Records[0].HorizontalDimension + 4;
+                dimensions.Height = facade.Records[0].VerticalDimension + 4;
             }
         }
     }

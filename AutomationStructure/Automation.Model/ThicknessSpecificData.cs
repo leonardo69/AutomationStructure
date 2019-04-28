@@ -4,9 +4,9 @@ namespace Automation.Model
 {
     public class ThicknessSpecificData
     {
-        private List<ThicknessSpecificRecord> _main;
-        private List<ThicknessSpecificRecord> _shelf;
-        private List<ThicknessSpecificRecord> _facade;
+        private readonly List<ThicknessSpecificRecord> _main;
+        private readonly List<ThicknessSpecificRecord> _shelf;
+        private readonly List<ThicknessSpecificRecord> _facade;
 
 
         public ThicknessSpecificData()
@@ -18,7 +18,7 @@ namespace Automation.Model
 
         private void InitMainRecords()
         {
-            _main.Add(new ThicknessSpecificRecord { PartModule = "Перед (видимая)"});
+            _main.Add(new ThicknessSpecificRecord { PartModule = "Перед (видимая)" });
             _main.Add(new ThicknessSpecificRecord { PartModule = "Верх" });
             _main.Add(new ThicknessSpecificRecord { PartModule = "Низ" });
             _main.Add(new ThicknessSpecificRecord { PartModule = "Задняя часть" });
@@ -27,14 +27,14 @@ namespace Automation.Model
 
         private void InitShelfRecords()
         {
-            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Перед (видимая)"} );
-            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Лево/право"} );
-            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Задняя часть"} );
+            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Перед (видимая)" });
+            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Лево/право" });
+            _shelf.Add(new ThicknessSpecificRecord { PartModule = "Задняя часть" });
         }
 
         private void InitFacadeRecords()
         {
-            _facade.Add(new ThicknessSpecificRecord {PartModule = "Периметр фасада"});
+            _facade.Add(new ThicknessSpecificRecord { PartModule = "Периметр фасада" });
         }
 
 

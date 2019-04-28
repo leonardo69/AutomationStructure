@@ -9,7 +9,7 @@ namespace Automation.Infrastructure
     {
 
         public string Name { get; set; }
-        public string Sсheme { get; set; }
+        public string Scheme { get; set; }
         
         protected string BackPanelAssembly { get; set;}
         public string Number { get; set; }
@@ -47,18 +47,18 @@ namespace Automation.Infrastructure
     [Serializable]
     public class Facade
     {
-        public List<FacadeRecord> _records;
+        public List<FacadeRecord> Records;
 
         public Facade()
         {
-           _records = new List<FacadeRecord>();
+           Records = new List<FacadeRecord>();
         }
 
         public void InitFacadeRecords(int numberRecords)
         {
             for (int i = 0; i < numberRecords; i++)
             {
-                _records.Add(new FacadeRecord { NumberOnScheme = i+1});
+                Records.Add(new FacadeRecord { NumberOnScheme = i+1});
             }
             
         }
@@ -74,7 +74,7 @@ namespace Automation.Infrastructure
 
         public double VerticalDimension { get; set; }
 
-        public double HorisontalDimension { get; set; }
+        public double HorizontalDimension { get; set; }
 
         public string Material { get; set; }
 

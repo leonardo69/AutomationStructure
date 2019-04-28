@@ -44,7 +44,7 @@ namespace Automation.Model
             module.Name = data.Name;
             module.Number = data.Number;
             module.SubScheme = data.SubScheme;
-            module.Sсheme =  data.Scheme;
+            module.Scheme =  data.Scheme;
             module.IconPath = data.SubSchemeIconPath;
             _modules.Add(module);
         }

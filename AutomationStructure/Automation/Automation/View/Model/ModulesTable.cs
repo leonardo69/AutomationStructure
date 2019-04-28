@@ -4,10 +4,10 @@ namespace Automation.View.Model
 {
    public static class ModulesTable
     {
-       public static void AddProductRowDgv(DataGridView datagrid, string moduleName)
+       public static void AddProductRowDgv(DataGridView dataGridView, string moduleName)
        {
-           string[] row = {moduleName, "0"};
-           datagrid.Rows.Add(row);
+           object[] row = {moduleName, "0"};
+           dataGridView.Rows.Add(row);
        }
 
     }

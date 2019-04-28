@@ -1,4 +1,4 @@
-﻿namespace Automation.Model
+﻿namespace Automation.Infrastructure
 {
     public static class ModuleThickness
     {

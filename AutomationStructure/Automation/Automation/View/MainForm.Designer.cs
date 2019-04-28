@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -119,7 +118,7 @@
             // 
             // turnBtn
             // 
-     //       this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
+            this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
             this.turnBtn.Location = new System.Drawing.Point(8, 3);
             this.turnBtn.Name = "turnBtn";
             this.turnBtn.Size = new System.Drawing.Size(30, 30);
@@ -297,7 +296,6 @@
             this.radMenu1.Name = "radMenu1";
             this.radMenu1.Size = new System.Drawing.Size(1077, 20);
             this.radMenu1.TabIndex = 3;
-            this.radMenu1.Text = "radMenu1";
             // 
             // radMenuItem1
             // 
@@ -423,7 +421,6 @@
             this.radStatusStrip1.Name = "radStatusStrip1";
             this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
-            this.radStatusStrip1.Text = "radStatusStrip1";
             // 
             // MainForm
             // 
@@ -433,7 +430,6 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radMenu1);
-//            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             // 
             // 

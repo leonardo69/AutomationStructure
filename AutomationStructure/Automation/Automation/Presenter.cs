@@ -13,8 +13,8 @@ namespace Automation
 {
    public class Presenter
     {
-        private BLService _blService;
-        private MainForm _view;
+        private readonly BLService _blService;
+        private readonly MainForm _view;
         public ModuleManager Manager { get; set; }
 
        
@@ -32,7 +32,7 @@ namespace Automation
 
         internal void OpenProject(string pathToFile)
         {
-            Order order = null;
+            Order order;
 
 
             BinaryFormatter formatter = new BinaryFormatter();
@@ -142,27 +142,13 @@ namespace Automation
 
         public void AddFacade(string numberModule, ProductType type)
         {
-            try
-            {
-                _blService.AddFacade(numberModule, type);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            _blService.AddFacade(numberModule, type);
             UpdateTotalModules(type);
         }
 
         public void DeleteFacade(string numberModule, ProductType type)
         {
-            try
-            {
-                _blService.DeleteFacade(numberModule, type);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            _blService.DeleteFacade(numberModule, type);
             UpdateTotalModules(type);
         }
 
