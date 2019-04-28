@@ -173,6 +173,42 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
+        private GridViewComboBoxColumn GetDishDrayer()
+        {
+            return new GridViewComboBoxColumn
+            {
+                Name = "ПОСУДОСУШИЛКА2",
+                HeaderText = "ПОСУДОСУШИЛКА",
+                FieldName = "ПОСУДОСУШИЛКА",
+                DataSource = new List<string>
+                {
+                    "-",
+                    "вместо полки",
+                    "на полку",
+                    "помощь"
+                }
+            };
+        }
+
+        private GridViewComboBoxColumn GetCanopies()
+        {
+            return new GridViewComboBoxColumn
+            {
+                Name = "Навесы на стену2",
+                HeaderText = "Навесы на стену",
+                FieldName = "Навесы на стену",
+                DataSource = new List<string>
+                {
+                    "-",
+                    "универс. (УХО)",
+                    "L-образный (ИКЕА)",
+                    "регулируемый",
+                    "планка ЛДСП // вставляем между боковыми панелями доску ЛДСП шириной 100 мм", 
+                    "помощь"
+                }
+            };
+        }
+
         public override void SetupView(RadGridView dgv, DataTable table)
         {
             dgv.Columns.Clear();
@@ -191,6 +227,8 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns["Материал фасада"].IsVisible = false;
             dgv.Columns["Режим расчёта"].IsVisible = false;
             dgv.Columns["Сборка модуля"].IsVisible = false;
+            dgv.Columns["ПОСУДОСУШИЛКА"].IsVisible = false;
+            dgv.Columns["Навесы на стену"].IsVisible = false;
 
             dgv.Columns.Insert(10, GetModuleAssembly());
             dgv.Columns.Insert(10, GetBackPanelAssemblyColumns());
@@ -200,7 +238,8 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns.Insert(11, GetShelfPO());
             dgv.Columns.Insert(12, GetShelfMinus2MM());
             dgv.Columns.Insert(3, GetIcon());
-
+            dgv.Columns.Insert(21, GetDishDrayer());
+            dgv.Columns.Insert(22, GetCanopies());
 
             foreach (var column in dgv.Columns)
             {
@@ -304,6 +343,15 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[7].Rows[0].ColumnNames.Add("Режим расчёта2");
             view.ColumnGroups[7].Rows[0].ColumnNames.Add("Материал фасада2");
 
+            view.ColumnGroups.Add(new GridViewColumnGroup("ПОСУДОСУШИЛКА"));
+            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[8].Rows[0].ColumnNames.Add("ПОСУДОСУШИЛКА2");
+            view.ColumnGroups[8].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("Навесы на стену"));
+            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[8].Rows[0].ColumnNames.Add("Навесы на стену2");
+            view.ColumnGroups[8].ShowHeader = false;
 
             return view;
         }

@@ -26,6 +26,8 @@ namespace Automation.Module.KitchenUp
         private string _shelfsCount;
         private string _calcMode;
         private string _moduleAssembly;
+        private string DishDrayer;
+        private string Canopies;
 
         public override void AddFacade()
         {
@@ -127,6 +129,8 @@ namespace Automation.Module.KitchenUp
                 }
             }
 
+            DishDrayer = row["ПОСУДОСУШИЛКА"].ToString();
+            Canopies = row["Навесы на стену"].ToString();
         }
 
         public override void GetInfoRows(DataTable table)
@@ -169,7 +173,8 @@ namespace Automation.Module.KitchenUp
                 table.Rows.Add(anotherRow);
             }
 
-
+            row["ПОСУДОСУШИЛКА"] = DishDrayer;
+            row["Навесы на стену"] = Canopies;
         }
 
         private int GetCountRows()
@@ -220,6 +225,8 @@ namespace Automation.Module.KitchenUp
             table.Columns.Add("Высота");
             table.Columns.Add("Ширина");
             table.Columns.Add("Материал фасада");
+            table.Columns.Add("ПОСУДОСУШИЛКА");
+            table.Columns.Add("Навесы на стену");
             return table;
         }
 
