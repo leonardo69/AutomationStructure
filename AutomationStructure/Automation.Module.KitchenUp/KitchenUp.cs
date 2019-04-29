@@ -15,6 +15,8 @@ namespace Automation.Module.KitchenUp
         private string _moduleAssembly;
         private string _shelfAssembly;
         private string _shelfsCount;
+        private string _dishDrayer;
+        private string _canopies;
 
         public KitchenUp()
         {
@@ -24,16 +26,6 @@ namespace Automation.Module.KitchenUp
             _dimensions = new Dimensions();
             _shelfsCount = "";
         }
-
-
-        private Dimensions _dimentions;
-        private Facade _facade;
-        private string _shelfAssembly;
-        private string _shelfsCount;
-        private string _calcMode;
-        private string _moduleAssembly;
-        private string DishDrayer;
-        private string Canopies;
 
         public override void AddFacade()
         {
@@ -136,8 +128,8 @@ namespace Automation.Module.KitchenUp
             }
 
 
-            DishDrayer = row["ПОСУДОСУШИЛКА"].ToString();
-            Canopies = row["Навесы на стену"].ToString(); 
+            _dishDrayer = row["ПОСУДОСУШИЛКА"].ToString();
+            _canopies = row["Навесы на стену"].ToString(); 
         }
 
         public override void GetInfoRows(DataTable table)
@@ -183,8 +175,8 @@ namespace Automation.Module.KitchenUp
                 table.Rows.Add(anotherRow);
             }
             
-            row["ПОСУДОСУШИЛКА"] = DishDrayer;
-            row["Навесы на стену"] = Canopies;
+            row["ПОСУДОСУШИЛКА"] = _dishDrayer;
+            row["Навесы на стену"] = _canopies;
 
         }
 
