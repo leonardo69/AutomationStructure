@@ -25,6 +25,16 @@ namespace Automation.Module.KitchenUp
             _shelfsCount = "";
         }
 
+
+        private Dimensions _dimentions;
+        private Facade _facade;
+        private string _shelfAssembly;
+        private string _shelfsCount;
+        private string _calcMode;
+        private string _moduleAssembly;
+        private string DishDrayer;
+        private string Canopies;
+
         public override void AddFacade()
         {
             if (_facade.Records.Count == 4)
@@ -124,6 +134,10 @@ namespace Automation.Module.KitchenUp
                     _facade.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
                 }
             }
+
+
+            DishDrayer = row["ПОСУДОСУШИЛКА"].ToString();
+            Canopies = row["Навесы на стену"].ToString(); 
         }
 
         public override void GetInfoRows(DataTable table)
@@ -168,6 +182,10 @@ namespace Automation.Module.KitchenUp
                 anotherRow["Ширина"] = _facade.Records[i].HorizontalDimension;
                 table.Rows.Add(anotherRow);
             }
+            
+            row["ПОСУДОСУШИЛКА"] = DishDrayer;
+            row["Навесы на стену"] = Canopies;
+
         }
 
         private int GetCountRows()
@@ -217,6 +235,8 @@ namespace Automation.Module.KitchenUp
             table.Columns.Add("Высота");
             table.Columns.Add("Ширина");
             table.Columns.Add("Материал фасада");
+            table.Columns.Add("ПОСУДОСУШИЛКА");
+            table.Columns.Add("Навесы на стену");
             return table;
         }
 
