@@ -1,7 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
 using Automation.Module.KitchenUp;
-using Automation.Infrastructure;
 
 namespace Automation.Modules.Tests
 {
@@ -31,6 +32,7 @@ namespace Automation.Modules.Tests
             input.Columns.Add("Ширина");
             input.Columns.Add("Материал фасада");
         }
+
         private void AddRow(DataTable input)
         {
             var row = input.NewRow();
@@ -56,15 +58,23 @@ namespace Automation.Modules.Tests
             row["Материал фасада"] = "нет";
             input.Rows.Add(row);
         }
+
         [TestMethod]
         public void TestCalculate()
         {
-            KitchenUp module = new KitchenUp();
-            DataTable input=new DataTable();
+            var module = new KitchenUp();
+            var input=new DataTable();
             AddColumns(input);
             AddRow(input);
             module.SetupModule(input);
-            Result result = module.Calculate();
+            var result = module.Calculate();
+           
+            PrintTable(result.MainInfo);
+            PrintTable(result.DetailsInfo);
+            PrintTable(result.ShelfInfo);
+            PrintTable(result.FurnitureInfo);
+            PrintTable(result.LoopsInfo);
+
             Assert.AreEqual(result.ModuleName, "1");
             Assert.AreEqual(result.ImagePath, "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_result.png");
             var mainInfo = result.MainInfo;
@@ -75,6 +85,7 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(mainInfo.Rows[0]["B"], "5");
             Assert.AreEqual(mainInfo.Rows[0]["C"], "6");
             Assert.AreEqual(mainInfo.Rows[0]["D"], "7");
+
             var detailsInfo = result.DetailsInfo;
             Assert.AreEqual(detailsInfo.Rows[0]["Наименование"], "бока");
             Assert.AreEqual(detailsInfo.Rows[0]["firstMM"], "96");
@@ -322,6 +333,27 @@ namespace Automation.Modules.Tests
             result = module.Calculate();
             furnitureInfo = result.FurnitureInfo;
             Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "0");
+        }
+
+        private static void PrintTable(DataTable table)
+        {
+            Console.WriteLine(table.TableName);
+            Console.WriteLine();
+            var titles = new List<string>();
+            foreach (DataColumn tableColumn in table.Columns)
+            {
+                titles.Add(tableColumn.ColumnName);
+            }
+
+            var tablePrinter = new TablePrinter(titles.ToArray());
+
+            foreach (DataRow tableRow in table.Rows)
+            {
+                tablePrinter.AddRow(tableRow.ItemArray);
+            }
+
+            tablePrinter.Print();
+
         }
     }
 }

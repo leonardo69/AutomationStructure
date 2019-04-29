@@ -7,8 +7,9 @@ namespace Automation.Module.KitchenUp
 {
     public class KitchenUpCalculator
     {
-        private string _moduleAssembly = "не разъёмная (конф.)";
+        private readonly string _moduleAssembly = "не разъёмная (конф.)";
         private int _moduleForm = 1;
+
         public Dimensions Dimensions;
         public Facade Facade;
         public string ShelfAssembly;
@@ -38,7 +39,7 @@ namespace Automation.Module.KitchenUp
 
         public DataTable GetMainInfo()
         {
-            var mainInfo = new DataTable();
+            var mainInfo = new DataTable {TableName = "Основная информация"};
             mainInfo.Columns.Add("Высота H");
             mainInfo.Columns.Add("Ширина W");
             mainInfo.Columns.Add("Глубина T");
@@ -67,7 +68,7 @@ namespace Automation.Module.KitchenUp
 
         public DataTable GetDetailsInfo()
         {
-            var detailsInfo = new DataTable();
+            var detailsInfo = new DataTable {TableName = "Детальная информация"};
             SetDetailsInfoColumns(detailsInfo);
 
             detailsInfo.Rows.Add("1", "бока", Fl1(), DF1() + "|" + DF2(), Fw1(), DF3() + "|" + DF4(), FN1(), Mf7());
@@ -134,7 +135,7 @@ namespace Automation.Module.KitchenUp
 
         public DataTable GetFurnitureInfo()
         {
-            var furnitureInfo = new DataTable();
+            var furnitureInfo = new DataTable {TableName = "Фурнитура"};
             furnitureInfo.Columns.Add("наименование");
             furnitureInfo.Columns.Add("петли " + Mat_txt_1_2());
             furnitureInfo.Columns.Add("модуль на " + Mat_txt_2_2());
@@ -304,7 +305,7 @@ namespace Automation.Module.KitchenUp
 
         public DataTable GetShelfInfo()
         {
-            var shelfInfo = new DataTable();
+            var shelfInfo = new DataTable {TableName = "Полки"};
             var shelfsCount = CalculateShelfsCount();
             shelfInfo.Columns.Add("наименование");
             for (var i = 1; i <= shelfsCount; i++) shelfInfo.Columns.Add("полка " + i);
@@ -325,7 +326,7 @@ namespace Automation.Module.KitchenUp
 
         public DataTable GetLoopsInfo()
         {
-            var loopsInfo = new DataTable();
+            var loopsInfo = new DataTable {TableName = "Петли"};
             loopsInfo.Columns.Add("Петли");
             loopsInfo.Columns.Add("1");
             loopsInfo.Columns.Add("2");

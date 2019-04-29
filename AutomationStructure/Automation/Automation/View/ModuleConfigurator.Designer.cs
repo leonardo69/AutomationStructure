@@ -87,7 +87,7 @@
             this.radListView1.TabIndex = 0;
             this.radListView1.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
             this.radListView1.ItemMouseClick += new Telerik.WinControls.UI.ListViewItemEventHandler(this.radListView1_ItemMouseClick);
-            this.radListView1.ItemMouseDoubleClick += new Telerik.WinControls.UI.ListViewItemEventHandler(this.radListView1_ItemMouseDoubleClick);
+            this.radListView1.ItemMouseDoubleClick += new Telerik.WinControls.UI.ListViewItemEventHandler(this.RadListView1_ItemMouseDoubleClick);
             // 
             // moduleNumberTxb
             // 
