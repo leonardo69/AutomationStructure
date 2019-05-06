@@ -31,6 +31,8 @@ namespace Automation.Modules.Tests
             input.Columns.Add("Высота");
             input.Columns.Add("Ширина");
             input.Columns.Add("Материал фасада");
+            input.Columns.Add("ПОСУДОСУШИЛКА");
+            input.Columns.Add("Навесы на стену");
         }
 
         private void AddRow(DataTable input)
@@ -56,6 +58,8 @@ namespace Automation.Modules.Tests
             row["Тип фасада"] = "нет";
             row["Режим расчёта"] = "авт. фас.";
             row["Материал фасада"] = "нет";
+            row["ПОСУДОСУШИЛКА"] = "";
+            row["Навесы на стену"] = "";
             input.Rows.Add(row);
         }
 
