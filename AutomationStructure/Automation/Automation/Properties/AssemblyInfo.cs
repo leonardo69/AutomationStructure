@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Automation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Система автоматизированного проектирования мебели")]
+[assembly: AssemblyDescription("Система автоматизированного проектирования мебели")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Automation")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
+[assembly: AssemblyCompany("Разработчики: Сергей Никоноров, Александр Бородулин, Александр Беляев")]
+//[assembly: AssemblyProduct("Automation.Model")]
+[assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

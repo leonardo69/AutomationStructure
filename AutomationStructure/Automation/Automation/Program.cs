@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 using Automation.Model;
 using Automation.View;
@@ -11,17 +12,18 @@ namespace Automation
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            BLService model = new BLService();
-            MainForm view = new MainForm();
-
-            Presenter presenter = new Presenter(model, view);
-            view._presenter = presenter;
+            // установка иконки по умолчанию
+            typeof(Form).GetField("defaultIcon", BindingFlags.NonPublic | BindingFlags.Static)?.SetValue(null, Properties.Resources.AppIcon);
+            
+            // Главная форма
+            var view = new MainForm();
+            view._presenter = new Presenter(new BLService(), view);
             Application.Run(view);
         }
     }
