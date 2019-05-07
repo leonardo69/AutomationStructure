@@ -225,5 +225,22 @@ namespace Automation.View
         {
             new Results(_presenter).Show();
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            PanelResize();
+        }
+
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            PanelResize();
+        }
+
+        private void PanelResize()
+        {
+            panel1.Width = flowLayoutPanel1.Width - 10;
+            panelCustomer.Width = panel1.Width;
+            modulesPanel.Width = panel1.Width;
+        }
     }
 }
