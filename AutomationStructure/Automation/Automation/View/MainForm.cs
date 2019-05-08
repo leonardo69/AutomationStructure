@@ -75,8 +75,17 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
-            _presenter.AddNewProduct("Кухня верхние модули");
+            try
+            {
+                _presenter.AddNewProduct("Кухня верхние модули");
+                ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
+               // ((RadMenuItem) sender).Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void kitchenDownModules_Click(object sender, EventArgs e)
@@ -241,6 +250,11 @@ namespace Automation.View
             panel1.Width = flowLayoutPanel1.Width - 10;
             panelCustomer.Width = panel1.Width;
             modulesPanel.Width = panel1.Width;
+        }
+
+        private void radMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

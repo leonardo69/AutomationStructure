@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,10 +37,17 @@
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.label2 = new System.Windows.Forms.Label();
             this.customerDGV = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.productsDgv = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
@@ -62,13 +69,6 @@
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -181,6 +181,42 @@
             this.customerDGV.TabIndex = 1;
             this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Материал";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Информация";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 500;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Толщина материала";
+            this.Column5.Items.AddRange(new object[] {
+            "10 мм",
+            "16 мм",
+            "18 мм",
+            "20 мм",
+            "22 мм"});
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 90;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column9.HeaderText = "Помощь";
+            this.Column9.Name = "Column9";
+            this.Column9.Text = "?";
+            this.Column9.ToolTipText = "?";
+            this.Column9.Width = 60;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -217,6 +253,7 @@
             // productsDgv
             // 
             this.productsDgv.AllowUserToAddRows = false;
+            this.productsDgv.AllowUserToDeleteRows = false;
             this.productsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -225,9 +262,33 @@
             this.productsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsDgv.Location = new System.Drawing.Point(3, 18);
             this.productsDgv.Name = "productsDgv";
+            this.productsDgv.ReadOnly = true;
             this.productsDgv.Size = new System.Drawing.Size(1064, 331);
             this.productsDgv.TabIndex = 2;
             this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Название";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 200;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Количество введёных модулей";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 200;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Text = "Подробнее";
+            this.Column8.ToolTipText = "Позволяет добавить новый модуль";
+            this.Column8.UseColumnTextForButtonValue = true;
             // 
             // label4
             // 
@@ -318,6 +379,7 @@
             this.radMenuItem2.Name = "radMenuItem2";
             this.radMenuItem2.Text = "Сервис";
             this.radMenuItem2.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
             // 
             // radMenuItem5
             // 
@@ -372,63 +434,6 @@
             this.radStatusStrip1.Name = "radStatusStrip1";
             this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Материал";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Информация";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 500;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Толщина материала";
-            this.Column5.Items.AddRange(new object[] {
-            "10 мм",
-            "16 мм",
-            "18 мм",
-            "20 мм",
-            "22 мм"});
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 90;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column9.HeaderText = "Помощь";
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "?";
-            this.Column9.ToolTipText = "?";
-            this.Column9.Width = 60;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Название";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 200;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Количество введёных модулей";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 200;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "";
-            this.Column8.Name = "Column8";
-            this.Column8.Text = "Подробнее";
-            this.Column8.ToolTipText = "Позволяет добавить новый модуль";
-            this.Column8.UseColumnTextForButtonValue = true;
             // 
             // MainForm
             // 
