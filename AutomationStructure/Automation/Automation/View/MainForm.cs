@@ -79,7 +79,7 @@ namespace Automation.View
             {
                 _presenter.AddNewProduct("Кухня верхние модули");
                 ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
-               // ((RadMenuItem) sender).Enabled = false;
+                ((RadMenuItem) sender).Enabled = false;
             }
             catch (Exception ex)
             {
@@ -250,11 +250,6 @@ namespace Automation.View
             panel1.Width = flowLayoutPanel1.Width - 10;
             panelCustomer.Width = panel1.Width;
             modulesPanel.Width = panel1.Width;
-        }
-
-        private void radMenuItem2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
