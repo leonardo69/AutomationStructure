@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,17 +37,10 @@
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.label2 = new System.Windows.Forms.Label();
             this.customerDGV = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.productsDgv = new System.Windows.Forms.DataGridView();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
@@ -69,6 +62,13 @@
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -92,14 +92,17 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1077, 679);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1077, 724);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Visible = false;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.turnBtn);
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -143,6 +146,7 @@
             // 
             // radButton1
             // 
+            this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton1.Location = new System.Drawing.Point(978, 223);
             this.radButton1.Name = "radButton1";
             this.radButton1.Size = new System.Drawing.Size(82, 29);
@@ -161,6 +165,8 @@
             // 
             this.customerDGV.AllowUserToAddRows = false;
             this.customerDGV.AllowUserToDeleteRows = false;
+            this.customerDGV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.customerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -174,41 +180,6 @@
             this.customerDGV.Size = new System.Drawing.Size(1054, 151);
             this.customerDGV.TabIndex = 1;
             this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Материал";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Информация";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 500;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Толщина материала";
-            this.Column5.Items.AddRange(new object[] {
-            "10 мм",
-            "16 мм",
-            "18 мм",
-            "20 мм",
-            "22 мм"});
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 90;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column9.HeaderText = "Помощь";
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "?";
-            this.Column9.ToolTipText = "?";
-            this.Column9.Width = 60;
             // 
             // label3
             // 
@@ -257,26 +228,6 @@
             this.productsDgv.Size = new System.Drawing.Size(1064, 331);
             this.productsDgv.TabIndex = 2;
             this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Название";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 200;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Количество введёных модулей";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 200;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "";
-            this.Column8.Name = "Column8";
-            this.Column8.Text = "Подробнее";
-            this.Column8.ToolTipText = "Позволяет добавить новый модуль";
-            this.Column8.UseColumnTextForButtonValue = true;
             // 
             // label4
             // 
@@ -417,19 +368,77 @@
             // 
             // radStatusStrip1
             // 
-            this.radStatusStrip1.Location = new System.Drawing.Point(0, 699);
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 744);
             this.radStatusStrip1.Name = "radStatusStrip1";
             this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Материал";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Информация";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 500;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Толщина материала";
+            this.Column5.Items.AddRange(new object[] {
+            "10 мм",
+            "16 мм",
+            "18 мм",
+            "20 мм",
+            "22 мм"});
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 90;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column9.HeaderText = "Помощь";
+            this.Column9.Name = "Column9";
+            this.Column9.Text = "?";
+            this.Column9.ToolTipText = "?";
+            this.Column9.Width = 60;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Название";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 200;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Количество введёных модулей";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 200;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "";
+            this.Column8.Name = "Column8";
+            this.Column8.Text = "Подробнее";
+            this.Column8.ToolTipText = "Позволяет добавить новый модуль";
+            this.Column8.UseColumnTextForButtonValue = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 725);
+            this.ClientSize = new System.Drawing.Size(1077, 770);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radMenu1);
+            this.MinimumSize = new System.Drawing.Size(1085, 800);
             this.Name = "MainForm";
             // 
             // 
@@ -470,13 +479,6 @@
         private System.Windows.Forms.DataGridView productsDgv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewButtonColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
         private Telerik.WinControls.UI.RadMenu radMenu1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
@@ -498,6 +500,13 @@
         private Telerik.WinControls.Themes.Office2010SilverTheme office2010SilverTheme1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
         private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewButtonColumn Column8;
     }
 }
 
