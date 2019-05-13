@@ -91,7 +91,7 @@ namespace Automation
 
         internal void AddNewProduct(string nameProduct)
          {
-             _blService.AddNewProduct( nameProduct);
+             _blService.AddNewProduct(nameProduct);
          }
 
         public void UpdateModulesCount(ProductType type)

@@ -26,7 +26,9 @@ namespace Automation.Model
 
         public void AddProduct(string nameProduct)
         {
-            Product product = new Product(nameProduct);
+            var product = new Product(nameProduct);
+            if(_products.Any(x=>x.Type==product.Type))
+                throw new Exception($"Данный тип изделия \"{nameProduct}\" уже добавлен");
             _products.Add(product);
         }
 
