@@ -44,14 +44,7 @@ namespace Automation.Model
 
         public void AddNewProduct(string nameProduct)
         {
-            try
-            {
-                _order.Products.AddProduct(nameProduct);
-            }
-            catch
-            {
-                throw;
-            }
+            _order.Products.AddProduct(nameProduct);
         }
 
         #endregion
