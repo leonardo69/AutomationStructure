@@ -94,7 +94,7 @@
             this.lblProductName.RootElement.MaxSize = new System.Drawing.Size(0, 17);
             this.lblProductName.Size = new System.Drawing.Size(405, 17);
             this.lblProductName.TabIndex = 19;
-            this.lblProductName.Text = "Product Name";
+            this.lblProductName.Text = "Category Name";
             this.lblProductName.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblCopyright

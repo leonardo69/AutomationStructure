@@ -207,7 +207,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.489451F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.51055F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel2.Controls.Add(this.radLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.moduleNameLbl, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.radButton1, 2, 0);
@@ -239,14 +239,14 @@
             // 
             // radButton1
             // 
-            this.radButton1.Location = new System.Drawing.Point(845, 10);
+            this.radButton1.Location = new System.Drawing.Point(844, 10);
             this.radButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.radButton1.Name = "radButton1";
             this.radButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.radButton1.Size = new System.Drawing.Size(87, 29);
             this.radButton1.TabIndex = 2;
             this.radButton1.Text = "Печать";
-            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
+            this.radButton1.Click += new System.EventHandler(this.moduleReportBtn_Click);
             // 
             // tableLayoutPanel1
             // 

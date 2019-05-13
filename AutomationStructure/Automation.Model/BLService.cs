@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using Automation.Infrastructure;
 using Automation.Model.MainModels;
@@ -7,7 +6,7 @@ using Automation.Model.MainModels;
 
 namespace Automation.Model
 {
-    public  class BLService
+    public  class BlService
     {
 
         private Order _order;
@@ -27,7 +26,7 @@ namespace Automation.Model
 
         public string GetTotalCustomerRecord()
         {
-            return _order.Customer.GetTotalCustomerRecord();
+            return _order.Customer.GetTotalCustomerInfoRecord();
         }
 
 
@@ -40,11 +39,11 @@ namespace Automation.Model
 
         #endregion
         
-        #region Product Methods
+        #region Category Methods
 
         public void AddNewProduct(string nameProduct)
         {
-            _order.Products.AddProduct(nameProduct);
+            _order.Products.AddCategory(nameProduct);
         }
 
         #endregion
@@ -128,27 +127,13 @@ namespace Automation.Model
         public void AddFacade(string numberModule, ProductType type)
         {
             var product = _order.Products.GetProduct(type);
-            try
-            {
-                product.AddFacade(numberModule);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            product.AddFacade(numberModule);
         }
 
         public void DeleteFacade(string numberModule, ProductType type)
         {
             var product = _order.Products.GetProduct(type);
-            try
-            {
-                product.DeleteFacade(numberModule);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            product.DeleteFacade(numberModule);
         }
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)

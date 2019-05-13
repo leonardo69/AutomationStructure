@@ -3,7 +3,7 @@ using System;
 namespace Automation.Model
 {
     [Serializable]
-    public class CustomerRecord
+    public class CustomerInfoRecord
     {
  
         public string Material { get; set; }
@@ -14,7 +14,6 @@ namespace Automation.Model
 
         public ThicknessSpecificData GetSpecificData()
         {
-           
             return null;
         }
 

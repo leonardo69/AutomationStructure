@@ -13,13 +13,13 @@ namespace Automation
 {
    public class Presenter
     {
-        private readonly BLService _blService;
+        private readonly BlService _blService;
         private readonly MainForm _view;
         public ModuleManager Manager { get; set; }
 
        
 
-        public Presenter(BLService model, MainForm view)
+        public Presenter(BlService model, MainForm view)
         {
             _blService = model;
             _view = view;
@@ -163,12 +163,12 @@ namespace Automation
             return _blService.IsModuleExist(number, getTypeProduct);
         }
 
-        public List<Product> GetAllProducts()
+        public List<Category> GetAllProducts()
         {
-           return _blService.GetCurrentOrder().Products.GetAllProducts();
+           return _blService.GetCurrentOrder().Products.GetAllCategories();
         }
 
-        public Product GetProductByName(string productName)
+        public Category GetProductByName(string productName)
         {
            return _blService.GetCurrentOrder().Products.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
         }

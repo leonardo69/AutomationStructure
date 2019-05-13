@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Automation.Infrastructure;
-using Automation.ModuleFactory;
 
-
-
-namespace Automation.Model
+namespace Automation.Model.MainModels
 {
     [Serializable]
-    public class Product
+    public class Category
     {
         public ProductType Type { get; set; }
         
@@ -27,7 +19,7 @@ namespace Automation.Model
         }
 
 
-        public Product(string nameProduct)
+        public Category(string nameProduct)
         {
             _modules = new List<BaseModule>();
             Type = GetType(nameProduct);
@@ -51,7 +43,7 @@ namespace Automation.Model
 
         private BaseModule GetModuleByType()
         {
-            BaseModule module = Automation.ModuleFactory.ModuleFactory.GetModule(Type);
+            var module = ModuleFactory.ModuleFactory.GetModule(Type);
             return module;
         }
         
@@ -66,27 +58,13 @@ namespace Automation.Model
         public void AddFacade(string moduleNumber)
         {
             var module = _modules.First(x => x.Number == moduleNumber);
-            try
-            {
-                module.AddFacade();
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            module.AddFacade();
         }
 
         public void DeleteFacade(string moduleNumber)
         {
             var module = _modules.First(x => x.Number == moduleNumber);
-            try
-            {
-                module.DeleteFacade();
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            module.DeleteFacade();
         }
 
         public void UpdateModule(DataTable data, string moduleNumber)
@@ -99,7 +77,7 @@ namespace Automation.Model
         
         public ProductType GetType(string nameProduct)
         {
-            ProductType type=ProductType.KitchenUp;
+            var type=ProductType.KitchenUp;
             
             switch (nameProduct)
             {
@@ -124,8 +102,6 @@ namespace Automation.Model
                 }
             }
             return emptyTable;
-
-
         }
 
         public DataTable GetModuleDetailInfoByNumber(string moduleNumber)
@@ -161,7 +137,6 @@ namespace Automation.Model
         public List<BaseModule> GetAllModules()
         {
             return _modules;
-          
         }
     }
 }

@@ -45,12 +45,12 @@
   <ItemGroup>
     <Compile Include="BLService.cs" />
     <Compile Include="MainModels\CustomersInfoCollection.cs" />
-    <Compile Include="CustomerRecord.cs" />
+    <Compile Include="CustomerInfoRecord.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="NewModuleData.cs" />
     <Compile Include="MainModels\Order.cs" />
-    <Compile Include="MainModels\Product.cs" />
-    <Compile Include="MainModels\ProductsInfoCollection.cs" />
+    <Compile Include="MainModels\Category.cs" />
+    <Compile Include="MainModels\CategoriesCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ThicknessSpecificData.cs" />

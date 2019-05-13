@@ -23,7 +23,7 @@ namespace Automation
             
             // Главная форма
             var view = new MainForm();
-            view._presenter = new Presenter(new BLService(), view);
+            view._presenter = new Presenter(new BlService(), view);
             Application.Run(view);
         }
     }
