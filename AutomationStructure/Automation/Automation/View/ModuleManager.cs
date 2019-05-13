@@ -56,21 +56,21 @@ namespace Automation.View
             Presenter.UpdateTotalModules(GetProductType());
         }
 
-        private ProductType GetProductType()
+        private CategoryType GetProductType()
         {
-            ProductType productType=ProductType.KitchenUp;
+            CategoryType categoryType=CategoryType.KitchenUp;
 
             switch (_productName)
             {
                 case "Кухня верхние модули":
-                    productType = ProductType.KitchenUp;
+                    categoryType = CategoryType.KitchenUp;
                     break;
                 case "Кухня нижние модули":
-                    productType = ProductType.KitchenDown;
+                    categoryType = CategoryType.KitchenDown;
                     break;
             }
 
-            return productType;
+            return categoryType;
 
         }
 

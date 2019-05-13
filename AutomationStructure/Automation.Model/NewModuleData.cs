@@ -11,6 +11,6 @@ namespace Automation.Model
         public string Scheme { get; set; }
         public string SubScheme { get; set; }
         public string SubSchemeIconPath { get; set; }
-        public ProductType Type { get; set; }
+        public CategoryType Type { get; set; }
     }
 }

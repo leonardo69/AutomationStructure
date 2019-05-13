@@ -274,5 +274,10 @@ namespace Automation.Module.KitchenUp
 
             return result;
         }
+
+        public override void CreateReport(string pathToSave)
+        {
+            
+        }
     }
 }
