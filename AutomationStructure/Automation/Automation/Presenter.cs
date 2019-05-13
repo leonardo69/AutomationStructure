@@ -32,23 +32,23 @@ namespace Automation
 
         internal void OpenProject(string pathToFile)
         {
-            Order order;
+            Project project;
 
 
             BinaryFormatter formatter = new BinaryFormatter();
 
             using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
             {
-                order = (Order)formatter.Deserialize(fs);
+                project = (Project)formatter.Deserialize(fs);
             }
 
-            _blService.SetCurrentOrder(order);
+            _blService.SetCurrentProject(project);
 
         }
 
         internal void SaveProject(string pathToFile)
         {
-            var order = _blService.GetCurrentOrder();
+            var order = _blService.GetCurrentProject();
             BinaryFormatter formatter = new BinaryFormatter();
 
             using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
@@ -74,7 +74,7 @@ namespace Automation
         #region For Update View
 
         
-        public void UpdateModuleList(ProductType type)
+        public void UpdateModuleList(CategoryType type)
         {
             List<string> modulesNumbers = _blService.GetModulesNumbersByType(type);
             Manager.UpdateModuleList(modulesNumbers);
@@ -94,22 +94,22 @@ namespace Automation
              _blService.AddNewProduct(nameProduct);
          }
 
-        public void UpdateModulesCount(ProductType type)
+        public void UpdateModulesCount(CategoryType type)
         {
-            var nameProduct = _blService.GetProductNameByType(type);
+            var nameProduct = _blService.GetCategoryNameByType(type);
             var countModules = _blService.GetCountModules(type);
             _view.UpdateProductCount(countModules,nameProduct);
         }
 
  
 
-        public void ShowModuleInformation(string moduleName, ProductType type)
+        public void ShowModuleInformation(string moduleName, CategoryType type)
         {
             DataTable table = _blService.GetDetailDataForModule(moduleName, type);
             Manager.UpdateDetailDataDataGrid(table);
         }
 
-        public void UpdateTotalModules(ProductType type)
+        public void UpdateTotalModules(CategoryType type)
         {
             DataTable table = _blService.GetTotalModulesInfo(type);
             
@@ -117,7 +117,7 @@ namespace Automation
             
         }
 
-        public void DeleteModule(string nameModule, ProductType type)
+        public void DeleteModule(string nameModule, CategoryType type)
         {
             if (_blService.GetCountModules(type)>0)
             {
@@ -132,7 +132,7 @@ namespace Automation
             
         }
 
-        public void AddSimilarModule(string similarName, ProductType type)
+        public void AddSimilarModule(string similarName, CategoryType type)
         {
             _blService.AddSimilarModule(similarName, type);
              UpdateModuleList(type);
@@ -140,37 +140,37 @@ namespace Automation
             
         }
 
-        public void AddFacade(string numberModule, ProductType type)
+        public void AddFacade(string numberModule, CategoryType type)
         {
             _blService.AddFacade(numberModule, type);
             UpdateTotalModules(type);
         }
 
-        public void DeleteFacade(string numberModule, ProductType type)
+        public void DeleteFacade(string numberModule, CategoryType type)
         {
             _blService.DeleteFacade(numberModule, type);
             UpdateTotalModules(type);
         }
 
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, CategoryType type)
         {
             _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
             UpdateTotalModules(type);
         }
 
-        public bool IsModuleExist(string number, ProductType getTypeProduct)
+        public bool IsModuleExist(string number, CategoryType getTypeCategory)
         {
-            return _blService.IsModuleExist(number, getTypeProduct);
+            return _blService.IsModuleExist(number, getTypeCategory);
         }
 
         public List<Category> GetAllProducts()
         {
-           return _blService.GetCurrentOrder().Products.GetAllCategories();
+           return _blService.GetCurrentProject().Categories.GetAllCategories();
         }
 
         public Category GetProductByName(string productName)
         {
-           return _blService.GetCurrentOrder().Products.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
+           return _blService.GetCurrentProject().Categories.GetCategory((CategoryType)Enum.Parse(typeof(CategoryType),productName));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Automation.Model.MainModels
     [Serializable]
     public class Category
     {
-        public ProductType Type { get; set; }
+        public CategoryType Type { get; set; }
         
         private List<BaseModule> _modules;
 
@@ -75,16 +75,16 @@ namespace Automation.Model.MainModels
             module.SetupModule(data);
         }
         
-        public ProductType GetType(string nameProduct)
+        public CategoryType GetType(string nameProduct)
         {
-            var type=ProductType.KitchenUp;
+            var type=CategoryType.KitchenUp;
             
             switch (nameProduct)
             {
-                case "Кухня верхние модули": type=ProductType.KitchenUp;
+                case "Кухня верхние модули": type=CategoryType.KitchenUp;
                     break;
                 case "Кухня нижние модули":
-                    type = ProductType.KitchenDown;
+                    type = CategoryType.KitchenDown;
                     break;
             }
             return type;

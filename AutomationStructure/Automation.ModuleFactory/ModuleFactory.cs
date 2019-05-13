@@ -6,15 +6,15 @@ namespace Automation.ModuleFactory
 {
     public static class ModuleFactory
     {
-        public static BaseModule GetModule(ProductType type)
+        public static BaseModule GetModule(CategoryType type)
         {
             BaseModule module = null;
             switch (type)
             {
-                case ProductType.KitchenUp:
+                case CategoryType.KitchenUp:
                     module = new KitchenUp();
                     break;
-                case ProductType.KitchenDown:
+                case CategoryType.KitchenDown:
                     module = new KitchenDown();
                     break;
             }

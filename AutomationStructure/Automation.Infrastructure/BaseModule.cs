@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.CompilerServices;
 
 namespace Automation.Infrastructure
 {
@@ -28,6 +27,8 @@ namespace Automation.Infrastructure
         public abstract object Clone();
 
         public abstract Result Calculate();
+
+        public abstract void CreateReport(string pathToSave);
     }
 
     [Serializable]

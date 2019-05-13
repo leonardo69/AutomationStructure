@@ -48,7 +48,7 @@
     <Compile Include="CustomerInfoRecord.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="NewModuleData.cs" />
-    <Compile Include="MainModels\Order.cs" />
+    <Compile Include="MainModels\Project.cs" />
     <Compile Include="MainModels\Category.cs" />
     <Compile Include="MainModels\CategoriesCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

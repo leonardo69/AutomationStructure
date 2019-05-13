@@ -1,164 +1,165 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Automation.Infrastructure;
 using Automation.Model.MainModels;
 
-
 namespace Automation.Model
 {
-    public  class BlService
+    public class BlService
     {
-
-        private Order _order;
+        private Project _project;
 
         #region Project Methods
 
-
         public void MakeNewProject()
         {
-            _order = new Order();
+            _project = new Project();
         }
 
+        public Project GetCurrentProject()
+        {
+            return _project;
+        }
+
+        public void SetCurrentProject(Project project)
+        {
+            _project = project;
+        }
 
         #endregion
+
+        #region Category Methods
+
+        public void AddNewProduct(string nameProduct)
+        {
+            _project.Categories.AddCategory(nameProduct);
+        }
+
+        #endregion
+        
 
         #region Customer Methods
 
         public string GetTotalCustomerRecord()
         {
-            return _order.Customer.GetTotalCustomerInfoRecord();
+            return _project.Customer.GetTotalCustomerInfoRecord();
         }
 
 
         public void SetCustomer(List<string[]> customerRecord)
         {
-
-            _order.Customer.SetInputData(customerRecord);
-        }
-
-
-        #endregion
-        
-        #region Category Methods
-
-        public void AddNewProduct(string nameProduct)
-        {
-            _order.Products.AddCategory(nameProduct);
+            _project.Customer.SetInputData(customerRecord);
         }
 
         #endregion
-        
+
         #region Modules Methods
+
+
+        public void ReportModule(string moduleName, CategoryType categoryType, string pathToSave)
+        {
+            var category = _project.Categories.GetCategory(categoryType);
+            var module = category.GetAllModules().FirstOrDefault(x => x.Number == moduleName);
+            module?.CreateReport(pathToSave);
+        }
+
+        public bool IsModuleExist(string number, CategoryType type)
+        {
+            var category = _project.Categories.GetCategory(type);
+            return category.IsModuleExist(number);
+        }
 
 
         public void AddNewModule(NewModuleData data)
         {
-            var product = _order.Products.GetProduct(data);
-            product.AddNewModule(data);
+            var category = _project.Categories.GetCategory(data);
+            category.AddNewModule(data);
         }
 
 
-        public List<string> GetModulesNamesByType(ProductType type)
+        public List<string> GetModulesNamesByType(CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             return product.GetNamesModules();
         }
 
-        public List<string> GetModulesNumbersByType(ProductType type)
+        public List<string> GetModulesNumbersByType(CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             return product.GetNumbersModules();
-        } 
+        }
 
 
-        public string GetProductNameByType(ProductType type)
+        public string GetCategoryNameByType(CategoryType type)
         {
-            string result = string.Empty;
+            var result = string.Empty;
             switch (type)
             {
-                case ProductType.KitchenUp:
+                case CategoryType.KitchenUp:
                     result = "Кухня верхние модули";
                     break;
-                case ProductType.KitchenDown:
+                case CategoryType.KitchenDown:
                     result = "Кухня нижние модули";
                     break;
             }
+
             return result;
         }
 
 
-
-        public int GetCountModules(ProductType type)
+        public int GetCountModules(CategoryType type)
         {
-            var count = _order.Products.GetCountModules(GetProductNameByType(type));
+            var count = _project.Categories.GetCountModules(GetCategoryNameByType(type));
             return count;
         }
 
-        public DataTable GetDetailDataForModule(string moduleName, ProductType type)
+        public DataTable GetDetailDataForModule(string moduleName, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
-            DataTable moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
+            var product = _project.Categories.GetCategory(type);
+            var moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
             return moduleInfo;
         }
 
-        public DataTable GetTotalModulesInfo(ProductType type)
+        public DataTable GetTotalModulesInfo(CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
-            DataTable table = product.GetTotalDetailInfo();
+            var product = _project.Categories.GetCategory(type);
+            var table = product.GetTotalDetailInfo();
             return table;
         }
 
-        public void DeleteModule(string nameModule, ProductType type)
+        public void DeleteModule(string nameModule, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             product.DeleteModule(nameModule);
-
         }
 
-        public void AddSimilarModule(string similarName, ProductType type)
+        public void AddSimilarModule(string similarName, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             var module = product.GetCloneLastModule();
             module.Number = similarName;
             product.AddSimilarModule(module);
-
         }
 
-        public void AddFacade(string numberModule, ProductType type)
+        public void AddFacade(string numberModule, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             product.AddFacade(numberModule);
         }
 
-        public void DeleteFacade(string numberModule, ProductType type)
+        public void DeleteFacade(string numberModule, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             product.DeleteFacade(numberModule);
         }
 
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, CategoryType type)
         {
-            var product = _order.Products.GetProduct(type);
+            var product = _project.Categories.GetCategory(type);
             product.UpdateModule(moduleInfoTable, numberModule);
         }
 
         #endregion
-
-        public Order GetCurrentOrder()
-        {
-            return _order;
-        }
-
-        public void SetCurrentOrder(Order order)
-        {
-            _order = order;
-        }
-
-        public bool IsModuleExist(string number, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            return product.IsModuleExist(number);
-
-        }
     }
 }

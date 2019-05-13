@@ -63,6 +63,11 @@ namespace Automation.Module.KitchenDown
             return null;
         }
 
+        public override void CreateReport(string pathToSave)
+        {
+            throw new NotImplementedException();
+        }
+
         //TODO:Мб принимать строки?
         public void SetupData(params string[] parameters )
         {

@@ -3,7 +3,7 @@
 namespace Automation.Infrastructure
 {
     [Serializable]
-    public enum ProductType
+    public enum CategoryType
     {
         KitchenUp,
         KitchenDown
