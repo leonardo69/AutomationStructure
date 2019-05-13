@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Automation.Infrastructure;
 using Automation.Properties;
@@ -13,7 +14,7 @@ namespace Automation.View
     {
         public Presenter _presenter;
 
-        private string hideThicknessExt;
+        private string _hideThicknessExt;
 
         public MainForm()
         {
@@ -34,7 +35,7 @@ namespace Automation.View
 
         public void UpdateThicknessColumn(string thicknessExt)
         {
-            hideThicknessExt = thicknessExt;
+            _hideThicknessExt = thicknessExt;
             label2.Text = @"Подробная запись кромки: " + thicknessExt.Substring(0, 30) + " ...";
         }
 
@@ -63,7 +64,7 @@ namespace Automation.View
             var pathToFile = Dialogs.GetSaveProjectPath();
             if (pathToFile.Length == 0) return;
             _presenter.SaveProject(pathToFile);
-            MessageBox.Show("Проект сохранён.");
+            MessageBox.Show(@"Проект сохранён.", @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -83,9 +84,8 @@ namespace Automation.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
 
         private void kitchenDownModules_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace Automation.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var customerRecord = CustomerTable.GetData(customerDGV, hideThicknessExt);
+            var customerRecord = CustomerTable.GetData(customerDGV, _hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
             SetMoluleThickness();
         }
@@ -134,17 +134,15 @@ namespace Automation.View
 
         private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (customerDGV.CurrentCell.ColumnIndex == 2 && e.Control is ComboBox)
-            {
-                var comboBox = e.Control as ComboBox;
-                comboBox.SelectedIndexChanged += LastColumnComboSelectionChanged;
-            }
+            if (customerDGV.CurrentCell.ColumnIndex != 2 || !(e.Control is ComboBox)) return;
+            var comboBox = (ComboBox) e.Control;
+            comboBox.SelectedIndexChanged += LastColumnComboSelectionChanged;
         }
 
         private void LastColumnComboSelectionChanged(object sender, EventArgs e)
         {
-            var sendingCB = sender as DataGridViewComboBoxEditingControl;
-            var extendOption = sendingCB.EditingControlFormattedValue.ToString();
+            if (!(sender is DataGridViewComboBoxEditingControl sendingCb)) return;
+            var extendOption = sendingCb.EditingControlFormattedValue.ToString();
             if (extendOption == "опционально") ShowThicknessForm();
         }
 
@@ -166,23 +164,22 @@ namespace Automation.View
         {
             var senderGrid = (DataGridView) sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-                switch (e.RowIndex)
-                {
-                    case 0:
-                        ShowCustomerHelpForm("ЛДСП ПОМОЩЬ", "Ldsp.png", "Ldsp_help.rtf");
-                        break;
-                    case 1:
-                        ShowCustomerHelpForm("ДВП ПОМОЩЬ", "Dvp.png", "Ldsp_help.rtf");
-                        break;
-                    case 2:
-                        ShowCustomerHelpForm("КРОМКА ПОМОЩЬ", "Kromka.png", "Kromka_help.rtf");
-                        break;
-                    case 3:
-                        ShowCustomerHelpForm("ФАСАД ПОМОЩЬ", "Fasad.png", "Fasad_help.rtf");
-                        break;
-                }
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0) return;
+            switch (e.RowIndex)
+            {
+                case 0:
+                    ShowCustomerHelpForm("ЛДСП ПОМОЩЬ", "Ldsp.png", "Ldsp_help.rtf");
+                    break;
+                case 1:
+                    ShowCustomerHelpForm("ДВП ПОМОЩЬ", "Dvp.png", "Ldsp_help.rtf");
+                    break;
+                case 2:
+                    ShowCustomerHelpForm("КРОМКА ПОМОЩЬ", "Kromka.png", "Kromka_help.rtf");
+                    break;
+                case 3:
+                    ShowCustomerHelpForm("ФАСАД ПОМОЩЬ", "Fasad.png", "Fasad_help.rtf");
+                    break;
+            }
         }
 
         private void ShowCustomerHelpForm(string title, string imageName, string textName)
@@ -203,12 +200,9 @@ namespace Automation.View
         {
             var senderGrid = (DataGridView) sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-            {
-                var productName = senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-                new ModuleManager(_presenter, productName).Show();
-            }
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0) return;
+            var productName = senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            new ModuleManager(_presenter, productName).Show();
         }
 
         public void UpdateProductCount(int count, string nameProduct)
@@ -218,20 +212,14 @@ namespace Automation.View
                     productsDgv.Rows[i].Cells[1].Value = count;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void radMenuItem5_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-        }
-
         private void radMenuItem13_Click(object sender, EventArgs e)
         {
+            var allProducts = _presenter.GetAllProducts();
+            if (allProducts.Count == 0 || allProducts.Any(x => x.GetCountModules() == 0) )
+            {
+                MessageBox.Show(@"Сначала добавьте категорию модулей", @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             new Results(_presenter).Show();
         }
 
