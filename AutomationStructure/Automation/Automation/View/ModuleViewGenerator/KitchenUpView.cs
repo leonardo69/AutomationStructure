@@ -284,74 +284,49 @@ namespace Automation.View.ModuleViewGenerator
             }
         }
 
+        private GridViewColumnGroup ColumnGroupsAdd(string columnGroupText, IEnumerable<string> columnNames, bool showHeader = false)
+        {
+            var gridViewColumnGroupRow = new GridViewColumnGroupRow();
+            foreach (var columnName in columnNames)
+                gridViewColumnGroupRow.ColumnNames.Add(columnName);
+
+            var gridViewColumnGroup = new GridViewColumnGroup(columnGroupText) {ShowHeader = showHeader};
+            gridViewColumnGroup.Rows.Add(gridViewColumnGroupRow);
+
+            return gridViewColumnGroup;
+        }
+
         private ColumnGroupsViewDefinition SetColumnGroupsView()
         {
             var view = new ColumnGroupsViewDefinition();
 
-            view.ColumnGroups.Add(new GridViewColumnGroup("Num"));
-            view.ColumnGroups[0].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[0].Rows[0].ColumnNames.Add("Номер модуля");
-            view.ColumnGroups[0].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("F"));
-            view.ColumnGroups[1].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[1].Rows[0].ColumnNames.Add("Форма модуля");
-            view.ColumnGroups[1].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("I"));
-            view.ColumnGroups[2].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[2].Rows[0].ColumnNames.Add("Icon");
-            view.ColumnGroups[2].ShowHeader = false;
-
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("Размеры"));
-            view.ColumnGroups[3].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Высота модуля (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Ширина модуля (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Глубина модуля (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("A размер (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("B размер (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("C размер (мм)");
-            view.ColumnGroups[3].Rows[0].ColumnNames.Add("D размер (мм)");
-
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("zertg"));
-            view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[4].Rows[0].ColumnNames.Add("Сборка модуля2");
-            view.ColumnGroups[4].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("z"));
-            view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[4].Rows[0].ColumnNames.Add("Задняя стенка2");
-            view.ColumnGroups[4].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("ppse"));
-            view.ColumnGroups[5].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[5].Rows[0].ColumnNames.Add("Крепление полки");
-            view.ColumnGroups[5].ShowHeader = false;
-
-            view.ColumnGroups[6].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[6].Rows[0].ColumnNames.Add("Кол-во полок");
-            view.ColumnGroups[6].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("Фасад"));
-            view.ColumnGroups[7].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("№ схемы фасада");
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Высота");
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Ширина");
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Тип фасада2");
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Режим расчёта2");
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Материал фасада2");
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("ПОСУДОСУШИЛКА"));
-            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[8].Rows[0].ColumnNames.Add("ПОСУДОСУШИЛКА2");
-            view.ColumnGroups[8].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("Навесы на стену"));
-            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[8].Rows[0].ColumnNames.Add("Навесы на стену2");
-            view.ColumnGroups[8].ShowHeader = false;
+            view.ColumnGroups.Add(ColumnGroupsAdd("Num", new[]{ "Номер модуля"}));
+            view.ColumnGroups.Add(ColumnGroupsAdd("I", new[] { "Icon" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Размеры", new[]
+            {
+                "Высота модуля (мм)",
+                "Ширина модуля (мм)",
+                "Глубина модуля (мм)",
+                "A размер (мм)",
+                "B размер (мм)",
+                "C размер (мм)",
+                "D размер (мм)"
+            }, true));
+            view.ColumnGroups.Add(ColumnGroupsAdd("zertg", new[] { "Сборка модуля2" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("z", new[] { "Задняя стенка2" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("ppse", new[] { "Крепление полки", "Кол-во полок" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Фасад", new[]
+            {
+                "№ схемы фасада",
+                "Высота",
+                "Ширина",
+                "Тип фасада2",
+                "Режим расчёта2",
+                "Материал фасада2"
+            }, true));
+            view.ColumnGroups.Add(ColumnGroupsAdd("ПОСУДОСУШИЛКА", new[] { "ПОСУДОСУШИЛКА2" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Навесы на стену", new[] { "Навесы на стену2" }));
+            
 
             return view;
         }
