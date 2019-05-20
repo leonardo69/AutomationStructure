@@ -28,6 +28,8 @@ namespace Automation.Module.KitchenUp
             _facade.InitFacadeRecords(countRows);
             _dimensions = new Dimensions();
             _shelfsCount = "";
+            _dishDrayer = "-";
+            _canopies = "универс. (УХО)";
         }
 
         public override void AddFacade()
