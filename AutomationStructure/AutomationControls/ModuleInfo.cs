@@ -12,8 +12,12 @@ namespace Automation.Controls
             InitializeComponent();
         }
 
+        public EventHandler OnModuleExport;
+        public string ModuleName { get; set;}
+
         public void BindData(string moduleName, string imagePath, DataTable dimensionsInfo, DataTable detailsInfo, DataTable shelfInfo, DataTable furnitureInfo, DataTable loopsInfo)
         {
+            ModuleName = moduleName;
             moduleNameLbl.Text = moduleName;
             modulePbx.Load(imagePath);
             mainInfoDgv.DataSource = dimensionsInfo;
@@ -32,7 +36,7 @@ namespace Automation.Controls
 
         private void moduleReportBtn_Click(object sender, EventArgs e)
         {
-
+            OnModuleExport?.Invoke(this, e);
         }
     }
 }

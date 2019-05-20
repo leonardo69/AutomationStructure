@@ -18,6 +18,8 @@ namespace Automation.Module.KitchenUp
         private string _dishDrayer;
         private string _canopies;
 
+        public Result Result;
+
         public KitchenUp()
         {
             _facade = new Facade();
@@ -261,7 +263,8 @@ namespace Automation.Module.KitchenUp
                 ShelvesCount = _shelfsCount
             };
 
-            var result = new Result
+
+            Result = new Result
             {
                 ModuleName = calculator.GetModuleName(),
                 ImagePath = calculator.GetImagePath(),
@@ -272,12 +275,15 @@ namespace Automation.Module.KitchenUp
                 LoopsInfo = calculator.GetLoopsInfo()
             };
 
-            return result;
+            return Result;
         }
 
         public override void CreateReport(string pathToSave)
         {
-            
+            if(Result == null) throw new Exception("Сначала выполните расcчёт");
+            pathToSave = @"D:\12.docx";
+            var reportManager = new KitchenUpReports();
+            reportManager.CreateReport(Result, pathToSave);
         }
     }
 }

@@ -172,5 +172,10 @@ namespace Automation
         {
            return _blService.GetCurrentProject().Categories.GetCategory((CategoryType)Enum.Parse(typeof(CategoryType),productName));
         }
+
+        public void CreateModuleReport(string moduleName, string fileName)
+        {
+            _blService.CreateModuleReport(moduleName, fileName);
+        }
     }
 }

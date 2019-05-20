@@ -138,5 +138,11 @@ namespace Automation.Model.MainModels
         {
             return _modules;
         }
+
+        public void CreateModuleReport(string moduleName, string fileName)
+        {
+            var module = _modules.First(x => x.Number == moduleName);
+            module.CreateReport(fileName);
+        }
     }
 }

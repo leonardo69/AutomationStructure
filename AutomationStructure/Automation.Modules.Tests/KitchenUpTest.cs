@@ -153,6 +153,8 @@ namespace Automation.Modules.Tests
             input.Rows[0]["Тип фасада"] = "накладной";
             module.SetupModule(input);
             result = module.Calculate();
+            module.CreateReport("");
+
             detailsInfo = result.DetailsInfo;
             Assert.AreEqual(detailsInfo.Rows[0]["secondMM"], "298");
             Assert.AreEqual(detailsInfo.Rows[0]["Примечание"], "");

@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
 using Automation.Controls;
-using Automation.Infrastructure;
 using Automation.Model;
-using Automation.View.ModuleViewGenerator;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 
 namespace Automation.View
 {
-    public partial class Results : Telerik.WinControls.UI.RadForm
+    public partial class Results : RadForm
     {
         private Presenter Presenter { get; set; }
 
@@ -70,9 +68,35 @@ namespace Automation.View
                 infoModule.BindData(result.ModuleName, result.ImagePath, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
                     result.FurnitureInfo, result.LoopsInfo);
                 infoModule.Width = flowLayoutPanel2.Width - 3;
+                infoModule.OnModuleExport += CreateModuleReport;
                 panel.Controls.Add(infoModule);
             }
             
+        }
+
+        private void CreateModuleReport(object sender, EventArgs e)
+        {
+            var moduleName = ((ModuleInfo) sender).ModuleName;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = @"Сохранение отчёта по модулю", Filter = @"Docx | *.docx", FileName = moduleName+".docx"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string fileName = saveFileDialog.FileName;
+                    Presenter.CreateModuleReport(moduleName, fileName);
+                    MessageBox.Show(@"Отчёт по модулю создан");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(@"Ошибка создания модуля");
+                }
+               
+            }
         }
     }
 }

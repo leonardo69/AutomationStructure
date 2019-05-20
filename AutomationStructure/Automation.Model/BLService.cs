@@ -156,10 +156,16 @@ namespace Automation.Model
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, CategoryType type)
         {
-            var product = _project.Categories.GetCategory(type);
-            product.UpdateModule(moduleInfoTable, numberModule);
+            var category = _project.Categories.GetCategory(type);
+            category.UpdateModule(moduleInfoTable, numberModule);
         }
 
         #endregion
+
+        public void CreateModuleReport(string moduleName, string fileName)
+        {
+            var category = _project.Categories.GetCategory(CategoryType.KitchenUp);
+            category.CreateModuleReport(moduleName, fileName);
+        }
     }
 }
