@@ -281,7 +281,6 @@ namespace Automation.Module.KitchenUp
         public override void CreateReport(string pathToSave)
         {
             if(Result == null) throw new Exception("Сначала выполните расcчёт");
-            pathToSave = @"D:\12.docx";
             var reportManager = new KitchenUpReports();
             reportManager.CreateReport(Result, pathToSave);
         }
