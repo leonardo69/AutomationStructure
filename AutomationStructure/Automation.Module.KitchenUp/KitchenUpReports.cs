@@ -25,6 +25,22 @@ namespace Automation.Module.KitchenUp
             doc.Save();
         }
 
+        public void AddReportContent(DocX doc, Result source)
+        {
+            doc.PageLayout.Orientation = Orientation.Portrait;
+            doc.InsertParagraph("Имя модуля: " + source.ModuleName);
+            doc.InsertParagraph("");
+            var par = InsertImage(source, doc);
+            par.Alignment = Alignment.left;
+            InsertTable(source.MainInfo, doc);
+            InsertTable(source.DetailsInfo, doc);
+            InsertTable(source.ShelfInfo, doc);
+            InsertTable(source.FurnitureInfo, doc);
+            InsertTable(source.LoopsInfo, doc);
+            doc.InsertParagraph();
+            doc.InsertParagraph();
+        }
+
         private static Paragraph InsertImage(Result source, DocX doc)
         {
             var imagePath = Path.Combine(Environment.CurrentDirectory, source.ImagePath);

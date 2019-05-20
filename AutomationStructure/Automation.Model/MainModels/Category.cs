@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Automation.Infrastructure;
+using Xceed.Words.NET;
 
 namespace Automation.Model.MainModels
 {
@@ -143,6 +144,16 @@ namespace Automation.Model.MainModels
         {
             var module = _modules.First(x => x.Number == moduleName);
             module.CreateReport(fileName);
+        }
+
+        public void CreateAllModulesReport(string fileName)
+        {
+            var doc = DocX.Create(fileName);
+            foreach (var module in _modules)
+            {
+                module.AddReportContent(doc);
+            }
+            doc.Save();
         }
     }
 }

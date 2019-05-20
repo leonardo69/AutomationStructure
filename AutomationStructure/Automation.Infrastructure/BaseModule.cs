@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Xceed.Words.NET;
 
 namespace Automation.Infrastructure
 {
@@ -29,6 +30,8 @@ namespace Automation.Infrastructure
         public abstract Result Calculate();
 
         public abstract void CreateReport(string pathToSave);
+
+        public abstract void AddReportContent(DocX doc);
     }
 
     [Serializable]

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Results));
             this.radPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,11 +36,16 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radPageViewPage3 = new Telerik.WinControls.UI.RadPageViewPage();
             this.reportModule = new Automation.Controls.ModuleReport();
+            this.commandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.commandBarStripElement1 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.commandBarButton1 = new Telerik.WinControls.UI.CommandBarButton();
+            this.radCommandBar1 = new Telerik.WinControls.UI.RadCommandBar();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
             this.radPageViewPage2.SuspendLayout();
             this.radPageViewPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +63,7 @@
             // 
             // radPageViewPage1
             // 
+            this.radPageViewPage1.Controls.Add(this.radCommandBar1);
             this.radPageViewPage1.Controls.Add(this.flowLayoutPanel2);
             this.radPageViewPage1.Description = null;
             this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(134F, 28F);
@@ -70,10 +77,10 @@
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 46);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1086, 710);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1086, 664);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radPageViewPage2
@@ -83,7 +90,7 @@
             this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(131F, 28F);
             this.radPageViewPage2.Location = new System.Drawing.Point(10, 37);
             this.radPageViewPage2.Name = "radPageViewPage2";
-            this.radPageViewPage2.Size = new System.Drawing.Size(1087, 699);
+            this.radPageViewPage2.Size = new System.Drawing.Size(1086, 710);
             this.radPageViewPage2.Text = "Кухня нижние модули";
             this.radPageViewPage2.Title = "KitchenDown";
             // 
@@ -94,7 +101,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1087, 699);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1086, 710);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // radPageViewPage3
@@ -114,6 +121,50 @@
             this.reportModule.Size = new System.Drawing.Size(1086, 769);
             this.reportModule.TabIndex = 0;
             // 
+            // commandBarRowElement1
+            // 
+            this.commandBarRowElement1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarRowElement1.MinSize = new System.Drawing.Size(25, 25);
+            this.commandBarRowElement1.Name = "commandBarRowElement1";
+            this.commandBarRowElement1.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
+            this.commandBarStripElement1});
+            this.commandBarRowElement1.Text = "";
+            this.commandBarRowElement1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarRowElement1.UseCompatibleTextRendering = false;
+            // 
+            // commandBarStripElement1
+            // 
+            this.commandBarStripElement1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarStripElement1.DisplayName = "commandBarStripElement1";
+            this.commandBarStripElement1.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.commandBarButton1});
+            this.commandBarStripElement1.Name = "commandBarStripElement1";
+            this.commandBarStripElement1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarStripElement1.UseCompatibleTextRendering = false;
+            // 
+            // commandBarButton1
+            // 
+            this.commandBarButton1.AutoSize = false;
+            this.commandBarButton1.Bounds = new System.Drawing.Rectangle(0, 0, 36, 36);
+            this.commandBarButton1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarButton1.DisplayName = "commandBarButton1";
+            this.commandBarButton1.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButton1.Image")));
+            this.commandBarButton1.Name = "commandBarButton1";
+            this.commandBarButton1.Text = "";
+            this.commandBarButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarButton1.UseCompatibleTextRendering = false;
+            this.commandBarButton1.Click += new System.EventHandler(this.commandBarButton1_Click);
+            // 
+            // radCommandBar1
+            // 
+            this.radCommandBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radCommandBar1.Location = new System.Drawing.Point(0, 0);
+            this.radCommandBar1.Name = "radCommandBar1";
+            this.radCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.commandBarRowElement1});
+            this.radCommandBar1.Size = new System.Drawing.Size(1086, 61);
+            this.radCommandBar1.TabIndex = 1;
+            // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,8 +181,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).EndInit();
             this.radPageView1.ResumeLayout(false);
             this.radPageViewPage1.ResumeLayout(false);
+            this.radPageViewPage1.PerformLayout();
             this.radPageViewPage2.ResumeLayout(false);
             this.radPageViewPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -146,5 +199,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPage3;
         private Controls.ModuleReport reportModule;
+        private Telerik.WinControls.UI.RadCommandBar radCommandBar1;
+        private Telerik.WinControls.UI.CommandBarRowElement commandBarRowElement1;
+        private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElement1;
+        private Telerik.WinControls.UI.CommandBarButton commandBarButton1;
     }
 }

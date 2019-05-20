@@ -93,9 +93,34 @@ namespace Automation.View
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(@"Ошибка создания модуля");
+                    MessageBox.Show(@"Ошибка создания отчёта по модулю");
                 }
                
+            }
+        }
+
+        private void commandBarButton1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = @"Сохранение отчёта по модулям",
+                Filter = @"Docx | *.docx",
+                FileName = "отчёт.docx"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string fileName = saveFileDialog.FileName;
+                    Presenter.CreateAllModulesReport(fileName);
+                    MessageBox.Show(@"Отчёт по модулям создан");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(@"Ошибка создания отчёта по модулям");
+                }
+
             }
         }
     }

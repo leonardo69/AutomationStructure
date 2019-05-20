@@ -3,6 +3,7 @@ using System.Data;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Automation.Infrastructure;
+using Xceed.Words.NET;
 
 namespace Automation.Module.KitchenUp
 {
@@ -283,6 +284,13 @@ namespace Automation.Module.KitchenUp
             if(Result == null) throw new Exception("Сначала выполните расcчёт");
             var reportManager = new KitchenUpReports();
             reportManager.CreateReport(Result, pathToSave);
+        }
+
+        public override void AddReportContent(DocX doc)
+        {
+            if (Result == null) throw new Exception("Сначала выполните расcчёт");
+            var reportManager = new KitchenUpReports();
+            reportManager.AddReportContent(doc, Result);
         }
     }
 }

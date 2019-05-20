@@ -167,5 +167,11 @@ namespace Automation.Model
             var category = _project.Categories.GetCategory(CategoryType.KitchenUp);
             category.CreateModuleReport(moduleName, fileName);
         }
+
+        public void CreateAllModulesReport(string fileName)
+        {
+            var category = _project.Categories.GetCategory(CategoryType.KitchenUp);
+            category.CreateAllModulesReport(fileName);
+        }
     }
 }

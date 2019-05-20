@@ -177,5 +177,10 @@ namespace Automation
         {
             _blService.CreateModuleReport(moduleName, fileName);
         }
+
+        public void CreateAllModulesReport(string fileName)
+        {
+            _blService.CreateAllModulesReport(fileName);
+        }
     }
 }

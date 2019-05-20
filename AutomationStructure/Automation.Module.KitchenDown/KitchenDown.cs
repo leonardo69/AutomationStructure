@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using Automation.Infrastructure;
+using Xceed.Words.NET;
 
 namespace Automation.Module.KitchenDown
 {
@@ -64,6 +65,11 @@ namespace Automation.Module.KitchenDown
         }
 
         public override void CreateReport(string pathToSave)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddReportContent(DocX doc)
         {
             throw new NotImplementedException();
         }
