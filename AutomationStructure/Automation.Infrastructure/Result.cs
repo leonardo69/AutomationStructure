@@ -1,7 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace Automation.Infrastructure
-{ 
+{
+    [Serializable]
     public class Result
     {
         public string ModuleName { get; set; }
