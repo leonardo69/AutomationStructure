@@ -69,6 +69,8 @@
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
+            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -302,6 +304,7 @@
             this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem1,
             this.radMenuItem2,
+            this.radMenuItem14,
             this.radMenuItem3});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
@@ -432,6 +435,20 @@
             this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
             // 
+            // radMenuItem14
+            // 
+            this.radMenuItem14.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem15});
+            this.radMenuItem14.Name = "radMenuItem14";
+            this.radMenuItem14.Text = "Настройки";
+            // 
+            // radMenuItem15
+            // 
+            this.radMenuItem15.HintText = "";
+            this.radMenuItem15.Name = "radMenuItem15";
+            this.radMenuItem15.Text = "Проектировщик";
+            this.radMenuItem15.ToolTipText = "ввод проектировщиком, изготовителем своих данных";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +525,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
     }
 }
 
