@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.DeleteFacadeBtn = new Telerik.WinControls.UI.RadButton();
-            this.AddFacadeBtn = new Telerik.WinControls.UI.RadButton();
-            this.selectedModuleInformationDgv = new Telerik.WinControls.UI.RadGridView();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radButton4 = new Telerik.WinControls.UI.RadButton();
             this.radButton3 = new Telerik.WinControls.UI.RadButton();
             this.radButton2 = new Telerik.WinControls.UI.RadButton();
             this.modulesLbx = new System.Windows.Forms.ListBox();
+            this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.addTestModulesBtn = new Telerik.WinControls.UI.RadButton();
+            this.DeleteFacadeBtn = new Telerik.WinControls.UI.RadButton();
+            this.AddFacadeBtn = new Telerik.WinControls.UI.RadButton();
+            this.selectedModuleInformationDgv = new Telerik.WinControls.UI.RadGridView();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -71,85 +73,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация обо всех модулях";
-            // 
-            // allModulesInformationDgv
-            // 
-            this.allModulesInformationDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.allModulesInformationDgv.Location = new System.Drawing.Point(3, 18);
-            // 
-            // 
-            // 
-            this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition7;
-            this.allModulesInformationDgv.Name = "allModulesInformationDgv";
-            this.allModulesInformationDgv.ReadOnly = true;
-            this.allModulesInformationDgv.Size = new System.Drawing.Size(710, 317);
-            this.allModulesInformationDgv.TabIndex = 1;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.DeleteFacadeBtn);
-            this.groupBox3.Controls.Add(this.AddFacadeBtn);
-            this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
-            this.groupBox3.Controls.Add(this.radButton1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(815, 199);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Настройка выбранного модуля";
-            // 
-            // DeleteFacadeBtn
-            // 
-            this.DeleteFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteFacadeBtn.Location = new System.Drawing.Point(719, 96);
-            this.DeleteFacadeBtn.Name = "DeleteFacadeBtn";
-            this.DeleteFacadeBtn.Size = new System.Drawing.Size(90, 29);
-            this.DeleteFacadeBtn.TabIndex = 4;
-            this.DeleteFacadeBtn.Text = "Удалить фасад";
-            this.DeleteFacadeBtn.Click += new System.EventHandler(this.DeleteFacadeBtn_Click);
-            // 
-            // AddFacadeBtn
-            // 
-            this.AddFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddFacadeBtn.Location = new System.Drawing.Point(719, 61);
-            this.AddFacadeBtn.Name = "AddFacadeBtn";
-            this.AddFacadeBtn.Size = new System.Drawing.Size(90, 29);
-            this.AddFacadeBtn.TabIndex = 3;
-            this.AddFacadeBtn.Text = "Добавить фасад";
-            this.AddFacadeBtn.Click += new System.EventHandler(this.AddFacadeBtn_Click);
-            // 
-            // selectedModuleInformationDgv
-            // 
-            this.selectedModuleInformationDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectedModuleInformationDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.selectedModuleInformationDgv.Cursor = System.Windows.Forms.Cursors.Default;
-            this.selectedModuleInformationDgv.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.selectedModuleInformationDgv.ForeColor = System.Drawing.Color.Black;
-            this.selectedModuleInformationDgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.selectedModuleInformationDgv.Location = new System.Drawing.Point(3, 21);
-            // 
-            // 
-            // 
-            this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition8;
-            this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
-            this.selectedModuleInformationDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(710, 172);
-            this.selectedModuleInformationDgv.TabIndex = 3;
-            // 
-            // radButton1
-            // 
-            this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton1.Location = new System.Drawing.Point(719, 26);
-            this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(90, 29);
-            this.radButton1.TabIndex = 2;
-            this.radButton1.Text = "Обновить";
-            this.radButton1.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
             // 
             // groupBox1
             // 
@@ -199,9 +122,98 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 147);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 108);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
+            // 
+            // allModulesInformationDgv
+            // 
+            this.allModulesInformationDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.allModulesInformationDgv.Location = new System.Drawing.Point(3, 18);
+            // 
+            // 
+            // 
+            this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.allModulesInformationDgv.Name = "allModulesInformationDgv";
+            this.allModulesInformationDgv.ReadOnly = true;
+            this.allModulesInformationDgv.Size = new System.Drawing.Size(710, 317);
+            this.allModulesInformationDgv.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.addTestModulesBtn);
+            this.groupBox3.Controls.Add(this.DeleteFacadeBtn);
+            this.groupBox3.Controls.Add(this.AddFacadeBtn);
+            this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
+            this.groupBox3.Controls.Add(this.radButton1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(815, 199);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Настройка выбранного модуля";
+            // 
+            // addTestModulesBtn
+            // 
+            this.addTestModulesBtn.Location = new System.Drawing.Point(719, 131);
+            this.addTestModulesBtn.Name = "addTestModulesBtn";
+            this.addTestModulesBtn.Size = new System.Drawing.Size(90, 24);
+            this.addTestModulesBtn.TabIndex = 5;
+            this.addTestModulesBtn.Text = "TestModules";
+            this.addTestModulesBtn.Click += new System.EventHandler(this.AddTestModulesBtn_Click);
+            // 
+            // DeleteFacadeBtn
+            // 
+            this.DeleteFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteFacadeBtn.Location = new System.Drawing.Point(719, 96);
+            this.DeleteFacadeBtn.Name = "DeleteFacadeBtn";
+            this.DeleteFacadeBtn.Size = new System.Drawing.Size(90, 29);
+            this.DeleteFacadeBtn.TabIndex = 4;
+            this.DeleteFacadeBtn.Text = "Удалить фасад";
+            this.DeleteFacadeBtn.Click += new System.EventHandler(this.DeleteFacadeBtn_Click);
+            // 
+            // AddFacadeBtn
+            // 
+            this.AddFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddFacadeBtn.Location = new System.Drawing.Point(719, 61);
+            this.AddFacadeBtn.Name = "AddFacadeBtn";
+            this.AddFacadeBtn.Size = new System.Drawing.Size(90, 29);
+            this.AddFacadeBtn.TabIndex = 3;
+            this.AddFacadeBtn.Text = "Добавить фасад";
+            this.AddFacadeBtn.Click += new System.EventHandler(this.AddFacadeBtn_Click);
+            // 
+            // selectedModuleInformationDgv
+            // 
+            this.selectedModuleInformationDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectedModuleInformationDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.selectedModuleInformationDgv.Cursor = System.Windows.Forms.Cursors.Default;
+            this.selectedModuleInformationDgv.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.selectedModuleInformationDgv.ForeColor = System.Drawing.Color.Black;
+            this.selectedModuleInformationDgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.selectedModuleInformationDgv.Location = new System.Drawing.Point(3, 21);
+            // 
+            // 
+            // 
+            this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
+            this.selectedModuleInformationDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(710, 172);
+            this.selectedModuleInformationDgv.TabIndex = 3;
+            // 
+            // radButton1
+            // 
+            this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton1.Location = new System.Drawing.Point(719, 26);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(90, 29);
+            this.radButton1.TabIndex = 2;
+            this.radButton1.Text = "Обновить";
+            this.radButton1.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
             // 
             // tableLayoutPanel1
             // 
@@ -233,18 +245,19 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка модулей ";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -265,5 +278,6 @@
         private System.Windows.Forms.ListBox modulesLbx;
         private Telerik.WinControls.UI.RadGridView allModulesInformationDgv;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Telerik.WinControls.UI.RadButton addTestModulesBtn;
     }
 }

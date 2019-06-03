@@ -101,14 +101,20 @@
             // 
             // LDSPDetails
             // 
+            this.LDSPDetails.AutoSizeRows = true;
             this.LDSPDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LDSPDetails.Location = new System.Drawing.Point(3, 33);
+            this.LDSPDetails.Location = new System.Drawing.Point(3, 34);
             // 
             // 
             // 
+            this.LDSPDetails.MasterTemplate.AllowAddNewRow = false;
+            this.LDSPDetails.MasterTemplate.AllowDeleteRow = false;
+            this.LDSPDetails.MasterTemplate.AllowEditRow = false;
+            this.LDSPDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.LDSPDetails.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.LDSPDetails.Name = "LDSPDetails";
-            this.LDSPDetails.Size = new System.Drawing.Size(1030, 150);
+            this.LDSPDetails.ReadOnly = true;
+            this.LDSPDetails.Size = new System.Drawing.Size(1030, 149);
             this.LDSPDetails.TabIndex = 1;
             // 
             // radLabel1
@@ -153,8 +159,13 @@
             // 
             // 
             // 
+            this.BackWallDetails.MasterTemplate.AllowAddNewRow = false;
+            this.BackWallDetails.MasterTemplate.AllowDeleteRow = false;
+            this.BackWallDetails.MasterTemplate.AllowEditRow = false;
+            this.BackWallDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.BackWallDetails.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.BackWallDetails.Name = "BackWallDetails";
+            this.BackWallDetails.ReadOnly = true;
             this.BackWallDetails.Size = new System.Drawing.Size(1030, 140);
             this.BackWallDetails.TabIndex = 2;
             // 
@@ -165,8 +176,13 @@
             // 
             // 
             // 
+            this.FurnitureDetails.MasterTemplate.AllowAddNewRow = false;
+            this.FurnitureDetails.MasterTemplate.AllowDeleteRow = false;
+            this.FurnitureDetails.MasterTemplate.AllowEditRow = false;
+            this.FurnitureDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.FurnitureDetails.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.FurnitureDetails.Name = "FurnitureDetails";
+            this.FurnitureDetails.ReadOnly = true;
             this.FurnitureDetails.Size = new System.Drawing.Size(1036, 171);
             this.FurnitureDetails.TabIndex = 3;
             // 
@@ -197,8 +213,13 @@
             // 
             // 
             // 
+            this.FasadeDetails.MasterTemplate.AllowAddNewRow = false;
+            this.FasadeDetails.MasterTemplate.AllowDeleteRow = false;
+            this.FasadeDetails.MasterTemplate.AllowEditRow = false;
+            this.FasadeDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.FasadeDetails.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.FasadeDetails.Name = "FasadeDetails";
+            this.FasadeDetails.ReadOnly = true;
             this.FasadeDetails.Size = new System.Drawing.Size(1036, 172);
             this.FasadeDetails.TabIndex = 8;
             // 

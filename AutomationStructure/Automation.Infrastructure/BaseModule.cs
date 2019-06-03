@@ -16,6 +16,7 @@ namespace Automation.Infrastructure
         public string Number { get; set; }
         public string SubScheme { get; set; }
         public string IconPath { get; set; }
+        public Result CalculationResult { get; set; }
 
         public abstract void AddFacade();
         public abstract void DeleteFacade();

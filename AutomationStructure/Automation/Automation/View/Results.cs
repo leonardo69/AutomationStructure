@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Automation.Controls;
@@ -77,10 +78,17 @@ namespace Automation.View
 
         private void LoadDetailsCountGroupReport()
         {
+        
         }
-
+        
         private void LoadAllDetailsGroupReport()
         {
+            DataTable ldspInfo = Presenter.GetLdspAllDetailsGroupInfo();
+            DataTable backWallInfo = null;// Presenter.GetBackWallAllDetailsGroupInfo();
+            DataTable furnitureInfo = null;//= Presenter.GetFurnitureAllDetailsGroupInfo();
+            DataTable facadeInfo = null;// Presenter.GetFacadeAllDetailsGroupInfo();
+
+            allDetailsGroupComponent.BindData(ldspInfo, backWallInfo, furnitureInfo, facadeInfo);
         }
 
         private void CreateModuleReport(object sender, EventArgs e)

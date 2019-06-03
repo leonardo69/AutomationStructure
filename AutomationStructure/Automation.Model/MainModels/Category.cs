@@ -19,7 +19,6 @@ namespace Automation.Model.MainModels
             return _modules.Select(module => module.Name).ToList();
         }
 
-
         public Category(string nameProduct)
         {
             _modules = new List<BaseModule>();

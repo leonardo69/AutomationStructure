@@ -49,5 +49,17 @@ namespace Automation.Model.MainModels
         {
             return _categories.First(x => x.Type == type);
         }
+
+        public List<BaseModule> GetAllModules()
+        {
+            var modules = new List<BaseModule>();
+
+            foreach (var category in _categories)
+            {
+                modules.AddRange(category.GetAllModules());
+            }
+
+            return modules;
+        }
     }
 }

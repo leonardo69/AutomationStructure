@@ -19,8 +19,6 @@ namespace Automation.Module.KitchenUp
         private string _dishDrayer;
         private string _canopies;
 
-        public Result Result;
-
         public KitchenUp()
         {
             _facade = new Facade();
@@ -267,7 +265,7 @@ namespace Automation.Module.KitchenUp
             };
 
 
-            Result = new Result
+            CalculationResult = new Result
             {
                 ModuleName = calculator.GetModuleName(),
                 ImagePath = calculator.GetImagePath(),
@@ -278,21 +276,21 @@ namespace Automation.Module.KitchenUp
                 LoopsInfo = calculator.GetLoopsInfo()
             };
 
-            return Result;
+            return CalculationResult;
         }
 
         public override void CreateReport(string pathToSave)
         {
-            if(Result == null) throw new Exception("Сначала выполните расcчёт");
+            if(CalculationResult == null) throw new Exception("Сначала выполните расcчёт");
             var reportManager = new KitchenUpReports();
-            reportManager.CreateReport(Result, pathToSave);
+            reportManager.CreateReport(CalculationResult, pathToSave);
         }
 
         public override void AddReportContent(DocX doc)
         {
-            if (Result == null) throw new Exception("Сначала выполните расcчёт");
+            if (CalculationResult == null) throw new Exception("Сначала выполните расcчёт");
             var reportManager = new KitchenUpReports();
-            reportManager.AddReportContent(doc, Result);
+            reportManager.AddReportContent(doc, CalculationResult);
         }
     }
 }

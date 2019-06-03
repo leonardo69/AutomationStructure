@@ -9,16 +9,14 @@ using Telerik.WinControls.UI;
 
 namespace Automation.View
 {
-    public partial class ModuleManager : Telerik.WinControls.UI.RadForm
+    public partial class ModuleManager : RadForm
     {
-        //Presenter 
-        public Presenter Presenter { get; set; }
-        
-        private string _productName;
+        private DataTable _moduleInfoTable;
+
+        private readonly string _productName;
 
         public ModuleManager(Presenter presenter, string productName)
         {
-           
             Presenter = presenter;
             Presenter.Manager = this;
             _productName = productName;
@@ -29,7 +27,7 @@ namespace Automation.View
             selectedModuleInformationDgv.EnableFastScrolling = true;
             allModulesInformationDgv.EnableFastScrolling = true;
             selectedModuleInformationDgv.MasterTemplate.BestFitColumns();
-           // allModulesInformationDgv.MasterTemplate.BestFitColumns();
+            // allModulesInformationDgv.MasterTemplate.BestFitColumns();
 
 
             //allModulesInformationDgv.VirtualMode = true;
@@ -41,9 +39,10 @@ namespace Automation.View
         public ModuleManager()
         {
             InitializeComponent();
-
         }
 
+        //Presenter 
+        public Presenter Presenter { get; set; }
 
 
         private void LoadModulesList()
@@ -58,7 +57,7 @@ namespace Automation.View
 
         private CategoryType GetProductType()
         {
-            CategoryType categoryType=CategoryType.KitchenUp;
+            var categoryType = CategoryType.KitchenUp;
 
             switch (_productName)
             {
@@ -71,15 +70,12 @@ namespace Automation.View
             }
 
             return categoryType;
-
         }
-
-
 
 
         private void add_Click(object sender, EventArgs e)
         {
-            ModuleConfigurator configuratorModule = new ModuleConfigurator(_productName);
+            var configuratorModule = new ModuleConfigurator(_productName);
             configuratorModule.OnApply += SetNewModuleInfo;
             configuratorModule.ShowDialog();
         }
@@ -98,16 +94,11 @@ namespace Automation.View
                     SubScheme = e.SubSchemeName,
                     Type = GetProductType()
                 });
-                Presenter.UpdateModuleList(GetProductType());
-                Presenter.UpdateModulesCount(GetProductType());
-                Presenter.UpdateTotalModules(GetProductType());
             }
             else
             {
                 MessageBox.Show("Такой модуль уже существует. Измените номер модуля");
             }
-
-         
         }
 
         private string GetIconPath(string pathToImageSubScheme)
@@ -118,33 +109,27 @@ namespace Automation.View
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
         {
-            SimilarModule similarModule = new SimilarModule();
+            var similarModule = new SimilarModule();
             similarModule.OnApply += AddSimilarModule;
             similarModule.Show();
-
         }
 
         private void AddSimilarModule(object sender, SimilarEventArgs e)
         {
             if (!Presenter.IsModuleExist(e.SimilarName, GetProductType()))
-            {
                 Presenter.AddSimilarModule(e.SimilarName, GetProductType());
-            }
             else MessageBox.Show("Модуль с таким номером уже существует. Введите другой номер");
-
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (modulesLbx.Items.Count!=0)
+            if (modulesLbx.Items.Count != 0)
             {
-                string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-                string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
+                var moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
+                var moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
                 Presenter.DeleteModule(moduleName, GetProductType());
             }
         }
-
-        DataTable _moduleInfoTable;
 
         private void UpdateModuleInfoBtn(object sender, EventArgs e)
         {
@@ -153,7 +138,8 @@ namespace Automation.View
                 MessageBox.Show("Не выбран модуль из списка");
                 return;
             }
-            string moduleNumber = modulesLbx.SelectedItem.ToString();
+
+            var moduleNumber = modulesLbx.SelectedItem.ToString();
             try
             {
                 Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetProductType());
@@ -163,19 +149,20 @@ namespace Automation.View
                 MessageBox.Show(exp.Message);
                 return;
             }
+
             Presenter.ShowModuleInformation(moduleNumber, GetProductType());
             Presenter.UpdateTotalModules(GetProductType());
             selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
             selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
         }
-        
+
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modulesLbx.SelectedItem == null)
                 return;
-            if (modulesLbx.Items.Count!=0)
+            if (modulesLbx.Items.Count != 0)
             {
-                string moduleNumber = modulesLbx.SelectedItem.ToString();
+                var moduleNumber = modulesLbx.SelectedItem.ToString();
                 Presenter.ShowModuleInformation(moduleNumber, GetProductType());
                 selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
                 selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
@@ -183,26 +170,18 @@ namespace Automation.View
         }
 
 
-
         public void UpdateModuleList(List<string> modulesNumbers)
         {
             modulesLbx.Items.Clear();
-            for (int i = 0; i < modulesNumbers.Count; i++)
-            {
-                modulesLbx.Items.Add(modulesNumbers[i]);
-            }
-            
-
+            for (var i = 0; i < modulesNumbers.Count; i++) modulesLbx.Items.Add(modulesNumbers[i]);
         }
-        
+
         public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
         {
-
             if (modulesInfoTbl != null && modulesInfoTbl.Rows.Count != 0)
             {
-                    var viewGenerator = GetViewGenerator(ProductName);
-                    viewGenerator.SetupView(allModulesInformationDgv, modulesInfoTbl);
-
+                var viewGenerator = GetViewGenerator(ProductName);
+                viewGenerator.SetupView(allModulesInformationDgv, modulesInfoTbl);
             }
             else
             {
@@ -210,15 +189,12 @@ namespace Automation.View
                 allModulesInformationDgv.Columns.Clear();
                 allModulesInformationDgv.Refresh();
             }
-
-            
-          
         }
-        
-        
+
+
         public void UpdateDetailDataDataGrid(DataTable table)
         {
-            if (table.Rows.Count!=0)
+            if (table.Rows.Count != 0)
             {
                 _moduleInfoTable = table;
                 var viewGenerator = GetViewGenerator(ProductName);
@@ -228,10 +204,7 @@ namespace Automation.View
             {
                 selectedModuleInformationDgv.DataSource = null;
                 selectedModuleInformationDgv.Refresh();
-                
             }
-          
-
         }
 
         private ViewGenerator GetViewGenerator(string productName)
@@ -239,17 +212,13 @@ namespace Automation.View
             return new KitchenUpView();
         }
 
-   
 
         public void ClearModuleDetailsDgv()
         {
-            
-            selectedModuleInformationDgv.ViewDefinition=new TableViewDefinition();
+            selectedModuleInformationDgv.ViewDefinition = new TableViewDefinition();
             selectedModuleInformationDgv.DataSource = null;
             selectedModuleInformationDgv.Columns.Clear();
             selectedModuleInformationDgv.Refresh();
-
-      
         }
 
         private void AddFacadeBtn_Click(object sender, EventArgs e)
@@ -259,7 +228,8 @@ namespace Automation.View
                 MessageBox.Show("Не выбран модуль из списка");
                 return;
             }
-            string moduleNumber = modulesLbx.SelectedItem.ToString();
+
+            var moduleNumber = modulesLbx.SelectedItem.ToString();
             try
             {
                 Presenter.AddFacade(moduleNumber, GetProductType());
@@ -269,6 +239,7 @@ namespace Automation.View
                 MessageBox.Show(exp.Message);
                 return;
             }
+
             Presenter.ShowModuleInformation(moduleNumber, GetProductType());
             Presenter.UpdateTotalModules(GetProductType());
             selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
@@ -282,7 +253,8 @@ namespace Automation.View
                 MessageBox.Show("Не выбран модуль из списка");
                 return;
             }
-            string moduleNumber = modulesLbx.SelectedItem.ToString();
+
+            var moduleNumber = modulesLbx.SelectedItem.ToString();
             try
             {
                 Presenter.DeleteFacade(moduleNumber, GetProductType());
@@ -292,10 +264,16 @@ namespace Automation.View
                 MessageBox.Show(exp.Message);
                 return;
             }
+
             Presenter.ShowModuleInformation(moduleNumber, GetProductType());
             Presenter.UpdateTotalModules(GetProductType());
             selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
             selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
+        }
+
+        private void AddTestModulesBtn_Click(object sender, EventArgs e)
+        {
+            Presenter.AddTestModules();
         }
     }
 }
