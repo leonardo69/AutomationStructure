@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows.Forms;
 using Automation.Controls;
-using Automation.Model;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 
@@ -10,7 +9,7 @@ namespace Automation.View
 {
     public partial class Results : RadForm
     {
-        private Presenter Presenter { get; set; }
+        private Presenter Presenter { get; }
 
 
         public Results(Presenter presenter)
@@ -19,7 +18,7 @@ namespace Automation.View
             Presenter = presenter;
             HideAllPages();
             LoadProducts();
-            LoadReport();
+            LoadGroupReport();
         }
 
         private void HideAllPages()
@@ -45,11 +44,6 @@ namespace Automation.View
             }
         }
 
-        private void LoadReport()
-        {
-           radPageViewPage3.Visible = Visible;
-           reportModule.BindData(Report.GetLdspInfo(), Report.GetBackPanelAssemblyInfo(), Report.GetFurnitureInfo(), Report.GetFasadeInfo());
-        }
 
         private void LoadModules(RadPageViewPage page)
         {
@@ -57,10 +51,8 @@ namespace Automation.View
             var product= Presenter.GetProductByName(productName);
             var modules = product.GetAllModules();  
             
-
             FlowLayoutPanel panel = flowLayoutPanel2; //get flow control from page
          
-
             foreach (var module in modules)
             {
                 ModuleInfo infoModule = new ModuleInfo();
@@ -72,6 +64,23 @@ namespace Automation.View
                 panel.Controls.Add(infoModule);
             }
             
+        }
+
+
+        private void LoadGroupReport()
+        {
+            LoadAllDetailsGroupReport();
+            LoadDetailsCountGroupReport();
+            //radPageViewPage3.Visible = Visible;
+            // reportModule.BindData(Report.GetLdspInfo(), Report.GetBackPanelAssemblyInfo(), Report.GetFurnitureInfo(), Report.GetFasadeInfo());
+        }
+
+        private void LoadDetailsCountGroupReport()
+        {
+        }
+
+        private void LoadAllDetailsGroupReport()
+        {
         }
 
         private void CreateModuleReport(object sender, EventArgs e)
@@ -99,7 +108,7 @@ namespace Automation.View
             }
         }
 
-        private void commandBarButton1_Click(object sender, EventArgs e)
+        private void CommandBarButton1_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {

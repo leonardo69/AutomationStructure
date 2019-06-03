@@ -22,7 +22,7 @@ namespace Automation.View
             InitCustomerTable();
         }
 
-        private void about_Click(object sender, EventArgs e)
+        private void About_Click(object sender, EventArgs e)
         {
             new About().Show();
         }
@@ -30,7 +30,7 @@ namespace Automation.View
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
-            customerDGV.EditingControlShowing += customerDGV_EditingControlShowing;
+            customerDGV.EditingControlShowing += CustomerDGV_EditingControlShowing;
         }
 
         public void UpdateThicknessColumn(string thicknessExt)
@@ -45,21 +45,21 @@ namespace Automation.View
             label3.Text = customerRecord;
         }
 
-        private void openProjectMI_Click(object sender, EventArgs e)
+        private void OpenProjectMI_Click(object sender, EventArgs e)
         {
             var pathToFile = Dialogs.GetOpenProjectPath();
             if (pathToFile.Length == 0) return;
             _presenter.OpenProject(pathToFile);
         }
 
-        private void newProjectMI_Click(object sender, EventArgs e)
+        private void NewProjectMI_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Visible = true;
             _presenter.NewProject();
             radMenuItem2.Visibility = ElementVisibility.Visible;
         }
 
-        private void save_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
             var pathToFile = Dialogs.GetSaveProjectPath();
             if (pathToFile.Length == 0) return;
@@ -67,12 +67,12 @@ namespace Automation.View
             MessageBox.Show(@"Проект сохранён.", @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void close_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void kitchenUpModules_Click(object sender, EventArgs e)
+        private void KitchenUpModules_Click(object sender, EventArgs e)
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
@@ -88,7 +88,7 @@ namespace Automation.View
             }
         }
 
-        private void kitchenDownModules_Click(object sender, EventArgs e)
+        private void KitchenDownModules_Click(object sender, EventArgs e)
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
@@ -96,7 +96,7 @@ namespace Automation.View
             _presenter.AddNewProduct("Кухня нижние модули");
         }
 
-        private void turn_Click(object sender, EventArgs e)
+        private void Turn_Click(object sender, EventArgs e)
         {
             if (panelCustomer.Height == 263)
             {
@@ -112,7 +112,7 @@ namespace Automation.View
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             var customerRecord = CustomerTable.GetData(customerDGV, _hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
@@ -132,7 +132,7 @@ namespace Automation.View
                 ModuleThickness.SetBackPanelThickness(backPanelThickness.ToString());
         }
 
-        private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void CustomerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (customerDGV.CurrentCell.ColumnIndex != 2 || !(e.Control is ComboBox)) return;
             var comboBox = (ComboBox) e.Control;
@@ -160,7 +160,7 @@ namespace Automation.View
             }
         }
 
-        private void customerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView) sender;
 
@@ -196,7 +196,7 @@ namespace Automation.View
             }
         }
 
-        private void productsDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ProductsDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView) sender;
 
@@ -212,7 +212,7 @@ namespace Automation.View
                     productsDgv.Rows[i].Cells[1].Value = count;
         }
 
-        private void radMenuItem13_Click(object sender, EventArgs e)
+        private void RadMenuItem13_Click(object sender, EventArgs e)
         {
             var allProducts = _presenter.GetAllProducts();
             if (allProducts.Count == 0 || allProducts.Any(x => x.GetCountModules() == 0) )
@@ -223,12 +223,12 @@ namespace Automation.View
             new Results(_presenter).Show();
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             PanelResize();
         }
 
-        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        private void FlowLayoutPanel1_Resize(object sender, EventArgs e)
         {
             PanelResize();
         }

@@ -76,7 +76,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Кухня верхние модули\info.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Кухня верхние модули\scheme 1\kitchen-upper-module-LIB-type1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

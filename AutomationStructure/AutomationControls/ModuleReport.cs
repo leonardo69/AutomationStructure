@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows.Forms;
-using Telerik.WinControls.UI;
 
 namespace Automation.Controls
 {
@@ -24,11 +16,6 @@ namespace Automation.Controls
             BackWallDetails.DataSource = backWallInfo;
             FurnitureDetails.DataSource = furnitureInfo;
             FasadeDetails.DataSource = facadeInfo;
-        }
-
-        public void SetViewDefinitions(ColumnGroupsViewDefinition dimensionsVd, ColumnGroupsViewDefinition detailsVd, ColumnGroupsViewDefinition furnitureVd)
-        {
-            
         }
     }
 }

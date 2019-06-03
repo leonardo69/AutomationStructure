@@ -95,8 +95,8 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1077, 724);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Visible = false;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FlowLayoutPanel1_Paint);
+            this.flowLayoutPanel1.Resize += new System.EventHandler(this.FlowLayoutPanel1_Resize);
             // 
             // panel1
             // 
@@ -127,7 +127,7 @@
             this.turnBtn.Size = new System.Drawing.Size(30, 30);
             this.turnBtn.TabIndex = 0;
             this.turnBtn.UseVisualStyleBackColor = true;
-            this.turnBtn.Click += new System.EventHandler(this.turn_Click);
+            this.turnBtn.Click += new System.EventHandler(this.Turn_Click);
             // 
             // panelCustomer
             // 
@@ -152,7 +152,7 @@
             this.radButton1.Size = new System.Drawing.Size(82, 29);
             this.radButton1.TabIndex = 4;
             this.radButton1.Text = "Применить";
-            this.radButton1.Click += new System.EventHandler(this.button1_Click);
+            this.radButton1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label2
             // 
@@ -179,7 +179,7 @@
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDGV.Size = new System.Drawing.Size(1054, 151);
             this.customerDGV.TabIndex = 1;
-            this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
+            this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellContentClick);
             // 
             // Column1
             // 
@@ -264,7 +264,7 @@
             this.productsDgv.ReadOnly = true;
             this.productsDgv.Size = new System.Drawing.Size(1064, 331);
             this.productsDgv.TabIndex = 2;
-            this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
+            this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDgv_CellContentClick);
             // 
             // Column6
             // 
@@ -326,7 +326,7 @@
             // 
             this.radMenuItem6.Name = "radMenuItem6";
             this.radMenuItem6.Text = "Новый проект";
-            this.radMenuItem6.Click += new System.EventHandler(this.newProjectMI_Click);
+            this.radMenuItem6.Click += new System.EventHandler(this.NewProjectMI_Click);
             // 
             // radMenuSeparatorItem1
             // 
@@ -338,13 +338,13 @@
             // 
             this.radMenuItem7.Name = "radMenuItem7";
             this.radMenuItem7.Text = "Открыть проект";
-            this.radMenuItem7.Click += new System.EventHandler(this.openProjectMI_Click);
+            this.radMenuItem7.Click += new System.EventHandler(this.OpenProjectMI_Click);
             // 
             // radMenuItem8
             // 
             this.radMenuItem8.Name = "radMenuItem8";
             this.radMenuItem8.Text = "Сохранить проект";
-            this.radMenuItem8.Click += new System.EventHandler(this.save_Click);
+            this.radMenuItem8.Click += new System.EventHandler(this.Save_Click);
             // 
             // radMenuSeparatorItem2
             // 
@@ -367,7 +367,7 @@
             // 
             this.radMenuItem10.Name = "radMenuItem10";
             this.radMenuItem10.Text = "Выход";
-            this.radMenuItem10.Click += new System.EventHandler(this.close_Click);
+            this.radMenuItem10.Click += new System.EventHandler(this.Close_Click);
             // 
             // radMenuItem2
             // 
@@ -391,14 +391,14 @@
             // 
             this.radMenuItem11.Name = "radMenuItem11";
             this.radMenuItem11.Text = "Кухня верхние модули";
-            this.radMenuItem11.Click += new System.EventHandler(this.kitchenUpModules_Click);
+            this.radMenuItem11.Click += new System.EventHandler(this.KitchenUpModules_Click);
             // 
             // radMenuItem12
             // 
             this.radMenuItem12.Enabled = false;
             this.radMenuItem12.Name = "radMenuItem12";
             this.radMenuItem12.Text = "Кухня нижние модули";
-            this.radMenuItem12.Click += new System.EventHandler(this.kitchenDownModules_Click);
+            this.radMenuItem12.Click += new System.EventHandler(this.KitchenDownModules_Click);
             // 
             // radMenuSeparatorItem4
             // 
@@ -410,7 +410,7 @@
             // 
             this.radMenuItem13.Name = "radMenuItem13";
             this.radMenuItem13.Text = "Результаты";
-            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
+            this.radMenuItem13.Click += new System.EventHandler(this.RadMenuItem13_Click);
             // 
             // radMenuItem3
             // 
@@ -423,7 +423,7 @@
             // 
             this.radMenuItem4.Name = "radMenuItem4";
             this.radMenuItem4.Text = "О программе";
-            this.radMenuItem4.Click += new System.EventHandler(this.about_Click);
+            this.radMenuItem4.Click += new System.EventHandler(this.About_Click);
             // 
             // radStatusStrip1
             // 
