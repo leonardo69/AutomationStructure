@@ -13,5 +13,18 @@ namespace Automation.Infrastructure
         public DataTable ShelfInfo { get; set; }
         public DataTable FurnitureInfo { get; set; }
         public DataTable LoopsInfo { get; set; }
+
+        public DataTable GetInfoTableByName(string tableName)
+        {
+            switch (tableName)
+            {
+                case "MainInfo": return MainInfo;
+                case "DetailsInfo": return DetailsInfo;
+                case "ShelfInfo": return ShelfInfo;
+                case "FurnitureInfo": return FurnitureInfo;
+                case "LoopsInfo": return LoopsInfo;
+                default: throw new Exception("Таблица не найдена");
+            }
+        }
     }
 }

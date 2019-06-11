@@ -84,9 +84,9 @@ namespace Automation.View
         private void LoadAllDetailsGroupReport()
         {
             DataTable ldspInfo = Presenter.GetLdspAllDetailsGroupInfo();
-            DataTable backWallInfo = null;// Presenter.GetBackWallAllDetailsGroupInfo();
-            DataTable furnitureInfo = null;//= Presenter.GetFurnitureAllDetailsGroupInfo();
-            DataTable facadeInfo = null;// Presenter.GetFacadeAllDetailsGroupInfo();
+            DataTable backWallInfo = Presenter.GetBackWallAllDetailsGroupInfo();
+            DataTable furnitureInfo = Presenter.GetFurnitureAllDetailsGroupInfo();
+            DataTable facadeInfo = Presenter.GetFacadeAllDetailsGroupInfo();
 
             allDetailsGroupComponent.BindData(ldspInfo, backWallInfo, furnitureInfo, facadeInfo);
         }

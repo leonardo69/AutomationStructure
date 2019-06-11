@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Automation.Grouping;
 using Automation.Infrastructure;
 using Automation.Model.MainModels;
 
@@ -174,104 +175,31 @@ namespace Automation.Model
             var category = _project.Categories.GetCategory(CategoryType.KitchenUp);
             category.CreateAllModulesReport(fileName);
         }
-
-
+        
 
         public DataTable GetLdspAllDetailsGroupInfo()
         {
             var modules = _project.Categories.GetAllModules();
-            
-            var ldspInfo = new DataTable();
-            AddDetailsColumns(ldspInfo);
-
-            foreach (var module in modules)
-            {
-                var detailsInfo = module.CalculationResult.DetailsInfo;
-
-                foreach (DataRow row in detailsInfo.Rows)
-                {
-                    if(IsEmptyRow(row)) continue;
-
-                    var resultRow = ldspInfo.NewRow();
-                    // add check if empty
-                    resultRow["№ модуля"] = module.Number;
-                    resultRow["№ детали"] = row["№"];
-                    resultRow["Наименование"] = row["Наименование"];
-                    resultRow["firstMM"] = row["firstMM"];
-                    resultRow["firstEdge"] = row["firstEdge"];
-                    resultRow["secondMM"] = row["secondMM"];
-                    resultRow["secondEdge"] = row["secondEdge"];
-                    resultRow["Количество"] = row["Количество"];
-                    ldspInfo.Rows.Add(resultRow);
-                }
-            }
-
-            return ldspInfo;
-
+            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
         }
-
-        private bool IsEmptyRow(DataRow row)
-        {
-            return string.IsNullOrEmpty(row["№"].ToString()) &&
-                   string.IsNullOrEmpty(row["Наименование"].ToString()) &&
-                   string.IsNullOrEmpty(row["firstMM"].ToString()) &&
-                   string.IsNullOrEmpty(row["firstEdge"].ToString()) &&
-                   string.IsNullOrEmpty(row["secondMM"].ToString()) &&
-                   string.IsNullOrEmpty(row["secondEdge"].ToString()) &&
-                   string.IsNullOrEmpty(row["Количество"].ToString());
-        }
-
-        private static void AddDetailsColumns(DataTable ldspInfo)
-        {
-            ldspInfo.Columns.Add("№ модуля");
-            ldspInfo.Columns.Add("№ детали");
-
-            ldspInfo.Columns.Add("Наименование");
-
-            var firstColumn = new DataColumn
-            {
-                ColumnName = "firstMM",
-                Caption = "ММ"
-            };
-            ldspInfo.Columns.Add(firstColumn);
-
-            var secondColumn = new DataColumn
-            {
-                ColumnName = "firstEdge",
-                Caption = "Кромка"
-            };
-            ldspInfo.Columns.Add(secondColumn);
-
-            var thirdColumn = new DataColumn
-            {
-                ColumnName = "secondMM",
-                Caption = "ММ"
-            };
-            ldspInfo.Columns.Add(thirdColumn);
-
-            var fourthColumn = new DataColumn
-            {
-                ColumnName = "secondEdge",
-                Caption = "Кромка"
-            };
-            ldspInfo.Columns.Add(fourthColumn);
-
-            ldspInfo.Columns.Add("Количество");
-        }
+      
 
         public DataTable GetBackWallAllDetailsGroupInfo()
         {
-            return null;
+            var modules = _project.Categories.GetAllModules();
+            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
         }
 
         public DataTable GetFurnitureAllDetailsGroupInfo()
         {
-            throw new NotImplementedException();
+            var modules = _project.Categories.GetAllModules();
+            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
         }
 
         public DataTable GetFacadeAllDetailsGroupInfo()
         {
-            throw new NotImplementedException();
+            var modules = _project.Categories.GetAllModules();
+            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
         }
     }
 }
