@@ -10,10 +10,10 @@ namespace Automation.Grouping
         {
             switch (tableName)
             {
-                case "DetailsInfo": return new LdspAllDetailsBaseGroup(modules);
-                case "ShelfInfo": return new LdspAllDetailsBaseGroup(modules);
-                case "FurnitureInfo": return new LdspAllDetailsBaseGroup(modules);
-                case "LoopsInfo": return new LdspAllDetailsBaseGroup(modules);
+                case "DetailsInfo": return new LdspGroup(modules);
+                case "ShelfInfo": return new ShelfGroup(modules);
+                case "FurnitureInfo": return new FurnitureGroup(modules);
+                case "LoopsInfo": return new LoopsGroup(modules);
                 default: throw new Exception("Неизвестное название таблицы");
             }
         }

@@ -70,7 +70,7 @@
             this.radPageView1.Location = new System.Drawing.Point(0, 0);
             this.radPageView1.Name = "radPageView1";
             this.radPageView1.SelectedPage = this.radPageViewPage1;
-            this.radPageView1.Size = new System.Drawing.Size(1086, 710);
+            this.radPageView1.Size = new System.Drawing.Size(1086, 714);
             this.radPageView1.TabIndex = 0;
             // 
             // radPageViewPage1
@@ -78,10 +78,10 @@
             this.radPageViewPage1.Controls.Add(this.radCommandBar1);
             this.radPageViewPage1.Controls.Add(this.flowLayoutPanel2);
             this.radPageViewPage1.Description = null;
-            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(134F, 28F);
-            this.radPageViewPage1.Location = new System.Drawing.Point(10, 37);
+            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(130F, 24F);
+            this.radPageViewPage1.Location = new System.Drawing.Point(10, 33);
             this.radPageViewPage1.Name = "radPageViewPage1";
-            this.radPageViewPage1.Size = new System.Drawing.Size(1065, 662);
+            this.radPageViewPage1.Size = new System.Drawing.Size(1065, 670);
             this.radPageViewPage1.Text = "Кухня верхние модули";
             this.radPageViewPage1.Title = "KitchenUp";
             // 
@@ -134,16 +134,16 @@
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, -2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 48);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1065, 664);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1065, 622);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radPageViewPage2
             // 
             this.radPageViewPage2.Controls.Add(this.flowLayoutPanel1);
             this.radPageViewPage2.Description = null;
-            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(131F, 28F);
+            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(127F, 24F);
             this.radPageViewPage2.Location = new System.Drawing.Point(10, 37);
             this.radPageViewPage2.Name = "radPageViewPage2";
             this.radPageViewPage2.Size = new System.Drawing.Size(1065, 662);
@@ -167,23 +167,23 @@
             this.radPageView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPageView2.Location = new System.Drawing.Point(0, 0);
             this.radPageView2.Name = "radPageView2";
-            this.radPageView2.SelectedPage = this.groupPage;
+            this.radPageView2.SelectedPage = this.calculationPage;
             this.radPageView2.Size = new System.Drawing.Size(1107, 758);
             this.radPageView2.TabIndex = 1;
             // 
             // calculationPage
             // 
             this.calculationPage.Controls.Add(this.radPageView1);
-            this.calculationPage.ItemSize = new System.Drawing.SizeF(112F, 28F);
-            this.calculationPage.Location = new System.Drawing.Point(10, 37);
+            this.calculationPage.ItemSize = new System.Drawing.SizeF(108F, 24F);
+            this.calculationPage.Location = new System.Drawing.Point(10, 33);
             this.calculationPage.Name = "calculationPage";
-            this.calculationPage.Size = new System.Drawing.Size(1086, 710);
+            this.calculationPage.Size = new System.Drawing.Size(1086, 714);
             this.calculationPage.Text = "Рассчёты модулей";
             // 
             // groupPage
             // 
             this.groupPage.Controls.Add(this.radPageView3);
-            this.groupPage.ItemSize = new System.Drawing.SizeF(85F, 28F);
+            this.groupPage.ItemSize = new System.Drawing.SizeF(81F, 24F);
             this.groupPage.Location = new System.Drawing.Point(10, 37);
             this.groupPage.Name = "groupPage";
             this.groupPage.Size = new System.Drawing.Size(1086, 710);
@@ -203,16 +203,16 @@
             // allDetailsPage
             // 
             this.allDetailsPage.Controls.Add(this.allDetailsGroupComponent);
-            this.allDetailsPage.ItemSize = new System.Drawing.SizeF(72F, 28F);
-            this.allDetailsPage.Location = new System.Drawing.Point(10, 37);
+            this.allDetailsPage.ItemSize = new System.Drawing.SizeF(68F, 24F);
+            this.allDetailsPage.Location = new System.Drawing.Point(10, 33);
             this.allDetailsPage.Name = "allDetailsPage";
-            this.allDetailsPage.Size = new System.Drawing.Size(1065, 662);
+            this.allDetailsPage.Size = new System.Drawing.Size(1065, 666);
             this.allDetailsPage.Text = "Все детали";
             // 
             // detailsCountPage
             // 
             this.detailsCountPage.Controls.Add(this.detailsCountGroupComponent);
-            this.detailsCountPage.ItemSize = new System.Drawing.SizeF(121F, 28F);
+            this.detailsCountPage.ItemSize = new System.Drawing.SizeF(117F, 24F);
             this.detailsCountPage.Location = new System.Drawing.Point(10, 37);
             this.detailsCountPage.Name = "detailsCountPage";
             this.detailsCountPage.Size = new System.Drawing.Size(1065, 662);
@@ -223,7 +223,7 @@
             this.allDetailsGroupComponent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allDetailsGroupComponent.Location = new System.Drawing.Point(0, 0);
             this.allDetailsGroupComponent.Name = "allDetailsGroupComponent";
-            this.allDetailsGroupComponent.Size = new System.Drawing.Size(1065, 662);
+            this.allDetailsGroupComponent.Size = new System.Drawing.Size(1065, 666);
             this.allDetailsGroupComponent.TabIndex = 0;
             // 
             // detailsCountGroupComponent

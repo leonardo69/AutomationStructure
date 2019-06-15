@@ -21,9 +21,9 @@ namespace Automation.Grouping
 
             foreach (var module in _modules)
             {
-                var detailsInfo = module.CalculationResult.GetInfoTableByName(tableName);
+                var infoTable = module.CalculationResult.GetInfoTableByName(tableName);
 
-                foreach (DataRow row in detailsInfo.Rows)
+                foreach (DataRow row in infoTable.Rows)
                 {
                     if (IsEmptyRow(row)) continue;
 
@@ -34,6 +34,32 @@ namespace Automation.Grouping
             }
             return result;
         }
+
+        public DataTable GetCountGroupInfo(string tableName)
+        {
+            var result = new DataTable();
+            AddCountGroupColumns(result);
+
+            foreach (var module in _modules)
+            {
+                var infoTable = module.CalculationResult.GetInfoTableByName(tableName);
+
+                foreach (DataRow row in infoTable.Rows)
+                {
+                    if (IsEmptyRow(row)) continue;
+
+                    var resultRow = result.NewRow();
+                    MapRow(resultRow, module, row);
+                    result.Rows.Add(resultRow);
+                }
+            }
+
+            
+
+            return result;
+        }
+
+        protected abstract void AddCountGroupColumns(DataTable result);
 
         protected abstract void MapRow(DataRow resultRow, BaseModule module, DataRow row);
 

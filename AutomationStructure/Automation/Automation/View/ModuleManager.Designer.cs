@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radButton4 = new Telerik.WinControls.UI.RadButton();
@@ -69,7 +69,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 208);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(815, 338);
+            this.groupBox2.Size = new System.Drawing.Size(884, 338);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация обо всех модулях";
@@ -81,7 +81,7 @@
             this.groupBox1.Controls.Add(this.radButton2);
             this.groupBox1.Controls.Add(this.modulesLbx);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(719, 18);
+            this.groupBox1.Location = new System.Drawing.Point(788, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(93, 317);
             this.groupBox1.TabIndex = 6;
@@ -122,7 +122,7 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 108);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 95);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
             // 
@@ -135,10 +135,10 @@
             // 
             // 
             // 
-            this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.allModulesInformationDgv.Name = "allModulesInformationDgv";
             this.allModulesInformationDgv.ReadOnly = true;
-            this.allModulesInformationDgv.Size = new System.Drawing.Size(710, 317);
+            this.allModulesInformationDgv.Size = new System.Drawing.Size(779, 317);
             this.allModulesInformationDgv.TabIndex = 1;
             // 
             // groupBox3
@@ -151,14 +151,15 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(815, 199);
+            this.groupBox3.Size = new System.Drawing.Size(884, 199);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройка выбранного модуля";
             // 
             // addTestModulesBtn
             // 
-            this.addTestModulesBtn.Location = new System.Drawing.Point(719, 131);
+            this.addTestModulesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addTestModulesBtn.Location = new System.Drawing.Point(788, 131);
             this.addTestModulesBtn.Name = "addTestModulesBtn";
             this.addTestModulesBtn.Size = new System.Drawing.Size(90, 24);
             this.addTestModulesBtn.TabIndex = 5;
@@ -168,7 +169,7 @@
             // DeleteFacadeBtn
             // 
             this.DeleteFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteFacadeBtn.Location = new System.Drawing.Point(719, 96);
+            this.DeleteFacadeBtn.Location = new System.Drawing.Point(788, 96);
             this.DeleteFacadeBtn.Name = "DeleteFacadeBtn";
             this.DeleteFacadeBtn.Size = new System.Drawing.Size(90, 29);
             this.DeleteFacadeBtn.TabIndex = 4;
@@ -178,7 +179,7 @@
             // AddFacadeBtn
             // 
             this.AddFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddFacadeBtn.Location = new System.Drawing.Point(719, 61);
+            this.AddFacadeBtn.Location = new System.Drawing.Point(788, 61);
             this.AddFacadeBtn.Name = "AddFacadeBtn";
             this.AddFacadeBtn.Size = new System.Drawing.Size(90, 29);
             this.AddFacadeBtn.TabIndex = 3;
@@ -199,16 +200,16 @@
             // 
             // 
             // 
-            this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
             this.selectedModuleInformationDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(710, 172);
+            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(779, 172);
             this.selectedModuleInformationDgv.TabIndex = 3;
             // 
             // radButton1
             // 
             this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton1.Location = new System.Drawing.Point(719, 26);
+            this.radButton1.Location = new System.Drawing.Point(788, 26);
             this.radButton1.Name = "radButton1";
             this.radButton1.Size = new System.Drawing.Size(90, 29);
             this.radButton1.TabIndex = 2;
@@ -227,14 +228,14 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 549);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(890, 549);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // ModuleManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 549);
+            this.ClientSize = new System.Drawing.Size(890, 549);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(829, 529);
             this.Name = "ModuleManager";

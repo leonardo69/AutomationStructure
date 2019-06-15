@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.modulePbx = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -124,7 +124,7 @@
             this.mainInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.mainInfoDgv.MasterTemplate.EnableGrouping = false;
             this.mainInfoDgv.MasterTemplate.EnableSorting = false;
-            this.mainInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.mainInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.mainInfoDgv.Name = "mainInfoDgv";
             this.mainInfoDgv.ReadOnly = true;
             this.mainInfoDgv.Size = new System.Drawing.Size(489, 137);
@@ -159,7 +159,7 @@
             this.detailsDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.detailsDgv.MasterTemplate.EnableGrouping = false;
             this.detailsDgv.MasterTemplate.EnableSorting = false;
-            this.detailsDgv.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.detailsDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.detailsDgv.Name = "detailsDgv";
             this.detailsDgv.Size = new System.Drawing.Size(483, 176);
             this.detailsDgv.TabIndex = 3;
@@ -177,7 +177,7 @@
             this.loopsInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.loopsInfoDgv.MasterTemplate.EnableGrouping = false;
             this.loopsInfoDgv.MasterTemplate.EnableSorting = false;
-            this.loopsInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.loopsInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.loopsInfoDgv.Name = "loopsInfoDgv";
             this.loopsInfoDgv.ReadOnly = true;
             this.loopsInfoDgv.Size = new System.Drawing.Size(483, 109);
@@ -196,7 +196,7 @@
             this.shelfInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.shelfInfoDgv.MasterTemplate.EnableGrouping = false;
             this.shelfInfoDgv.MasterTemplate.EnableSorting = false;
-            this.shelfInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition9;
+            this.shelfInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.shelfInfoDgv.Name = "shelfInfoDgv";
             this.shelfInfoDgv.ReadOnly = true;
             this.shelfInfoDgv.Size = new System.Drawing.Size(483, 176);
@@ -207,7 +207,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.489451F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.51055F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel2.Controls.Add(this.radLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.moduleNameLbl, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.radButton1, 2, 0);
@@ -224,7 +224,7 @@
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radLabel1.Location = new System.Drawing.Point(3, 3);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(66, 24);
+            this.radLabel1.Size = new System.Drawing.Size(56, 24);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Модуль:";
             // 
@@ -239,7 +239,7 @@
             // 
             // radButton1
             // 
-            this.radButton1.Location = new System.Drawing.Point(843, 10);
+            this.radButton1.Location = new System.Drawing.Point(842, 10);
             this.radButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.radButton1.Name = "radButton1";
             this.radButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -284,7 +284,7 @@
             this.furnitureDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.furnitureDgv.MasterTemplate.EnableGrouping = false;
             this.furnitureDgv.MasterTemplate.EnableSorting = false;
-            this.furnitureDgv.MasterTemplate.ViewDefinition = tableViewDefinition10;
+            this.furnitureDgv.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.furnitureDgv.Name = "furnitureDgv";
             this.furnitureDgv.ReadOnly = true;
             this.furnitureDgv.Size = new System.Drawing.Size(948, 80);
@@ -304,6 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 35);

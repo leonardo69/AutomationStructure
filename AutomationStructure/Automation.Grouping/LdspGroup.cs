@@ -4,12 +4,12 @@ using Automation.Infrastructure;
 
 namespace Automation.Grouping
 {
-    class LdspAllDetailsBaseGroup: BaseGroup
+    class LdspGroup: BaseGroup
     {
-        public LdspAllDetailsBaseGroup(List<BaseModule> modules): base(modules)
+        public LdspGroup(List<BaseModule> modules): base(modules)
         {
         }
-
+        
 
         protected override void MapRow(DataRow resultRow, BaseModule module, DataRow row)
         {
@@ -72,6 +72,10 @@ namespace Automation.Grouping
             table.Columns.Add("Количество");
         }
 
+        protected override void AddCountGroupColumns(DataTable result)
+        {
+            throw new System.NotImplementedException();
+        }
 
     }
 }
