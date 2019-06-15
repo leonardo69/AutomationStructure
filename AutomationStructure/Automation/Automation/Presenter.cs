@@ -167,7 +167,7 @@ namespace Automation
            return _blService.GetCurrentProject().Categories.GetAllCategories();
         }
 
-        public Category GetProductByName(string productName)
+        public Category GetCategoryByName(string productName)
         {
            return _blService.GetCurrentProject().Categories.GetCategory((CategoryType)Enum.Parse(typeof(CategoryType),productName));
         }

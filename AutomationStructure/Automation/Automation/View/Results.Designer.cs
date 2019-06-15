@@ -46,6 +46,9 @@
             this.detailsCountPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.allDetailsGroupComponent = new Automation.Controls.ModuleReport();
             this.detailsCountGroupComponent = new Automation.Controls.ModuleReport();
+            this.radLayoutControl1 = new Telerik.WinControls.UI.RadLayoutControl();
+            this.layoutControlItem1 = new Telerik.WinControls.UI.LayoutControlItem();
+            this.layoutControlItem2 = new Telerik.WinControls.UI.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
@@ -59,6 +62,8 @@
             this.radPageView3.SuspendLayout();
             this.allDetailsPage.SuspendLayout();
             this.detailsCountPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).BeginInit();
+            this.radLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,8 +80,7 @@
             // 
             // radPageViewPage1
             // 
-            this.radPageViewPage1.Controls.Add(this.radCommandBar1);
-            this.radPageViewPage1.Controls.Add(this.flowLayoutPanel2);
+            this.radPageViewPage1.Controls.Add(this.radLayoutControl1);
             this.radPageViewPage1.Description = null;
             this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(130F, 24F);
             this.radPageViewPage1.Location = new System.Drawing.Point(10, 33);
@@ -87,12 +91,11 @@
             // 
             // radCommandBar1
             // 
-            this.radCommandBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radCommandBar1.Location = new System.Drawing.Point(0, 0);
+            this.radCommandBar1.Location = new System.Drawing.Point(3, 3);
             this.radCommandBar1.Name = "radCommandBar1";
             this.radCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.commandBarRowElement1});
-            this.radCommandBar1.Size = new System.Drawing.Size(1065, 40);
+            this.radCommandBar1.Size = new System.Drawing.Size(1059, 40);
             this.radCommandBar1.TabIndex = 1;
             // 
             // commandBarRowElement1
@@ -133,10 +136,9 @@
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 48);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 50);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1065, 622);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1059, 617);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radPageViewPage2
@@ -234,6 +236,34 @@
             this.detailsCountGroupComponent.Size = new System.Drawing.Size(1065, 662);
             this.detailsCountGroupComponent.TabIndex = 0;
             // 
+            // radLayoutControl1
+            // 
+            this.radLayoutControl1.Controls.Add(this.flowLayoutPanel2);
+            this.radLayoutControl1.Controls.Add(this.radCommandBar1);
+            this.radLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radLayoutControl1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.radLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.radLayoutControl1.Name = "radLayoutControl1";
+            this.radLayoutControl1.Size = new System.Drawing.Size(1065, 670);
+            this.radLayoutControl1.TabIndex = 2;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.AssociatedControl = this.flowLayoutPanel2;
+            this.layoutControlItem1.Bounds = new System.Drawing.Rectangle(0, 47, 1065, 623);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Text = "";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.AssociatedControl = this.radCommandBar1;
+            this.layoutControlItem2.Bounds = new System.Drawing.Rectangle(0, 0, 1065, 47);
+            this.layoutControlItem2.ControlVerticalAlignment = Telerik.WinControls.UI.RadVerticalAlignment.Center;
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Text = "layoutControlItem2";
+            // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,7 +280,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).EndInit();
             this.radPageView1.ResumeLayout(false);
             this.radPageViewPage1.ResumeLayout(false);
-            this.radPageViewPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();
             this.radPageViewPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPageView2)).EndInit();
@@ -261,6 +290,9 @@
             this.radPageView3.ResumeLayout(false);
             this.allDetailsPage.ResumeLayout(false);
             this.detailsCountPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).EndInit();
+            this.radLayoutControl1.ResumeLayout(false);
+            this.radLayoutControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -285,5 +317,8 @@
         private Telerik.WinControls.UI.RadPageViewPage detailsCountPage;
         private Controls.ModuleReport allDetailsGroupComponent;
         private Controls.ModuleReport detailsCountGroupComponent;
+        private Telerik.WinControls.UI.RadLayoutControl radLayoutControl1;
+        private Telerik.WinControls.UI.LayoutControlItem layoutControlItem1;
+        private Telerik.WinControls.UI.LayoutControlItem layoutControlItem2;
     }
 }

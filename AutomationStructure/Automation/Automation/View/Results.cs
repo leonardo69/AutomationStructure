@@ -28,8 +28,6 @@ namespace Automation.View
             {
                 page.Item.Visibility = ElementVisibility.Collapsed;
             }
-           
-            
         }
 
         private void LoadProducts()
@@ -48,25 +46,38 @@ namespace Automation.View
 
         private void LoadModules(RadPageViewPage page)
         {
-            var productName = page.Title;
-            var product= Presenter.GetProductByName(productName);
-            var modules = product.GetAllModules();  
+            var categoryName = page.Title;
+            var category= Presenter.GetCategoryByName(categoryName);
+            var modules = category.GetAllModules();  
             
-            FlowLayoutPanel panel = flowLayoutPanel2; //get flow control from page
-         
+            var panel = flowLayoutPanel2; //get flow control from page
+           
+            
             foreach (var module in modules)
             {
-                ModuleInfo infoModule = new ModuleInfo();
+                var moduleInfo = new ModuleInfo();
                 var result = module.Calculate();
-                infoModule.BindData(result.ModuleName, result.ImagePath, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
+                moduleInfo.BindData(result.ModuleName, result.ImagePath, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
                     result.FurnitureInfo, result.LoopsInfo);
-                infoModule.Width = flowLayoutPanel2.Width - 3;
-                infoModule.OnModuleExport += CreateModuleReport;
-                panel.Controls.Add(infoModule);
+                moduleInfo.Width = flowLayoutPanel2.Width - 25;
+                moduleInfo.OnModuleExport += CreateModuleReport;
+                panel.Controls.Add(moduleInfo);
             }
-            
+
+            panel.Resize += Panel_Resize;
+
+
         }
 
+        private void Panel_Resize(object sender, EventArgs e)
+        {
+            if (!(sender is FlowLayoutPanel panel)) return;
+
+            foreach (var control in panel.Controls)
+            {
+                ((ModuleInfo) control).Width = panel.Width - 25;
+            }
+        }
 
         private void LoadGroupReport()
         {

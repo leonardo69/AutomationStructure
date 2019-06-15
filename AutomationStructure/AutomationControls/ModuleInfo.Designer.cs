@@ -82,7 +82,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.39241F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(948, 634);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(881, 634);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // modulePbx
@@ -91,7 +91,7 @@
             this.modulePbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modulePbx.Location = new System.Drawing.Point(3, 3);
             this.modulePbx.Name = "modulePbx";
-            this.modulePbx.Size = new System.Drawing.Size(441, 628);
+            this.modulePbx.Size = new System.Drawing.Size(410, 628);
             this.modulePbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.modulePbx.TabIndex = 0;
             this.modulePbx.TabStop = false;
@@ -103,12 +103,12 @@
             this.tableLayoutPanel5.Controls.Add(this.mainInfoDgv, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(450, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(419, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.87918F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.12082F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(495, 628);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(459, 628);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // mainInfoDgv
@@ -127,7 +127,7 @@
             this.mainInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.mainInfoDgv.Name = "mainInfoDgv";
             this.mainInfoDgv.ReadOnly = true;
-            this.mainInfoDgv.Size = new System.Drawing.Size(489, 137);
+            this.mainInfoDgv.Size = new System.Drawing.Size(453, 137);
             this.mainInfoDgv.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -144,7 +144,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(489, 479);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(453, 479);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // detailsDgv
@@ -161,7 +161,7 @@
             this.detailsDgv.MasterTemplate.EnableSorting = false;
             this.detailsDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.detailsDgv.Name = "detailsDgv";
-            this.detailsDgv.Size = new System.Drawing.Size(483, 176);
+            this.detailsDgv.Size = new System.Drawing.Size(447, 176);
             this.detailsDgv.TabIndex = 3;
             // 
             // loopsInfoDgv
@@ -180,7 +180,7 @@
             this.loopsInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.loopsInfoDgv.Name = "loopsInfoDgv";
             this.loopsInfoDgv.ReadOnly = true;
-            this.loopsInfoDgv.Size = new System.Drawing.Size(483, 109);
+            this.loopsInfoDgv.Size = new System.Drawing.Size(447, 109);
             this.loopsInfoDgv.TabIndex = 1;
             // 
             // shelfInfoDgv
@@ -199,7 +199,7 @@
             this.shelfInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.shelfInfoDgv.Name = "shelfInfoDgv";
             this.shelfInfoDgv.ReadOnly = true;
-            this.shelfInfoDgv.Size = new System.Drawing.Size(483, 176);
+            this.shelfInfoDgv.Size = new System.Drawing.Size(447, 176);
             this.shelfInfoDgv.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -207,7 +207,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.489451F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.51055F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel2.Controls.Add(this.radLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.moduleNameLbl, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.radButton1, 2, 0);
@@ -216,7 +216,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(948, 56);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(881, 56);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // radLabel1
@@ -224,7 +224,7 @@
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radLabel1.Location = new System.Drawing.Point(3, 3);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(56, 24);
+            this.radLabel1.Size = new System.Drawing.Size(66, 24);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Модуль:";
             // 
@@ -232,14 +232,14 @@
             // 
             this.moduleNameLbl.AutoSize = false;
             this.moduleNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.moduleNameLbl.Location = new System.Drawing.Point(65, 3);
+            this.moduleNameLbl.Location = new System.Drawing.Point(60, 3);
             this.moduleNameLbl.Name = "moduleNameLbl";
             this.moduleNameLbl.Size = new System.Drawing.Size(100, 20);
             this.moduleNameLbl.TabIndex = 1;
             // 
             // radButton1
             // 
-            this.radButton1.Location = new System.Drawing.Point(842, 10);
+            this.radButton1.Location = new System.Drawing.Point(774, 10);
             this.radButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.radButton1.Name = "radButton1";
             this.radButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -268,7 +268,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(954, 825);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(887, 825);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // furnitureDgv
@@ -287,16 +287,16 @@
             this.furnitureDgv.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.furnitureDgv.Name = "furnitureDgv";
             this.furnitureDgv.ReadOnly = true;
-            this.furnitureDgv.Size = new System.Drawing.Size(948, 80);
+            this.furnitureDgv.Size = new System.Drawing.Size(881, 80);
             this.furnitureDgv.TabIndex = 7;
             // 
             // radLabel2
             // 
             this.radLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radLabel2.Location = new System.Drawing.Point(397, 714);
+            this.radLabel2.Location = new System.Drawing.Point(364, 714);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(159, 22);
+            this.radLabel2.Size = new System.Drawing.Size(159, 24);
             this.radLabel2.TabIndex = 2;
             this.radLabel2.Text = "Фурнитура, материал";
             // 
@@ -304,12 +304,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 35);
             this.Name = "ModuleInfo";
-            this.Size = new System.Drawing.Size(954, 825);
+            this.Size = new System.Drawing.Size(887, 825);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.modulePbx)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
