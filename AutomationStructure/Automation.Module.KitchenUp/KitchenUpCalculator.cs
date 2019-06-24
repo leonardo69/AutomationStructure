@@ -84,9 +84,6 @@ namespace Automation.Module.KitchenUp
             detailsInfo.Rows.Add("6", "задняя панель", FL7(), DF17() + "|" + DF18(), FW7(), DF19() + "|" + DF20(),
                 FN7(), FP7());
             detailsInfo.Rows.Add("ф1", "фасад 1", MF24(), DF21(), MF25(), DF21(), "", "");
-            detailsInfo.Rows.Add("ф2", "фасад 2", "26", "", "27", "", "", "");
-            detailsInfo.Rows.Add("ф3", "фасад 3", "28", "", "29", "", "", "");
-            detailsInfo.Rows.Add("ф4", "фасад 4", "30", "", "31", "", "", "");
             return detailsInfo;
         }
 
@@ -95,32 +92,16 @@ namespace Automation.Module.KitchenUp
             detailsInfo.Columns.Add("№");
             detailsInfo.Columns.Add("Наименование");
 
-            var firstColumn = new DataColumn
-            {
-                ColumnName = "firstMM",
-                Caption = "ММ"
-            };
+            var firstColumn = new DataColumn { ColumnName = "firstMM", Caption = "ММ" };
             detailsInfo.Columns.Add(firstColumn);
 
-            var secondColumn = new DataColumn
-            {
-                ColumnName = "firstEdge",
-                Caption = "Кромка"
-            };
+            var secondColumn = new DataColumn { ColumnName = "firstEdge", Caption = "Кромка" };
             detailsInfo.Columns.Add(secondColumn);
 
-            var thirdColumn = new DataColumn
-            {
-                ColumnName = "secondMM",
-                Caption = "ММ"
-            };
+            var thirdColumn = new DataColumn { ColumnName = "secondMM", Caption = "ММ" };
             detailsInfo.Columns.Add(thirdColumn);
 
-            var fourthColumn = new DataColumn
-            {
-                ColumnName = "secondEdge",
-                Caption = "Кромка"
-            };
+            var fourthColumn = new DataColumn { ColumnName = "secondEdge", Caption = "Кромка" };
             detailsInfo.Columns.Add(fourthColumn);
 
             detailsInfo.Columns.Add("Количество");
@@ -155,13 +136,15 @@ namespace Automation.Module.KitchenUp
             if (Facade.Records.Count == 0)
                 return "";
             var type = Facade.Records[0].Type;
-            if (type == null)
-                return "";
-            if (type == "накладной")
-                return "накладные";
-            if (type.Substring(0, Math.Min(8, type.Length)) == "вкладной")
-                return "вкладные";
-            return "";
+            switch (type)
+            {
+                case null:
+                    return "";
+                case "накладной":
+                    return "накладные";
+                default:
+                    return type.Substring(0, Math.Min(8, type.Length)) == "вкладной" ? "вкладные" : "";
+            }
         }
 
         private string Mat_txt_2_2()
@@ -253,7 +236,6 @@ namespace Automation.Module.KitchenUp
 
         private double Mat6()
         {
-            // ReSharper disable once IdentifierTypo
             double ldspShelfs = 0;
             if (ShelvesCount.Substring(0, Math.Min(4, ShelvesCount.Length)) == "ЛДСП")
                 ldspShelfs = Fl3() * Fw3() * 0.001 * Fn3();

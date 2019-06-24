@@ -182,26 +182,15 @@ namespace Automation
             _blService.CreateAllModulesReport(fileName);
         }
 
-        public DataTable GetLdspAllDetailsGroupInfo()
+        public DataTable GetAllDetailsGroupInfo(string tableName)
         {
-            return _blService.GetLdspAllDetailsGroupInfo();
+            return _blService.GetAllDetailsGroupInfo(tableName);
         }
 
-        public DataTable GetBackWallAllDetailsGroupInfo()
+        public DataTable GetCountGroupInfo(string tableName)
         {
-            return _blService.GetBackWallAllDetailsGroupInfo();
+            return _blService.GetCountGroupInfo(tableName);
         }
-
-        public DataTable GetFurnitureAllDetailsGroupInfo()
-        {
-            return _blService.GetFurnitureAllDetailsGroupInfo();
-        }
-
-        public DataTable GetFacadeAllDetailsGroupInfo()
-        {
-            return _blService.GetFacadeAllDetailsGroupInfo();
-        }
-
 
         public void AddTestModules()
         {

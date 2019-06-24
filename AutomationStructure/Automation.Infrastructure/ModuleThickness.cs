@@ -1,4 +1,6 @@
-﻿namespace Automation.Infrastructure
+﻿using System.Collections.Generic;
+
+namespace Automation.Infrastructure
 {
     public static class ModuleThickness
     {

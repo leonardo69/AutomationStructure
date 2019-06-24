@@ -175,31 +175,19 @@ namespace Automation.Model
             var category = _project.Categories.GetCategory(CategoryType.KitchenUp);
             category.CreateAllModulesReport(fileName);
         }
+
         
 
-        public DataTable GetLdspAllDetailsGroupInfo()
+        public DataTable GetAllDetailsGroupInfo(string tableName)
         {
             var modules = _project.Categories.GetAllModules();
-            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
-        }
-      
-
-        public DataTable GetBackWallAllDetailsGroupInfo()
-        {
-            var modules = _project.Categories.GetAllModules();
-            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
+            return GroupingManager.GetAllDetailsGrouping(tableName, modules);
         }
 
-        public DataTable GetFurnitureAllDetailsGroupInfo()
+        public DataTable GetCountGroupInfo(string tableName)
         {
             var modules = _project.Categories.GetAllModules();
-            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
-        }
-
-        public DataTable GetFacadeAllDetailsGroupInfo()
-        {
-            var modules = _project.Categories.GetAllModules();
-            return GroupingManager.GetAllDetailsGrouping("DetailsInfo", modules);
+            return GroupingManager.GetCountGrouping(tableName, modules);
         }
     }
 }

@@ -47,9 +47,9 @@
     <Compile Include="GroupingManager.cs" />
     <Compile Include="BaseGroup.cs" />
     <Compile Include="LdspGroup.cs" />
-    <Compile Include="LoopsGroup.cs" />
+    <Compile Include="FacadeGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShelfGroup.cs" />
+    <Compile Include="BackPanelGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Automation.Infrastructure\Automation.Infrastructure.csproj">

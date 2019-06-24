@@ -9,10 +9,15 @@ namespace Automation.Grouping
         public static  DataTable GetAllDetailsGrouping(string tableName, List<BaseModule> modules)
         {
             var group = GroupFactory.GetGroup(tableName, modules);
-            return group.GetAllDetailsGroupInfo(tableName);
+            return group.GetAllDetailsGroupInfo();
         }
 
-       
+        public static DataTable GetCountGrouping(string tableName, List<BaseModule> modules)
+        {
+            var group = GroupFactory.GetGroup(tableName, modules);
+            return group.GetCountGroupInfo();
+        }
+
 
     }
 }

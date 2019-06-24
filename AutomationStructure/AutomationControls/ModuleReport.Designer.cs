@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.LDSPDetails = new Telerik.WinControls.UI.RadGridView();
@@ -62,8 +62,6 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -73,6 +71,7 @@
             this.tableLayoutPanel1.Controls.Add(this.radLabel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.radLabel4, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.FasadeDetails, 0, 5);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -82,7 +81,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1042, 773);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1042, 815);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -114,7 +113,7 @@
             this.LDSPDetails.MasterTemplate.AllowDragToGroup = false;
             this.LDSPDetails.MasterTemplate.AllowEditRow = false;
             this.LDSPDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.LDSPDetails.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.LDSPDetails.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.LDSPDetails.Name = "LDSPDetails";
             this.LDSPDetails.ReadOnly = true;
             this.LDSPDetails.Size = new System.Drawing.Size(1030, 149);
@@ -142,7 +141,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.16854F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.83146F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1036, 171);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1036, 185);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // radLabel2
@@ -159,7 +158,7 @@
             // 
             this.BackWallDetails.AutoSizeRows = true;
             this.BackWallDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackWallDetails.Location = new System.Drawing.Point(3, 28);
+            this.BackWallDetails.Location = new System.Drawing.Point(3, 31);
             // 
             // 
             // 
@@ -169,17 +168,17 @@
             this.BackWallDetails.MasterTemplate.AllowDragToGroup = false;
             this.BackWallDetails.MasterTemplate.AllowEditRow = false;
             this.BackWallDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.BackWallDetails.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.BackWallDetails.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.BackWallDetails.Name = "BackWallDetails";
             this.BackWallDetails.ReadOnly = true;
-            this.BackWallDetails.Size = new System.Drawing.Size(1030, 140);
+            this.BackWallDetails.Size = new System.Drawing.Size(1030, 151);
             this.BackWallDetails.TabIndex = 2;
             // 
             // FurnitureDetails
             // 
             this.FurnitureDetails.AutoSizeRows = true;
             this.FurnitureDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FurnitureDetails.Location = new System.Drawing.Point(3, 401);
+            this.FurnitureDetails.Location = new System.Drawing.Point(3, 415);
             // 
             // 
             // 
@@ -189,17 +188,17 @@
             this.FurnitureDetails.MasterTemplate.AllowDragToGroup = false;
             this.FurnitureDetails.MasterTemplate.AllowEditRow = false;
             this.FurnitureDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.FurnitureDetails.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.FurnitureDetails.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.FurnitureDetails.Name = "FurnitureDetails";
             this.FurnitureDetails.ReadOnly = true;
-            this.FurnitureDetails.Size = new System.Drawing.Size(1036, 171);
+            this.FurnitureDetails.Size = new System.Drawing.Size(1036, 185);
             this.FurnitureDetails.TabIndex = 3;
             // 
             // radLabel3
             // 
             this.radLabel3.AutoSize = false;
             this.radLabel3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radLabel3.Location = new System.Drawing.Point(3, 372);
+            this.radLabel3.Location = new System.Drawing.Point(3, 386);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(145, 23);
             this.radLabel3.TabIndex = 6;
@@ -209,7 +208,7 @@
             // 
             this.radLabel4.AutoSize = false;
             this.radLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radLabel4.Location = new System.Drawing.Point(3, 578);
+            this.radLabel4.Location = new System.Drawing.Point(3, 606);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(145, 14);
             this.radLabel4.TabIndex = 7;
@@ -219,7 +218,7 @@
             // 
             this.FasadeDetails.AutoSizeRows = true;
             this.FasadeDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FasadeDetails.Location = new System.Drawing.Point(3, 598);
+            this.FasadeDetails.Location = new System.Drawing.Point(3, 626);
             // 
             // 
             // 
@@ -229,10 +228,10 @@
             this.FasadeDetails.MasterTemplate.AllowDragToGroup = false;
             this.FasadeDetails.MasterTemplate.AllowEditRow = false;
             this.FasadeDetails.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.FasadeDetails.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.FasadeDetails.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.FasadeDetails.Name = "FasadeDetails";
             this.FasadeDetails.ReadOnly = true;
-            this.FasadeDetails.Size = new System.Drawing.Size(1036, 172);
+            this.FasadeDetails.Size = new System.Drawing.Size(1036, 186);
             this.FasadeDetails.TabIndex = 8;
             // 
             // ModuleReport
@@ -241,7 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ModuleReport";
-            this.Size = new System.Drawing.Size(1042, 773);
+            this.Size = new System.Drawing.Size(1042, 815);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LDSPDetails.MasterTemplate)).EndInit();

@@ -120,6 +120,7 @@
             // 
             this.mainInfoDgv.MasterTemplate.AllowAddNewRow = false;
             this.mainInfoDgv.MasterTemplate.AllowDeleteRow = false;
+            this.mainInfoDgv.MasterTemplate.AllowDragToGroup = false;
             this.mainInfoDgv.MasterTemplate.AllowEditRow = false;
             this.mainInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.mainInfoDgv.MasterTemplate.EnableGrouping = false;
@@ -156,6 +157,8 @@
             // 
             this.detailsDgv.MasterTemplate.AllowAddNewRow = false;
             this.detailsDgv.MasterTemplate.AllowDeleteRow = false;
+            this.detailsDgv.MasterTemplate.AllowDragToGroup = false;
+            this.detailsDgv.MasterTemplate.AllowEditRow = false;
             this.detailsDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.detailsDgv.MasterTemplate.EnableGrouping = false;
             this.detailsDgv.MasterTemplate.EnableSorting = false;
@@ -173,6 +176,7 @@
             // 
             this.loopsInfoDgv.MasterTemplate.AllowAddNewRow = false;
             this.loopsInfoDgv.MasterTemplate.AllowDeleteRow = false;
+            this.loopsInfoDgv.MasterTemplate.AllowDragToGroup = false;
             this.loopsInfoDgv.MasterTemplate.AllowEditRow = false;
             this.loopsInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.loopsInfoDgv.MasterTemplate.EnableGrouping = false;
@@ -192,6 +196,7 @@
             // 
             this.shelfInfoDgv.MasterTemplate.AllowAddNewRow = false;
             this.shelfInfoDgv.MasterTemplate.AllowDeleteRow = false;
+            this.shelfInfoDgv.MasterTemplate.AllowDragToGroup = false;
             this.shelfInfoDgv.MasterTemplate.AllowEditRow = false;
             this.shelfInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.shelfInfoDgv.MasterTemplate.EnableGrouping = false;
@@ -207,7 +212,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.489451F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.51055F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel2.Controls.Add(this.radLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.moduleNameLbl, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.radButton1, 2, 0);
@@ -224,7 +229,7 @@
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radLabel1.Location = new System.Drawing.Point(3, 3);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(66, 24);
+            this.radLabel1.Size = new System.Drawing.Size(51, 24);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Модуль:";
             // 
@@ -239,7 +244,7 @@
             // 
             // radButton1
             // 
-            this.radButton1.Location = new System.Drawing.Point(774, 10);
+            this.radButton1.Location = new System.Drawing.Point(773, 10);
             this.radButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.radButton1.Name = "radButton1";
             this.radButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -296,7 +301,7 @@
             this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radLabel2.Location = new System.Drawing.Point(364, 714);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(159, 24);
+            this.radLabel2.Size = new System.Drawing.Size(159, 22);
             this.radLabel2.TabIndex = 2;
             this.radLabel2.Text = "Фурнитура, материал";
             // 

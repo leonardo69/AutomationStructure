@@ -89,15 +89,20 @@ namespace Automation.View
 
         private void LoadDetailsCountGroupReport()
         {
-        
+            var ldspInfo = Presenter.GetCountGroupInfo("DetailsInfo");
+            DataTable backWallInfo = Presenter.GetCountGroupInfo("ShelfInfo");
+            DataTable furnitureInfo =  Presenter.GetCountGroupInfo("FurnitureInfo");
+            DataTable facadeInfo = Presenter.GetCountGroupInfo("LoopsInfo");
+
+            detailsCountGroupComponent.BindData(ldspInfo, backWallInfo, furnitureInfo, facadeInfo);
         }
         
         private void LoadAllDetailsGroupReport()
         {
-            DataTable ldspInfo = Presenter.GetLdspAllDetailsGroupInfo();
-            DataTable backWallInfo = Presenter.GetBackWallAllDetailsGroupInfo();
-            DataTable furnitureInfo = Presenter.GetFurnitureAllDetailsGroupInfo();
-            DataTable facadeInfo = Presenter.GetFacadeAllDetailsGroupInfo();
+            var ldspInfo = Presenter.GetAllDetailsGroupInfo("DetailsInfo");
+            DataTable backWallInfo = Presenter.GetAllDetailsGroupInfo("ShelfInfo");
+            DataTable furnitureInfo = Presenter.GetAllDetailsGroupInfo("FurnitureInfo");
+            DataTable facadeInfo = Presenter.GetAllDetailsGroupInfo("LoopsInfo");
 
             allDetailsGroupComponent.BindData(ldspInfo, backWallInfo, furnitureInfo, facadeInfo);
         }

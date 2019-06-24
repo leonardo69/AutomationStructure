@@ -6,16 +6,19 @@ using Automation.Infrastructure;
 
 namespace Automation.Grouping
 {
-    class LdspGroup: IBaseGroup
+    public class BackPanelGroup: IBaseGroup
     {
+        // TODO: move constants
+        // Create refactoring
+
         private readonly List<BaseModule> _modules;
         private const string LDSP_TABLE_NAME = "DetailsInfo";
 
-        public LdspGroup(List<BaseModule> modules)
+        public BackPanelGroup(List<BaseModule> modules)
         {
             _modules = modules;
         }
-        
+
         public DataTable GetAllDetailsGroupInfo()
         {
             var result = new DataTable();
@@ -27,7 +30,7 @@ namespace Automation.Grouping
 
                 foreach (DataRow row in infoTable.Rows)
                 {
-                    if (IsEmptyRow(row)) continue;
+                    if (IsEmptyRow(row) || !IsBackPanelRow(row)) continue;
 
                     var resultRow = result.NewRow();
                     MapRow(resultRow, module, row);
@@ -37,57 +40,7 @@ namespace Automation.Grouping
             return result;
         }
 
-        public DataTable GetCountGroupInfo()
-        {
-            var result = new DataTable();
-            AddCountGroupColumns(result);
-
-            var rows = new List<DataRow>();
-
-            foreach (var module in _modules)
-            {
-                var infoTable = module.CalculationResult.GetInfoTableByName(LDSP_TABLE_NAME);
-
-                foreach (DataRow row in infoTable.Rows)
-                {
-                    if (IsEmptyRow(row)) continue;
-
-                    rows.Add(row);
-                }
-            }
-
-            var groupRows = rows
-                .Select(x =>
-                    new {
-                        FirstMM = x["FirstMM"],
-                        FirstEdge = x["FirstEdge"],
-                        SecondMM = x["SecondMM"],
-                        SecondEdge = x["SecondEdge"],
-                        Count = x["Количество"],
-                        Mark = x["Примечание"]
-                    }
-                    )
-                    .GroupBy(g => new { g.FirstEdge, g.FirstMM, g.SecondEdge, g.SecondMM, g.Mark })
-                    .Select(s =>
-                    {
-                        var row = result.NewRow();
-                        row["FirstMM"] = s.Key.FirstMM;
-                        row["FirstEdge"] = s.Key.FirstEdge;
-                        row["SecondMM"] = s.Key.SecondMM;
-                        row["SecondEdge"] = s.Key.SecondEdge;
-                        row["Примечание"] = s.Key.Mark;
-                        row["Количество"] = s.Sum(x => Math.Round(Convert.ToDecimal(x.Count), 2));
-                        return row;
-                    })
-                    .ToList();
-
-            result.Rows.Clear();
-
-            groupRows.ForEach(row => result.Rows.Add(row));
-
-            return result;
-        }
-
+        private bool IsBackPanelRow(DataRow row) => row["Наименование"].ToString() == "задняя панель";
 
         private void MapRow(DataRow resultRow, BaseModule module, DataRow row)
         {
@@ -111,7 +64,6 @@ namespace Automation.Grouping
                    string.IsNullOrEmpty(row["secondMM"].ToString()) &&
                    string.IsNullOrEmpty(row["secondEdge"].ToString()) &&
                    string.IsNullOrEmpty(row["Количество"].ToString());
-
         }
 
         private void AddDetailsColumns(DataTable table)
@@ -132,6 +84,60 @@ namespace Automation.Grouping
             table.Columns.Add(fourthColumn);
             table.Columns.Add("Количество");
         }
+        
+
+        // count grouping
+
+        public DataTable GetCountGroupInfo()
+        {
+            var result = new DataTable();
+            AddCountGroupColumns(result);
+
+            var rows = new List<DataRow>();
+
+            foreach (var module in _modules)
+            {
+                var infoTable = module.CalculationResult.GetInfoTableByName(LDSP_TABLE_NAME);
+
+                foreach (DataRow row in infoTable.Rows)
+                {
+                    if (IsEmptyRow(row) || !IsBackPanelRow(row)) continue;
+
+                    rows.Add(row);
+                }
+            }
+
+            var groupRows = rows
+                .Select(x =>
+                    new {
+                        FirstMM = x["FirstMM"],
+                        FirstEdge = x["FirstEdge"],
+                        SecondMM = x["SecondMM"],
+                        SecondEdge = x["SecondEdge"],
+                        Count = x["Количество"],
+                        Mark = x["Примечание"]
+                    }
+                )
+                .GroupBy(g => new { g.FirstEdge, g.FirstMM, g.SecondEdge, g.SecondMM, g.Mark })
+                .Select(s =>
+                {
+                    var row = result.NewRow();
+                    row["FirstMM"] = s.Key.FirstMM;
+                    row["FirstEdge"] = s.Key.FirstEdge;
+                    row["SecondMM"] = s.Key.SecondMM;
+                    row["SecondEdge"] = s.Key.SecondEdge;
+                    row["Примечание"] = s.Key.Mark;
+                    row["Количество"] = s.Sum(x => Math.Round(Convert.ToDecimal(x.Count), 2));
+                    return row;
+                })
+                .ToList();
+
+            result.Rows.Clear();
+
+            groupRows.ForEach(row => result.Rows.Add(row));
+
+            return result;
+        }
 
         private void AddCountGroupColumns(DataTable result)
         {
@@ -147,6 +153,5 @@ namespace Automation.Grouping
             result.Columns.Add("Количество");
             result.Columns.Add("Примечание");
         }
-
     }
 }
