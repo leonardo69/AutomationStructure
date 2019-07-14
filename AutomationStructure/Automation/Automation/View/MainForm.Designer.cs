@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,10 +37,6 @@
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.label2 = new System.Windows.Forms.Label();
             this.customerDGV = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,12 +61,16 @@
             this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
-            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -183,42 +183,6 @@
             this.customerDGV.TabIndex = 1;
             this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellContentClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Материал";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Информация";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 500;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Толщина материала";
-            this.Column5.Items.AddRange(new object[] {
-            "10 мм",
-            "16 мм",
-            "18 мм",
-            "20 мм",
-            "22 мм"});
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 90;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column9.HeaderText = "Помощь";
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "?";
-            this.Column9.ToolTipText = "?";
-            this.Column9.Width = 60;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -324,6 +288,7 @@
             this.radMenuItem10});
             this.radMenuItem1.Name = "radMenuItem1";
             this.radMenuItem1.Text = "Файл";
+            this.radMenuItem1.Click += new System.EventHandler(this.radMenuItem1_Click);
             // 
             // radMenuItem6
             // 
@@ -415,6 +380,20 @@
             this.radMenuItem13.Text = "Результаты";
             this.radMenuItem13.Click += new System.EventHandler(this.RadMenuItem13_Click);
             // 
+            // radMenuItem14
+            // 
+            this.radMenuItem14.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem15});
+            this.radMenuItem14.Name = "radMenuItem14";
+            this.radMenuItem14.Text = "Настройки";
+            // 
+            // radMenuItem15
+            // 
+            this.radMenuItem15.HintText = "";
+            this.radMenuItem15.Name = "radMenuItem15";
+            this.radMenuItem15.Text = "Проектировщик";
+            this.radMenuItem15.ToolTipText = "ввод проектировщиком, изготовителем своих данных";
+            // 
             // radMenuItem3
             // 
             this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
@@ -435,19 +414,41 @@
             this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
             // 
-            // radMenuItem14
+            // Column1
             // 
-            this.radMenuItem14.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem15});
-            this.radMenuItem14.Name = "radMenuItem14";
-            this.radMenuItem14.Text = "Настройки";
+            this.Column1.HeaderText = "Материал";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 90;
             // 
-            // radMenuItem15
+            // Column2
             // 
-            this.radMenuItem15.HintText = "";
-            this.radMenuItem15.Name = "radMenuItem15";
-            this.radMenuItem15.Text = "Проектировщик";
-            this.radMenuItem15.ToolTipText = "ввод проектировщиком, изготовителем своих данных";
+            this.Column2.HeaderText = "Информация";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 500;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Толщина материала";
+            this.Column5.Items.AddRange(new object[] {
+            "10 мм",
+            "16 мм",
+            "18 мм",
+            "20 мм",
+            "22 мм"});
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 200;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column9.HeaderText = "Помощь";
+            this.Column9.Name = "Column9";
+            this.Column9.Text = "?";
+            this.Column9.ToolTipText = "?";
+            this.Column9.Width = 60;
             // 
             // MainForm
             // 
@@ -518,15 +519,15 @@
         private Telerik.WinControls.Themes.Office2010SilverTheme office2010SilverTheme1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
         private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column9;
     }
 }
 

@@ -41,54 +41,61 @@ namespace Automation.View.Model
             {"16 мм", 16}
         };
 
+        private static void CellRowsSet(DataGridViewComboBoxCell dataGridViewComboBoxCell, IEnumerable<object> rows)
+        {
+            dataGridViewComboBoxCell.Items.Clear();
+            dataGridViewComboBoxCell.Value = null;
+            SetCell(rows, dataGridViewComboBoxCell);
+        }
+
         public static void InitCustomerTable(DataGridView dataGridView1)
         {
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
+            for (int i = 1; i <= 4; i++)
+                dataGridView1.Rows.Add();
 
-            dataGridView1.Columns[0].Width = 200;
-            dataGridView1.Columns[1].Width = 500;
-            dataGridView1.Columns[2].Width = 200;
-  
             dataGridView1.Rows[0].Cells[0].Value = "ЛДСП";
             dataGridView1.Rows[1].Cells[0].Value = "Кромка для ЛДСП";
             dataGridView1.Rows[2].Cells[0].Value = "Задняя панель";
             dataGridView1.Rows[3].Cells[0].Value = "Фасад";
 
+            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[2], PlateThickness.Keys.ToArray());
+            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2], KromkaThickness.Keys.ToArray());
+            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2], BackPanelThickness.Keys.ToArray());
 
-            var comboboxCell = (DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[2];
-            comboboxCell.Items.Clear();
-            comboboxCell.Value = null;
 
-            SetCell(PlateThickness.Keys.ToList(), comboboxCell);
+            dataGridView1.Rows[0].Cells[2].Value = "16 мм";
+            dataGridView1.Rows[1].Cells[2].Value = "1";
+            dataGridView1.Rows[2].Cells[2].Value = "4 мм (станд.) ДВА, фанера";
 
-            var comboboxCell2 = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2];
-            comboboxCell2.Items.Clear();
-            comboboxCell2.Value = null;
-
-            SetCell(KromkaThickness.Keys.ToList(), comboboxCell2);
-
-            var comboboxCell3 = (DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2];
-            comboboxCell3.Items.Clear();
-            comboboxCell3.Value = null;
-
-            SetCell(BackPanelThickness.Keys.ToList(), comboboxCell3);
-
-            var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[3];
+            var helpButton = (DataGridViewButtonColumn)dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;
             helpButton.Text = "?";
 
         }
 
+        private static void SetCell(IEnumerable<object> titles, DataGridViewComboBoxCell comboboxCell)
+        {
+            foreach (var title in titles)
+            {
+                comboboxCell.Items.Add(title);
+                if (title.GetType().GetInterface("IProizvoditel") != null)
+                {
+                    if (comboboxCell.DisplayMember != "Name")
+                    {
+                        comboboxCell.DisplayMember = "Name";
+                        comboboxCell.ValueMember = comboboxCell.DisplayMember;
+                    }
+                }
+            }
+        }
+        /*
         private static void SetCell(List<string> titles, DataGridViewComboBoxCell comboboxCell)
         {
             foreach (var title in titles)
             {
                 comboboxCell.Items.Add(title);
             }
-        }
+        }*/
 
         public static List<string[]> GetData(DataGridView dataGridView, string thickness)
         {

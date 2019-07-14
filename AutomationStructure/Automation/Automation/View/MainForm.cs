@@ -239,5 +239,10 @@ namespace Automation.View
             panelCustomer.Width = panel1.Width;
             modulesPanel.Width = panel1.Width;
         }
+
+        private void radMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

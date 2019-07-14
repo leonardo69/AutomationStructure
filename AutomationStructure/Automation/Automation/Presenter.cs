@@ -209,7 +209,7 @@ namespace Automation
 
             var inputFirst = new DataTable();
             AddColumns(inputFirst);
-            AddRow(inputFirst,"1", 100, 150, 200);
+            AddRow(inputFirst,"1", 800, 400, 300);
 
             _blService.UpdateModuleInfo(inputFirst, "1", CategoryType.KitchenUp);
 
@@ -227,7 +227,7 @@ namespace Automation
 
             var input = new DataTable();
             AddColumns(input);
-            AddRow(input, "2", 100, 200, 300);
+            AddRow(input, "2", 1000, 500, 300);
 
             _blService.UpdateModuleInfo(input,"2", CategoryType.KitchenUp);
 
@@ -274,22 +274,22 @@ namespace Automation
             row["Высота модуля (мм)"] = width;
             row["Ширина модуля (мм)"] = length;
             row["Глубина модуля (мм)"] = depth;
-            row["A размер (мм)"] = 4;
-            row["B размер (мм)"] = 5;
-            row["C размер (мм)"] = 6;
-            row["D размер (мм)"] = 7;
-            row["Сборка модуля"] = "не разъёмная(конф.)";
-            row["Задняя стенка"] = "нет";
+            row["A размер (мм)"] = 0;
+            row["B размер (мм)"] = 0;
+            row["C размер (мм)"] = 0;
+            row["D размер (мм)"] = 0;
+            row["Сборка модуля"] = "конфирмат";
+            row["Задняя стенка"] = "на гвозди";
             row["Крепление полки"] = "полкодержатель";
-            row["Кол-во полок"] = "нет";
+            row["Кол-во полок"] = "ЛДСП 2";
             row["№ схемы фасада"] = 1;
-            row["Высота"] = 8;
-            row["Ширина"] = 9;
-            row["Тип фасада"] = "нет";
+            row["Высота"] = moduleNumber == "1" ? 796 : 996;
+            row["Ширина"] = moduleNumber == "1" ? 396 : 496;
+            row["Тип фасада"] = "накладной";
             row["Режим расчёта"] = "авт. фас.";
-            row["Материал фасада"] = "нет";
+            row["Материал фасада"] = "на заказ глухой";
             row["ПОСУДОСУШИЛКА"] = "";
-            row["Навесы на стену"] = "";
+            row["Навесы на стену"] = "универс. (УХО)";
             input.Rows.Add(row);
         }
 
