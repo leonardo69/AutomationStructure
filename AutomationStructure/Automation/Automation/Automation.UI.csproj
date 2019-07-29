@@ -67,6 +67,7 @@
     <Compile Include="View\BigModuleImageInfo.Designer.cs">
       <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Model\ThicknessMapping.cs" />
     <Compile Include="View\ModuleViewGenerator\KitchenUpView.cs" />
     <Compile Include="View\ModuleViewGenerator\ViewGenerator.cs" />
     <Compile Include="View\Results.cs">

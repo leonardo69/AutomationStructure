@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -28,11 +29,25 @@ namespace Automation.View
             comboBox1.SelectedIndex = -1;
         }
 
+        private void SetCell(IList<string> titles, DataGridViewComboBoxCell comboboxCell)
+        {
+            foreach (var title in titles)
+            {
+                comboboxCell.Items.Add(title);
+            }
+        }
+
         private void LoadThirdTable()
         {
             dataGridView3.Rows.Add();
+            //
+            SetCellItems(dataGridView3, 2);
+
             dataGridView3.Rows[0].Cells[1].Value = "Периметр фасада";
             dataGridView3.Rows[0].Cells[0].Style.BackColor = Color.Red;
+
+            //
+            ThicknessMapping.GridLoad(dataGridView3, 2);
         }
 
         private void LoadSecondTable()
@@ -40,6 +55,8 @@ namespace Automation.View
             dataGridView2.Rows.Add();
             dataGridView2.Rows.Add();
             dataGridView2.Rows.Add();
+            //
+            SetCellItems(dataGridView2, 2);
 
             dataGridView2.Rows[0].Cells[1].Value = "Фронт";
             dataGridView2.Rows[0].Cells[0].Style.BackColor = Color.LightSkyBlue;
@@ -47,6 +64,8 @@ namespace Automation.View
             dataGridView2.Rows[1].Cells[0].Style.BackColor = Color.Peru;
             dataGridView2.Rows[2].Cells[1].Value = "Задняя часть";
             dataGridView2.Rows[2].Cells[0].Style.BackColor = Color.AntiqueWhite;
+            //
+            ThicknessMapping.GridLoad(dataGridView2, 2);
         }
 
         private void LoadFirstTable()
@@ -56,9 +75,12 @@ namespace Automation.View
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
+            //
+            SetCellItems(dataGridView1, 2);
 
             dataGridView1.Rows[0].Cells[1].Value = "Фронт";
             dataGridView1.Rows[0].Cells[0].Style.BackColor= Color.LightGray;
+            
             dataGridView1.Rows[1].Cells[1].Value = "Верх";
             dataGridView1.Rows[1].Cells[0].Style.BackColor = Color.Red;
             dataGridView1.Rows[2].Cells[1].Value = "Низ";
@@ -67,6 +89,21 @@ namespace Automation.View
             dataGridView1.Rows[3].Cells[0].Style.BackColor = Color.ForestGreen;
             dataGridView1.Rows[4].Cells[1].Value = "Задн.";
             dataGridView1.Rows[4].Cells[0].Style.BackColor = Color.AntiqueWhite;
+           
+            ThicknessMapping.GridLoad(dataGridView1, 2);
+        }
+
+        private void SetCellItems(DataGridView grdData, int intColumnIndex)
+        {
+            IList<string> lstData = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
+            DataGridViewComboBoxCell comboboxCell;
+            foreach (DataGridViewRow row in grdData.Rows)
+            {
+                comboboxCell = (DataGridViewComboBoxCell)row.Cells[intColumnIndex];
+                comboboxCell.Items.Clear();
+                comboboxCell.Value = null;
+                SetCell(lstData, comboboxCell);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,6 +127,10 @@ namespace Automation.View
             ModuleThickness.BackShelf = ModuleThickness.InputBackShelfConverter(dataGridView2.Rows[2].Cells[2].Value.ToString());
 
             ModuleThickness.Facade = ModuleThickness.InputFacadeConverter(dataGridView3.Rows[0].Cells[2].Value.ToString());
+
+            ThicknessMapping.GridSave(dataGridView1, 2);
+            ThicknessMapping.GridSave(dataGridView2, 2);
+            ThicknessMapping.GridSave(dataGridView3, 2);
         }
 
         private string GetResult()
