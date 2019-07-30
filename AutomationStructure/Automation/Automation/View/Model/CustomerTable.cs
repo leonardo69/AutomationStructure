@@ -41,7 +41,7 @@ namespace Automation.View.Model
             {"16 мм", 16}
         };
 
-        private static void CellRowsSet(DataGridViewComboBoxCell dataGridViewComboBoxCell, IEnumerable<object> rows)
+        private static void CellRowsSet(DataGridViewComboBoxCell dataGridViewComboBoxCell, IEnumerable<string> rows)
         {
             dataGridViewComboBoxCell.Items.Clear();
             dataGridViewComboBoxCell.Value = null;
@@ -73,29 +73,13 @@ namespace Automation.View.Model
 
         }
 
-        private static void SetCell(IEnumerable<object> titles, DataGridViewComboBoxCell comboboxCell)
+        private static void SetCell(IEnumerable<string> titles, DataGridViewComboBoxCell comboboxCell)
         {
             foreach (var title in titles)
             {
                 comboboxCell.Items.Add(title);
-                if (title.GetType().GetInterface("IProizvoditel") != null)
-                {
-                    if (comboboxCell.DisplayMember != "Name")
-                    {
-                        comboboxCell.DisplayMember = "Name";
-                        comboboxCell.ValueMember = comboboxCell.DisplayMember;
-                    }
-                }
             }
         }
-        /*
-        private static void SetCell(List<string> titles, DataGridViewComboBoxCell comboboxCell)
-        {
-            foreach (var title in titles)
-            {
-                comboboxCell.Items.Add(title);
-            }
-        }*/
 
         public static List<string[]> GetData(DataGridView dataGridView, string thickness)
         {
