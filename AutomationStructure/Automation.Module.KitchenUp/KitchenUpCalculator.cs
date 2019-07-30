@@ -511,8 +511,8 @@ namespace Automation.Module.KitchenUp
         {
             if (ShelvesCount == "нет")
                 return "";
-            if (ShelvesCount.Substring(0, Math.Min(4, ShelvesCount.Length)) == "ЛДСП")
-                return "ЛДСП";
+            //if (ShelvesCount.Substring(0, Math.Min(4, ShelvesCount.Length)) == "ЛДСП")
+            //    return "ЛДСП";
             if (ShelvesCount.Substring(0, Math.Min(6, ShelvesCount.Length)) == "стекло")
                 return "стекло";
             return "";
