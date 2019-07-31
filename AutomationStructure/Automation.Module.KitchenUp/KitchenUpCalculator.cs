@@ -65,23 +65,28 @@ namespace Automation.Module.KitchenUp
             return BigImagePath;
         }
 
+        private string KromkaValueJoin(string FirstValue, string SecondValue)
+        {
+
+            return $"{FirstValue}              {SecondValue}";
+        }
 
         public DataTable GetDetailsInfo()
         {
             var detailsInfo = new DataTable {TableName = "Детальная информация"};
             SetDetailsInfoColumns(detailsInfo);
 
-            detailsInfo.Rows.Add("1", "бока", Fl1(), DF1() + "|" + DF2(), Fw1(), DF3() + "|" + DF4(), FN1(), Mf7());
-            detailsInfo.Rows.Add("2", "верх/низ", Fl2(), DF5() + "|" + DF6(), Fw2(), DF7() + "|" + DF8(), FN2(),
+            detailsInfo.Rows.Add("1", "бока", Fl1(), KromkaValueJoin(DF1(),DF2()), Fw1(), KromkaValueJoin(DF3(), DF4()), FN1(), Mf7());
+            detailsInfo.Rows.Add("2", "верх/низ", Fl2(), KromkaValueJoin(DF5(), DF6()), Fw2(), KromkaValueJoin(DF7(), DF8()), FN2(),
                 Mf11());
-            detailsInfo.Rows.Add("3", Fa3(), Fl3(), DF9() + "|" + DF10(), Fw3(), DF11() + "|" + DF12(), Fn3(), Mf15());
+            detailsInfo.Rows.Add("3", Fa3(), Fl3(), KromkaValueJoin(DF9(), DF10()), Fw3(), KromkaValueJoin(DF11(), DF12()), Fn3(), Mf15());
             detailsInfo.Rows.Add("");
             detailsInfo.Rows.Add("4", "задняя стенка", MF41(), "", MF42(), "", "", MF43());
             detailsInfo.Rows.Add("");
-            detailsInfo.Rows.Add("5", "фасад", FL5(), DF17() + "|" + DF18(), FW5(), DF19() + "|" + DF20(), FN5(),
+            detailsInfo.Rows.Add("5", "фасад", FL5(), KromkaValueJoin(DF17(), DF18()), FW5(), KromkaValueJoin(DF19(), DF20()), FN5(),
                 FP5());
             detailsInfo.Rows.Add("");
-            detailsInfo.Rows.Add("6", "задняя панель", FL7(), DF17() + "|" + DF18(), FW7(), DF19() + "|" + DF20(),
+            detailsInfo.Rows.Add("6", "задняя панель", FL7(), KromkaValueJoin(DF17(), DF18()), FW7(), KromkaValueJoin(DF19(), DF20()),
                 FN7(), FP7());
             detailsInfo.Rows.Add("ф1", "фасад 1", MF24(), DF21(), MF25(), DF21(), "", "");
             return detailsInfo;
@@ -957,10 +962,10 @@ namespace Automation.Module.KitchenUp
                     break;
                 case "0,4":
                 case "0.4":
-                    result = "I";
+                    result = "0,4";
                     break;
                 case "2":
-                    result = "V";
+                    result = "2";
                     break;
             }
 
@@ -1004,9 +1009,9 @@ namespace Automation.Module.KitchenUp
                 return "";
             if (Facade.Records[0].Type == "нет" || (int) ModuleThickness.Facade == 0) result = "";
 
-            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 0.4) result = "I";
+            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 0.4) result = "0,4";
 
-            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 2) result = "V";
+            if (Facade.Records[0].Type != "нет" && ModuleThickness.Facade == 2) result = "2";
 
             return result;
         }
