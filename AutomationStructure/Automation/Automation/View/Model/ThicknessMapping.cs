@@ -17,10 +17,11 @@ namespace Automation.View.Model
             DctMaping = new Dictionary<string, object>();
         }
 
-        public static void GridSave(DataGridView grdData, int intColumnIndex)
+        public static void GridSave(DataGridView dataGridView, int intColumnIndex)
         {
-            foreach (DataGridViewRow row in grdData.Rows)
-                DctMaping.Add($"{grdData.Name}.{row.Index.ToString()}", row.Cells[intColumnIndex].Value);
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                if (!DctMaping.ContainsKey($"{dataGridView.Name}.{row.Index.ToString()}"))
+                  DctMaping.Add($"{dataGridView.Name}.{row.Index.ToString()}", row.Cells[intColumnIndex].Value);
         }
 
         public static void GridLoad(DataGridView grdData, int intColumnIndex)

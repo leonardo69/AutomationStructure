@@ -12,7 +12,7 @@ namespace Automation.View
     public partial class ThicknessMaterialEssential : Telerik.WinControls.UI.RadForm
     {
         private MainForm _form;
-
+        private int gridColumnIndex = 2;
         public ThicknessMaterialEssential(MainForm mf)
         {
             _form = mf;
@@ -25,8 +25,8 @@ namespace Automation.View
 
         private void LoadComboboxData()
         {
-            comboBox1.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
-            comboBox1.SelectedIndex = -1;
+            comboBoxPatternValue.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
+            comboBoxPatternValue.SelectedIndex = -1;
         }
 
         private void SetCell(IList<string> titles, DataGridViewComboBoxCell comboboxCell)
@@ -39,70 +39,70 @@ namespace Automation.View
 
         private void LoadThirdTable()
         {
-            dataGridView3.Rows.Add();
+            fasadeThicknessDgv.Rows.Add();
             //
-            SetCellItems(dataGridView3, 2);
+            SetCellItems(fasadeThicknessDgv, 2);
 
-            dataGridView3.Rows[0].Cells[1].Value = "Периметр фасада";
-            dataGridView3.Rows[0].Cells[0].Style.BackColor = Color.Red;
+            fasadeThicknessDgv.Rows[0].Cells[1].Value = "Периметр фасада";
+            fasadeThicknessDgv.Rows[0].Cells[0].Style.BackColor = Color.Red;
 
             //
-            ThicknessMapping.GridLoad(dataGridView3, 2);
+            ThicknessMapping.GridLoad(fasadeThicknessDgv, gridColumnIndex);
         }
 
         private void LoadSecondTable()
         {
-            dataGridView2.Rows.Add();
-            dataGridView2.Rows.Add();
-            dataGridView2.Rows.Add();
+            shelfThicknessDgv.Rows.Add();
+            shelfThicknessDgv.Rows.Add();
+            shelfThicknessDgv.Rows.Add();
             //
-            SetCellItems(dataGridView2, 2);
+            SetCellItems(shelfThicknessDgv, 2);
 
-            dataGridView2.Rows[0].Cells[1].Value = "Фронт";
-            dataGridView2.Rows[0].Cells[0].Style.BackColor = Color.LightSkyBlue;
-            dataGridView2.Rows[1].Cells[1].Value = "Бока Лево/право";
-            dataGridView2.Rows[1].Cells[0].Style.BackColor = Color.Peru;
-            dataGridView2.Rows[2].Cells[1].Value = "Задняя часть";
-            dataGridView2.Rows[2].Cells[0].Style.BackColor = Color.AntiqueWhite;
+            shelfThicknessDgv.Rows[0].Cells[1].Value = "Фронт";
+            shelfThicknessDgv.Rows[0].Cells[0].Style.BackColor = Color.LightSkyBlue;
+            shelfThicknessDgv.Rows[1].Cells[1].Value = "Бока Лево/право";
+            shelfThicknessDgv.Rows[1].Cells[0].Style.BackColor = Color.Peru;
+            shelfThicknessDgv.Rows[2].Cells[1].Value = "Задняя часть";
+            shelfThicknessDgv.Rows[2].Cells[0].Style.BackColor = Color.AntiqueWhite;
             //
-            ThicknessMapping.GridLoad(dataGridView2, 2);
+            ThicknessMapping.GridLoad(shelfThicknessDgv, gridColumnIndex);
         }
 
         private void LoadFirstTable()
         {
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
+            kromkaThicknessDgv.Rows.Add();
+            kromkaThicknessDgv.Rows.Add();
+            kromkaThicknessDgv.Rows.Add();
+            kromkaThicknessDgv.Rows.Add();
+            kromkaThicknessDgv.Rows.Add();
             //
-            SetCellItems(dataGridView1, 2);
+            SetCellItems(kromkaThicknessDgv, 2);
 
-            dataGridView1.Rows[0].Cells[1].Value = "Фронт";
-            dataGridView1.Rows[0].Cells[0].Style.BackColor= Color.LightGray;
+            kromkaThicknessDgv.Rows[0].Cells[1].Value = "Фронт";
+            kromkaThicknessDgv.Rows[0].Cells[0].Style.BackColor= Color.LightGray;
             
-            dataGridView1.Rows[1].Cells[1].Value = "Верх";
-            dataGridView1.Rows[1].Cells[0].Style.BackColor = Color.Red;
-            dataGridView1.Rows[2].Cells[1].Value = "Низ";
-            dataGridView1.Rows[2].Cells[0].Style.BackColor = Color.BlueViolet;
-            dataGridView1.Rows[3].Cells[1].Value = "Бока лево/право";
-            dataGridView1.Rows[3].Cells[0].Style.BackColor = Color.ForestGreen;
-            dataGridView1.Rows[4].Cells[1].Value = "Задн.";
-            dataGridView1.Rows[4].Cells[0].Style.BackColor = Color.AntiqueWhite;
+            kromkaThicknessDgv.Rows[1].Cells[1].Value = "Верх";
+            kromkaThicknessDgv.Rows[1].Cells[0].Style.BackColor = Color.Red;
+            kromkaThicknessDgv.Rows[2].Cells[1].Value = "Низ";
+            kromkaThicknessDgv.Rows[2].Cells[0].Style.BackColor = Color.BlueViolet;
+            kromkaThicknessDgv.Rows[3].Cells[1].Value = "Бока лево/право";
+            kromkaThicknessDgv.Rows[3].Cells[0].Style.BackColor = Color.ForestGreen;
+            kromkaThicknessDgv.Rows[4].Cells[1].Value = "Задн.";
+            kromkaThicknessDgv.Rows[4].Cells[0].Style.BackColor = Color.AntiqueWhite;
            
-            ThicknessMapping.GridLoad(dataGridView1, 2);
+            ThicknessMapping.GridLoad(kromkaThicknessDgv, gridColumnIndex);
         }
 
-        private void SetCellItems(DataGridView grdData, int intColumnIndex)
+        private void SetCellItems(DataGridView dataGridView, int intColumnIndex)
         {
-            IList<string> lstData = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
+            var KromkaThicknessList = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
             DataGridViewComboBoxCell comboboxCell;
-            foreach (DataGridViewRow row in grdData.Rows)
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 comboboxCell = (DataGridViewComboBoxCell)row.Cells[intColumnIndex];
                 comboboxCell.Items.Clear();
                 comboboxCell.Value = null;
-                SetCell(lstData, comboboxCell);
+                SetCell(KromkaThicknessList, comboboxCell);
             }
         }
 
@@ -116,29 +116,29 @@ namespace Automation.View
 
         private void SetupModuleThickness()
         {
-            ModuleThickness.FrontModule = ModuleThickness.InputFrontModuleConverter(dataGridView1.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.UpModule = ModuleThickness.InputUpModuleConverter(dataGridView1.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.DownModule = ModuleThickness.InputDownModuleConverter(dataGridView1.Rows[2].Cells[2].Value.ToString());
-            ModuleThickness.SideModule = ModuleThickness.InputSideModuleConverter(dataGridView1.Rows[3].Cells[2].Value.ToString());
-            ModuleThickness.BackModule = ModuleThickness.InputBackModuleConverter(dataGridView1.Rows[4].Cells[2].Value.ToString());
+            ModuleThickness.FrontModule = ModuleThickness.InputFrontModuleConverter(kromkaThicknessDgv.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.UpModule = ModuleThickness.InputUpModuleConverter(kromkaThicknessDgv.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.DownModule = ModuleThickness.InputDownModuleConverter(kromkaThicknessDgv.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.SideModule = ModuleThickness.InputSideModuleConverter(kromkaThicknessDgv.Rows[3].Cells[2].Value.ToString());
+            ModuleThickness.BackModule = ModuleThickness.InputBackModuleConverter(kromkaThicknessDgv.Rows[4].Cells[2].Value.ToString());
 
-            ModuleThickness.FrontShelf = ModuleThickness.InputFrontShelfConverter(dataGridView2.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.SideShelf = ModuleThickness.InputSideShelfConverter(dataGridView2.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.BackShelf = ModuleThickness.InputBackShelfConverter(dataGridView2.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.FrontShelf = ModuleThickness.InputFrontShelfConverter(shelfThicknessDgv.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.SideShelf = ModuleThickness.InputSideShelfConverter(shelfThicknessDgv.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.BackShelf = ModuleThickness.InputBackShelfConverter(shelfThicknessDgv.Rows[2].Cells[2].Value.ToString());
 
-            ModuleThickness.Facade = ModuleThickness.InputFacadeConverter(dataGridView3.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.Facade = ModuleThickness.InputFacadeConverter(fasadeThicknessDgv.Rows[0].Cells[2].Value.ToString());
 
-            ThicknessMapping.GridSave(dataGridView1, 2);
-            ThicknessMapping.GridSave(dataGridView2, 2);
-            ThicknessMapping.GridSave(dataGridView3, 2);
+            ThicknessMapping.GridSave(kromkaThicknessDgv, 2);
+            ThicknessMapping.GridSave(shelfThicknessDgv, 2);
+            ThicknessMapping.GridSave(fasadeThicknessDgv, 2);
         }
 
         private string GetResult()
         {
             string thickness = string.Empty;
-            thickness += GetThicknessFromDgv(dataGridView1,"Модули");
-            thickness += GetThicknessFromDgv(dataGridView2,"Полка");
-            thickness += GetThicknessFromDgv(dataGridView3,"Фасад");
+            thickness += GetThicknessFromDgv(kromkaThicknessDgv,"Модули");
+            thickness += GetThicknessFromDgv(shelfThicknessDgv,"Полка");
+            thickness += GetThicknessFromDgv(fasadeThicknessDgv,"Фасад");
             return thickness;
         }
 
@@ -148,7 +148,7 @@ namespace Automation.View
             string result = string.Empty;
             result += name+"\n";
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in kromkaThicknessDgv.Rows)
             {
                 result += " Цвет: " + row.Cells[0].Value +",";
                 result += " Часть модуля: " + row.Cells[1].Value + ",";
@@ -157,36 +157,29 @@ namespace Automation.View
             }
             result += "\n";
             return result;
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int index = comboBox1.SelectedIndex;
+            int index = comboBoxPatternValue.SelectedIndex;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in kromkaThicknessDgv.Rows)
             {
                 var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
                 columnCell.Value = columnCell.Items[index];
             }
 
-            foreach (DataGridViewRow row in dataGridView2.Rows)
+            foreach (DataGridViewRow row in shelfThicknessDgv.Rows)
             {
                 var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
                 columnCell.Value = columnCell.Items[index];
             }
 
-            foreach (DataGridViewRow row in dataGridView3.Rows)
+            foreach (DataGridViewRow row in fasadeThicknessDgv.Rows)
             {
                 var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
                 columnCell.Value = columnCell.Items[index];
             }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
