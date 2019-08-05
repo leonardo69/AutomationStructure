@@ -28,52 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThicknessMaterialEssential));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.kromkaThicknessDgv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.shelfThicknessDgv = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.fasadeThicknessDgv = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPatternValue = new System.Windows.Forms.ComboBox();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.radButton2 = new Telerik.WinControls.UI.RadButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kromkaThicknessDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shelfThicknessDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fasadeThicknessDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // kromkaThicknessDgv
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.kromkaThicknessDgv.AllowUserToAddRows = false;
+            this.kromkaThicknessDgv.AllowUserToDeleteRows = false;
+            this.kromkaThicknessDgv.AllowUserToResizeColumns = false;
+            this.kromkaThicknessDgv.AllowUserToResizeRows = false;
+            this.kromkaThicknessDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kromkaThicknessDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(331, 65);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(345, 152);
-            this.dataGridView1.TabIndex = 0;
+            this.kromkaThicknessDgv.Location = new System.Drawing.Point(331, 65);
+            this.kromkaThicknessDgv.MultiSelect = false;
+            this.kromkaThicknessDgv.Name = "kromkaThicknessDgv";
+            this.kromkaThicknessDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.kromkaThicknessDgv.Size = new System.Drawing.Size(345, 152);
+            this.kromkaThicknessDgv.TabIndex = 0;
             // 
             // Column1
             // 
@@ -95,23 +94,23 @@
             "эконом. 2мм"});
             this.Column3.Name = "Column3";
             // 
-            // dataGridView2
+            // shelfThicknessDgv
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.shelfThicknessDgv.AllowUserToAddRows = false;
+            this.shelfThicknessDgv.AllowUserToDeleteRows = false;
+            this.shelfThicknessDgv.AllowUserToResizeColumns = false;
+            this.shelfThicknessDgv.AllowUserToResizeRows = false;
+            this.shelfThicknessDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.shelfThicknessDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView2.Location = new System.Drawing.Point(331, 258);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(345, 152);
-            this.dataGridView2.TabIndex = 0;
+            this.shelfThicknessDgv.Location = new System.Drawing.Point(331, 258);
+            this.shelfThicknessDgv.MultiSelect = false;
+            this.shelfThicknessDgv.Name = "shelfThicknessDgv";
+            this.shelfThicknessDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.shelfThicknessDgv.Size = new System.Drawing.Size(345, 152);
+            this.shelfThicknessDgv.TabIndex = 0;
             // 
             // Column4
             // 
@@ -145,7 +144,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-           // this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(2, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(317, 577);
@@ -162,23 +160,23 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "ФАСАД";
             // 
-            // dataGridView3
+            // fasadeThicknessDgv
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeColumns = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fasadeThicknessDgv.AllowUserToAddRows = false;
+            this.fasadeThicknessDgv.AllowUserToDeleteRows = false;
+            this.fasadeThicknessDgv.AllowUserToResizeColumns = false;
+            this.fasadeThicknessDgv.AllowUserToResizeRows = false;
+            this.fasadeThicknessDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.fasadeThicknessDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewComboBoxColumn1});
-            this.dataGridView3.Location = new System.Drawing.Point(328, 445);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(345, 73);
-            this.dataGridView3.TabIndex = 0;
+            this.fasadeThicknessDgv.Location = new System.Drawing.Point(328, 445);
+            this.fasadeThicknessDgv.MultiSelect = false;
+            this.fasadeThicknessDgv.Name = "fasadeThicknessDgv";
+            this.fasadeThicknessDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.fasadeThicknessDgv.Size = new System.Drawing.Size(345, 73);
+            this.fasadeThicknessDgv.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -209,14 +207,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Общее значение из шаблона:\r\n";
             // 
-            // comboBox1
+            // comboBoxPatternValue
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(498, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxPatternValue.FormattingEnabled = true;
+            this.comboBoxPatternValue.Location = new System.Drawing.Point(498, 17);
+            this.comboBoxPatternValue.Name = "comboBoxPatternValue";
+            this.comboBoxPatternValue.Size = new System.Drawing.Size(120, 21);
+            this.comboBoxPatternValue.TabIndex = 6;
             // 
             // radButton1
             // 
@@ -243,16 +240,15 @@
             this.ClientSize = new System.Drawing.Size(698, 590);
             this.Controls.Add(this.radButton2);
             this.Controls.Add(this.radButton1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxPatternValue);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.fasadeThicknessDgv);
+            this.Controls.Add(this.shelfThicknessDgv);
+            this.Controls.Add(this.kromkaThicknessDgv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-           // this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ThicknessMaterialEssential";
@@ -262,10 +258,10 @@
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Расширенные настройки толщины материала";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kromkaThicknessDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shelfThicknessDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fasadeThicknessDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -276,14 +272,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView kromkaThicknessDgv;
+        private System.Windows.Forms.DataGridView shelfThicknessDgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView fasadeThicknessDgv;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxPatternValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
