@@ -31,8 +31,7 @@ namespace Automation.View.Model
         {
             {"нет", 0},
             {"3,2 мм", 3.2},
-            {"4 мм (станд.) ДВА, фанера", 4},
-            {"4,2 мм ДВП импорт.", 4.2},
+            {"4 мм (станд.)", 4},
             {"6 мм", 6},
             {"8 мм", 8},
             {"10 мм", 10},
@@ -64,7 +63,7 @@ namespace Automation.View.Model
 
             dataGridView1.Rows[0].Cells[2].Value = "16 мм";
             dataGridView1.Rows[1].Cells[2].Value = "1";
-            dataGridView1.Rows[2].Cells[2].Value = "4 мм (станд.) ДВА, фанера";
+            dataGridView1.Rows[2].Cells[2].Value = "4 мм (станд.)";
 
             var helpButton = (DataGridViewButtonColumn)dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;

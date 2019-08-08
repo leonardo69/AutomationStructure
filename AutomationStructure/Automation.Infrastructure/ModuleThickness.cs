@@ -56,11 +56,8 @@ namespace Automation.Infrastructure
                 case "3,2 мм":
                     result = 3.2;
                     break;
-                case "4 мм":
+                case "4 мм (станд.)":
                     result = 4;
-                    break;
-                case "4,2 мм":
-                    result = 4.2;
                     break;
                 case "6 мм":
                     result = 6;
