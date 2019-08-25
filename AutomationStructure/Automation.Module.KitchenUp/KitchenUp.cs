@@ -261,7 +261,8 @@ namespace Automation.Module.KitchenUp
                 Dimensions = _dimensions,
                 Facade = _facade,
                 ShelfAssembly = _shelfAssembly,
-                ShelvesCount = _shelfsCount
+                ShelvesCount = _shelfsCount,
+                Canopies = _canopies
             };
 
 

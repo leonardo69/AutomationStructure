@@ -37,8 +37,6 @@
             this.commandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
             this.commandBarStripElement1 = new Telerik.WinControls.UI.CommandBarStripElement();
             this.commandBarButton1 = new Telerik.WinControls.UI.CommandBarButton();
-            this.layoutControlItem1 = new Telerik.WinControls.UI.LayoutControlItem();
-            this.layoutControlItem2 = new Telerik.WinControls.UI.LayoutControlItem();
             this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radPageView2 = new Telerik.WinControls.UI.RadPageView();
@@ -46,8 +44,10 @@
             this.groupPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.radPageView3 = new Telerik.WinControls.UI.RadPageView();
             this.allDetailsPage = new Telerik.WinControls.UI.RadPageViewPage();
-            this.allDetailsGroupComponent = new Automation.Controls.ModuleReport();
             this.detailsCountPage = new Telerik.WinControls.UI.RadPageViewPage();
+            this.layoutControlItem1 = new Telerik.WinControls.UI.LayoutControlItem();
+            this.layoutControlItem2 = new Telerik.WinControls.UI.LayoutControlItem();
+            this.allDetailsGroupComponent = new Automation.Controls.ModuleReport();
             this.detailsCountGroupComponent = new Automation.Controls.ModuleReport();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
@@ -75,17 +75,17 @@
             this.radPageView1.Location = new System.Drawing.Point(0, 0);
             this.radPageView1.Name = "radPageView1";
             this.radPageView1.SelectedPage = this.radPageViewPage1;
-            this.radPageView1.Size = new System.Drawing.Size(1086, 710);
+            this.radPageView1.Size = new System.Drawing.Size(1086, 763);
             this.radPageView1.TabIndex = 0;
             // 
             // radPageViewPage1
             // 
             this.radPageViewPage1.Controls.Add(this.radLayoutControl1);
             this.radPageViewPage1.Description = null;
-            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(134F, 28F);
-            this.radPageViewPage1.Location = new System.Drawing.Point(10, 37);
+            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(130F, 24F);
+            this.radPageViewPage1.Location = new System.Drawing.Point(10, 33);
             this.radPageViewPage1.Name = "radPageViewPage1";
-            this.radPageViewPage1.Size = new System.Drawing.Size(1065, 662);
+            this.radPageViewPage1.Size = new System.Drawing.Size(1065, 719);
             this.radPageViewPage1.Text = "Кухня верхние модули";
             this.radPageViewPage1.Title = "KitchenUp";
             // 
@@ -99,21 +99,21 @@
             this.layoutControlItem2});
             this.radLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.radLayoutControl1.Name = "radLayoutControl1";
-            this.radLayoutControl1.Size = new System.Drawing.Size(1065, 662);
+            this.radLayoutControl1.Size = new System.Drawing.Size(1065, 719);
             this.radLayoutControl1.TabIndex = 2;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 49);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 53);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1059, 610);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1059, 663);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radCommandBar1
             // 
-            this.radCommandBar1.Location = new System.Drawing.Point(3, 3);
+            this.radCommandBar1.Location = new System.Drawing.Point(3, 5);
             this.radCommandBar1.Name = "radCommandBar1";
             this.radCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.commandBarRowElement1});
@@ -154,29 +154,14 @@
             this.commandBarButton1.UseCompatibleTextRendering = false;
             this.commandBarButton1.Click += new System.EventHandler(this.CommandBarButton1_Click);
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.AssociatedControl = this.flowLayoutPanel2;
-            this.layoutControlItem1.Bounds = new System.Drawing.Rectangle(0, 46, 1065, 616);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Text = "";
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.AssociatedControl = this.radCommandBar1;
-            this.layoutControlItem2.Bounds = new System.Drawing.Rectangle(0, 0, 1065, 46);
-            this.layoutControlItem2.ControlVerticalAlignment = Telerik.WinControls.UI.RadVerticalAlignment.Center;
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            // 
             // radPageViewPage2
             // 
             this.radPageViewPage2.Controls.Add(this.flowLayoutPanel1);
             this.radPageViewPage2.Description = null;
-            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(131F, 28F);
+            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(127F, 24F);
             this.radPageViewPage2.Location = new System.Drawing.Point(10, 37);
             this.radPageViewPage2.Name = "radPageViewPage2";
-            this.radPageViewPage2.Size = new System.Drawing.Size(1065, 662);
+            this.radPageViewPage2.Size = new System.Drawing.Size(1065, 711);
             this.radPageViewPage2.Text = "Кухня нижние модули";
             this.radPageViewPage2.Title = "KitchenDown";
             // 
@@ -187,7 +172,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1065, 662);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1065, 711);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // radPageView2
@@ -197,23 +182,23 @@
             this.radPageView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPageView2.Location = new System.Drawing.Point(0, 0);
             this.radPageView2.Name = "radPageView2";
-            this.radPageView2.SelectedPage = this.groupPage;
+            this.radPageView2.SelectedPage = this.calculationPage;
             this.radPageView2.Size = new System.Drawing.Size(1107, 807);
             this.radPageView2.TabIndex = 1;
             // 
             // calculationPage
             // 
             this.calculationPage.Controls.Add(this.radPageView1);
-            this.calculationPage.ItemSize = new System.Drawing.SizeF(112F, 28F);
-            this.calculationPage.Location = new System.Drawing.Point(10, 37);
+            this.calculationPage.ItemSize = new System.Drawing.SizeF(108F, 24F);
+            this.calculationPage.Location = new System.Drawing.Point(10, 33);
             this.calculationPage.Name = "calculationPage";
-            this.calculationPage.Size = new System.Drawing.Size(1086, 710);
+            this.calculationPage.Size = new System.Drawing.Size(1086, 763);
             this.calculationPage.Text = "Рассчёты модулей";
             // 
             // groupPage
             // 
             this.groupPage.Controls.Add(this.radPageView3);
-            this.groupPage.ItemSize = new System.Drawing.SizeF(85F, 28F);
+            this.groupPage.ItemSize = new System.Drawing.SizeF(81F, 24F);
             this.groupPage.Location = new System.Drawing.Point(10, 37);
             this.groupPage.Name = "groupPage";
             this.groupPage.Size = new System.Drawing.Size(1086, 759);
@@ -233,28 +218,43 @@
             // allDetailsPage
             // 
             this.allDetailsPage.Controls.Add(this.allDetailsGroupComponent);
-            this.allDetailsPage.ItemSize = new System.Drawing.SizeF(72F, 28F);
+            this.allDetailsPage.ItemSize = new System.Drawing.SizeF(68F, 24F);
             this.allDetailsPage.Location = new System.Drawing.Point(10, 37);
             this.allDetailsPage.Name = "allDetailsPage";
-            this.allDetailsPage.Size = new System.Drawing.Size(1065, 662);
+            this.allDetailsPage.Size = new System.Drawing.Size(1065, 711);
             this.allDetailsPage.Text = "Все детали";
+            // 
+            // detailsCountPage
+            // 
+            this.detailsCountPage.Controls.Add(this.detailsCountGroupComponent);
+            this.detailsCountPage.ItemSize = new System.Drawing.SizeF(117F, 24F);
+            this.detailsCountPage.Location = new System.Drawing.Point(10, 33);
+            this.detailsCountPage.Name = "detailsCountPage";
+            this.detailsCountPage.Size = new System.Drawing.Size(1065, 715);
+            this.detailsCountPage.Text = "Количество деталей";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.AssociatedControl = this.flowLayoutPanel2;
+            this.layoutControlItem1.Bounds = new System.Drawing.Rectangle(0, 50, 1065, 669);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Text = "";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.AssociatedControl = this.radCommandBar1;
+            this.layoutControlItem2.Bounds = new System.Drawing.Rectangle(0, 0, 1065, 50);
+            this.layoutControlItem2.ControlVerticalAlignment = Telerik.WinControls.UI.RadVerticalAlignment.Center;
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Text = "layoutControlItem2";
             // 
             // allDetailsGroupComponent
             // 
             this.allDetailsGroupComponent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allDetailsGroupComponent.Location = new System.Drawing.Point(0, 0);
             this.allDetailsGroupComponent.Name = "allDetailsGroupComponent";
-            this.allDetailsGroupComponent.Size = new System.Drawing.Size(1065, 662);
+            this.allDetailsGroupComponent.Size = new System.Drawing.Size(1065, 711);
             this.allDetailsGroupComponent.TabIndex = 0;
-            // 
-            // detailsCountPage
-            // 
-            this.detailsCountPage.Controls.Add(this.detailsCountGroupComponent);
-            this.detailsCountPage.ItemSize = new System.Drawing.SizeF(121F, 28F);
-            this.detailsCountPage.Location = new System.Drawing.Point(10, 37);
-            this.detailsCountPage.Name = "detailsCountPage";
-            this.detailsCountPage.Size = new System.Drawing.Size(1065, 711);
-            this.detailsCountPage.Text = "Количество деталей";
             // 
             // detailsCountGroupComponent
             // 
@@ -263,7 +263,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.detailsCountGroupComponent.Location = new System.Drawing.Point(0, 0);
             this.detailsCountGroupComponent.Name = "detailsCountGroupComponent";
-            this.detailsCountGroupComponent.Size = new System.Drawing.Size(1065, 708);
+            this.detailsCountGroupComponent.Size = new System.Drawing.Size(1065, 712);
             this.detailsCountGroupComponent.TabIndex = 0;
             // 
             // Results
