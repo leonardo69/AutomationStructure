@@ -102,7 +102,7 @@ namespace Automation.View
             var ldspInfo = Presenter.GetAllDetailsGroupInfo("DetailsInfo");
             DataTable backWallInfo = Presenter.GetAllDetailsGroupInfo("ShelfInfo");
             DataTable furnitureInfo = Presenter.GetAllDetailsGroupInfo("FurnitureInfo");
-            DataTable facadeInfo = Presenter.GetAllDetailsGroupInfo("LoopsInfo");
+            DataTable facadeInfo = Presenter.GetAllDetailsGroupInfo("LoopsInfo"); 
 
             allDetailsGroupComponent.BindData(ldspInfo, backWallInfo, furnitureInfo, facadeInfo);
         }

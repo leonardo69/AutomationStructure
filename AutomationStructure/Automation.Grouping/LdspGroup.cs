@@ -71,9 +71,9 @@ namespace Automation.Grouping
                     .Select(s =>
                     {
                         var row = result.NewRow();
-                        row["FirstMM"] = s.Key.FirstMM;
+                        row["FirstMM"] = Math.Round(Convert.ToDecimal(s.Key.FirstMM), 0);
                         row["FirstEdge"] = s.Key.FirstEdge;
-                        row["SecondMM"] = s.Key.SecondMM;
+                        row["SecondMM"] = Math.Round(Convert.ToDecimal(s.Key.SecondMM), 0);
                         row["SecondEdge"] = s.Key.SecondEdge;
                         row["Примечание"] = s.Key.Mark;
                         row["Количество"] = s.Sum(x => Math.Round(Convert.ToDecimal(x.Count), 2));
@@ -94,9 +94,9 @@ namespace Automation.Grouping
             resultRow["№ модуля"] = module.Number;
             resultRow["№ детали"] = row["№"];
             resultRow["Наименование"] = row["Наименование"];
-            resultRow["firstMM"] = row["firstMM"];
+            resultRow["firstMM"] = Math.Round(Convert.ToDecimal(row["firstMM"]), 0);
             resultRow["firstEdge"] = row["firstEdge"];
-            resultRow["secondMM"] = row["secondMM"];
+            resultRow["secondMM"] = Math.Round(Convert.ToDecimal(row["secondMM"]), 0);
             resultRow["secondEdge"] = row["secondEdge"];
             resultRow["Количество"] = row["Количество"];
         }

@@ -20,6 +20,7 @@ namespace Automation.Module.KitchenUp
         public string Number { get; set; }
         public string SubScheme { get; set; }
         public string IconPath { get; set; }
+        public string Canopies { get; set; }
 
         private string BigImagePath
         {
@@ -71,6 +72,20 @@ namespace Automation.Module.KitchenUp
             return $"{FirstValue}              {SecondValue}";
         }
 
+        private string[] PlankaLDSP()
+        {
+            return new[]
+            {
+                "",
+                "для крепления модуля",
+                (Dimensions.Width - ModuleThickness.Plate * 2).ToString(),
+                ModuleThickness.BackShelf.ToString(),
+                (Dimensions.Height - (ModuleThickness.UpModule + ModuleThickness.DownModule + ModuleThickness.Plate * 2)).ToString(),
+                "",
+                "1"
+            };
+
+        }
         public DataTable GetDetailsInfo()
         {
             var detailsInfo = new DataTable {TableName = "Детальная информация"};
@@ -80,7 +95,10 @@ namespace Automation.Module.KitchenUp
             detailsInfo.Rows.Add("2", "верх/низ", Fl2(), KromkaValueJoin(DF5(), DF6()), Fw2(), KromkaValueJoin(DF7(), DF8()), FN2(),
                 Mf11());
             detailsInfo.Rows.Add("3", Fa3(), Fl3(), KromkaValueJoin(DF9(), DF10()), Fw3(), KromkaValueJoin(DF11(), DF12()), Fn3(), Mf15());
-            detailsInfo.Rows.Add("");
+             if (Canopies == "планка ЛДСП // вставляем между боковыми панелями доску ЛДСП шириной 100 мм")
+                 detailsInfo.Rows.Add(PlankaLDSP());
+            else detailsInfo.Rows.Add("");
+            
             detailsInfo.Rows.Add("4", "задняя стенка", MF41(), "", MF42(), "", "", MF43());
             detailsInfo.Rows.Add("");
             detailsInfo.Rows.Add("5", "фасад", FL5(), KromkaValueJoin(DF17(), DF18()), FW5(), KromkaValueJoin(DF19(), DF20()), FN5(),
@@ -467,17 +485,21 @@ namespace Automation.Module.KitchenUp
                 switch (BackPanelAssembly)
                 {
                     case "на гвозди":
-                    case "в четверть":
                         result = Dimensions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
+                                                     ModuleThickness.FrontModule + ModuleThickness.BackModule + 
                                                      ModuleThickness.BackPanel);
                         break;
+                    case "в четверть":
+                        result = Dimensions.Depth - (5 + 4 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
+                                                     ModuleThickness.FrontModule + ModuleThickness.BackModule);
+                        break;
                     case "в паз":
-                        result = Dimensions.Depth - (21 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
-                                                     ModuleThickness.BackPanel);
+                        result = Dimensions.Depth - (5 + 4 + 16 + 1 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
+                                                     ModuleThickness.FrontModule + ModuleThickness.BackModule);
                         break;
                     case "ЛДСП внутрь":
                         result = Dimensions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
-                                                     ModuleThickness.Plate);
+                                                     ModuleThickness.Plate + ModuleThickness.FrontModule + ModuleThickness.BackModule);
                         break;
                 }
 
