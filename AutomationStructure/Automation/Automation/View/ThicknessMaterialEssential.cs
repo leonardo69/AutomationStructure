@@ -25,7 +25,7 @@ namespace Automation.View
 
         private void LoadComboboxData()
         {
-            comboBoxPatternValue.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
+            comboBoxPatternValue.DataSource = CustomerTable.EdgeThicknessDictionary.Keys.Where(x => x != "опционально").ToList();
             comboBoxPatternValue.SelectedIndex = -1;
         }
 
@@ -95,7 +95,7 @@ namespace Automation.View
 
         private void SetCellItems(DataGridView dataGridView, int intColumnIndex)
         {
-            var KromkaThicknessList = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
+            var KromkaThicknessList = CustomerTable.EdgeThicknessDictionary.Keys.Where(x => x != "опционально").ToList();
             DataGridViewComboBoxCell comboboxCell;
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
@@ -116,17 +116,17 @@ namespace Automation.View
 
         private void SetupModuleThickness()
         {
-            ModuleThickness.FrontModule = ModuleThickness.InputFrontModuleConverter(kromkaThicknessDgv.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.UpModule = ModuleThickness.InputUpModuleConverter(kromkaThicknessDgv.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.DownModule = ModuleThickness.InputDownModuleConverter(kromkaThicknessDgv.Rows[2].Cells[2].Value.ToString());
-            ModuleThickness.SideModule = ModuleThickness.InputSideModuleConverter(kromkaThicknessDgv.Rows[3].Cells[2].Value.ToString());
-            ModuleThickness.BackModule = ModuleThickness.InputBackModuleConverter(kromkaThicknessDgv.Rows[4].Cells[2].Value.ToString());
+            ModuleThickness.FrontModuleKant = ModuleThickness.InputFrontModuleConverter(kromkaThicknessDgv.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.UpModuleKant = ModuleThickness.InputUpModuleConverter(kromkaThicknessDgv.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.DownModuleKant = ModuleThickness.InputDownModuleConverter(kromkaThicknessDgv.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.SideModuleKant = ModuleThickness.InputSideModuleConverter(kromkaThicknessDgv.Rows[3].Cells[2].Value.ToString());
+            ModuleThickness.BackModuleKant = ModuleThickness.InputBackModuleConverter(kromkaThicknessDgv.Rows[4].Cells[2].Value.ToString());
 
-            ModuleThickness.FrontShelf = ModuleThickness.InputFrontShelfConverter(shelfThicknessDgv.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.SideShelf = ModuleThickness.InputSideShelfConverter(shelfThicknessDgv.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.BackShelf = ModuleThickness.InputBackShelfConverter(shelfThicknessDgv.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.FrontShelfKant = ModuleThickness.InputFrontShelfConverter(shelfThicknessDgv.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.SideShelfKant = ModuleThickness.InputSideShelfConverter(shelfThicknessDgv.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.BackShelfKant = ModuleThickness.InputBackShelfConverter(shelfThicknessDgv.Rows[2].Cells[2].Value.ToString());
 
-            ModuleThickness.Facade = ModuleThickness.InputFacadeConverter(fasadeThicknessDgv.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.FacadeKant = ModuleThickness.InputFacadeConverter(fasadeThicknessDgv.Rows[0].Cells[2].Value.ToString());
 
             ThicknessMapping.GridSave(kromkaThicknessDgv, 2);
             ThicknessMapping.GridSave(shelfThicknessDgv, 2);

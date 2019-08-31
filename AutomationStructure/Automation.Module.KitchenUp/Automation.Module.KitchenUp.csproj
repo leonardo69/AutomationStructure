@@ -44,11 +44,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Details\DetailsItem.cs" />
     <Compile Include="KitchenUp.cs" />
-    <Compile Include="KitchenUpCalculator.cs" />
+    <Compile Include="Calculator.cs" />
     <Compile Include="KitchenUpFacadeCalculator.cs" />
-    <Compile Include="KitchenUpReports.cs" />
+    <Compile Include="Reports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Automation.Infrastructure\Automation.Infrastructure.csproj">

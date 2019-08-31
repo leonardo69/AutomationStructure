@@ -9,7 +9,7 @@ namespace Automation.Module.KitchenDown
     {
         public KitchenDown()
         {
-            _facade = new Facade();
+            _facades = new Facades();
         }
 
 
@@ -21,7 +21,7 @@ namespace Automation.Module.KitchenDown
 
         public string ShelfGlass { get; set; }
         
-        Facade _facade;
+        Facades _facades;
 
 
         public override void AddFacade()

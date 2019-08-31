@@ -35,24 +35,57 @@ namespace Automation.Infrastructure
         public abstract void AddReportContent(DocX doc);
     }
 
+    /// <summary>
+    /// Размеры модуля
+    /// </summary>
     [Serializable]
     public class Dimensions
     {
+        /// <summary>
+        /// Глубина модуля
+        /// </summary>
         public double Depth { get; set; }
+
+        /// <summary>
+        /// Высота модуля
+        /// </summary>
         public double Height { get; set; }
+
+        /// <summary>
+        /// Ширина модуля
+        /// </summary>
         public double Width { get; set; }
+
+        /// <summary>
+        /// Специальный размер
+        /// </summary>
         public double A { get; set; }
+
+        /// <summary>
+        /// Специальный размер
+        /// </summary>
         public double B { get; set; }
+
+        /// <summary>
+        /// Специальный размер
+        /// </summary>
         public double C { get; set; }
+
+        /// <summary>
+        /// Специальный размер
+        /// </summary>
         public double D { get; set; }
     }
 
+    /// <summary>
+    /// Фасады
+    /// </summary>
     [Serializable]
-    public class Facade
+    public class Facades
     {
         public List<FacadeRecord> Records;
 
-        public Facade()
+        public Facades()
         {
            Records = new List<FacadeRecord>();
         }

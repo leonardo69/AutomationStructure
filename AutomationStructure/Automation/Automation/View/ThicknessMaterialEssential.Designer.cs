@@ -257,7 +257,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Расширенные настройки толщины материала";
+            this.Text = "Расширенные настройки толщин кромок для деталей модуля";
             ((System.ComponentModel.ISupportInitialize)(this.kromkaThicknessDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shelfThicknessDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

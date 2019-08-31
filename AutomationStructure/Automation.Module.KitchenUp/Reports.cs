@@ -7,7 +7,7 @@ using Xceed.Words.NET;
 
 namespace Automation.Module.KitchenUp
 {
-    public class KitchenUpReports
+    public class Reports
     {
         public void CreateReport(Result source, string fileName)
         {

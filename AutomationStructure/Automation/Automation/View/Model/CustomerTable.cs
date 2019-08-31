@@ -15,7 +15,7 @@ namespace Automation.View.Model
             {"22 мм", 22}
         };
 
-        public static Dictionary<string, double> KromkaThickness { get; } = new Dictionary<string, double>
+        public static Dictionary<string, double> EdgeThicknessDictionary { get; } = new Dictionary<string, double>
         {
             {"нет", 0},
             {"0,4 (стандарт)", 0.4},
@@ -53,11 +53,11 @@ namespace Automation.View.Model
 
             dataGridView1.Rows[0].Cells[0].Value = "ЛДСП";
             dataGridView1.Rows[1].Cells[0].Value = "Кромка для ЛДСП";
-            dataGridView1.Rows[2].Cells[0].Value = "Задняя панель";
+            dataGridView1.Rows[2].Cells[0].Value = "Задняя стенка";
             dataGridView1.Rows[3].Cells[0].Value = "Фасад";
 
             CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[2], PlateThickness.Keys.ToArray());
-            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2], KromkaThickness.Keys.ToArray());
+            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2], EdgeThicknessDictionary.Keys.ToArray());
             CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2], BackPanelThickness.Keys.ToArray());
 
 
@@ -81,7 +81,7 @@ namespace Automation.View.Model
 
         public static List<string[]> GetData(DataGridView dataGridView, string thickness)
         {
-            List<string[]> customerInfo = new List<string[]>();
+            var customerInfo = new List<string[]>();
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 string[] record = new string[3];
@@ -89,7 +89,7 @@ namespace Automation.View.Model
                 for (int i = 0; i < 3; i++)
                 {
                     var item = row.Cells[i].Value;
-                    record[i] = item == null ? " " : ((string) item == "подробнее" ? thickness : (string) item);
+                    record[i] = item == null ? " " : (string) item == "подробнее" ? thickness : (string) item;
                 }
 
                 customerInfo.Add(record);

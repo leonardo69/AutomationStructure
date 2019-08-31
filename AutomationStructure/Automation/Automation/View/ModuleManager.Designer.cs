@@ -39,8 +39,6 @@
             this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.addTestModulesBtn = new Telerik.WinControls.UI.RadButton();
-            this.DeleteFacadeBtn = new Telerik.WinControls.UI.RadButton();
-            this.AddFacadeBtn = new Telerik.WinControls.UI.RadButton();
             this.selectedModuleInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,8 +51,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
@@ -122,7 +118,7 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 95);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 82);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
             // 
@@ -144,8 +140,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.addTestModulesBtn);
-            this.groupBox3.Controls.Add(this.DeleteFacadeBtn);
-            this.groupBox3.Controls.Add(this.AddFacadeBtn);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
             this.groupBox3.Controls.Add(this.radButton1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,32 +153,12 @@
             // addTestModulesBtn
             // 
             this.addTestModulesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTestModulesBtn.Location = new System.Drawing.Point(788, 131);
+            this.addTestModulesBtn.Location = new System.Drawing.Point(788, 61);
             this.addTestModulesBtn.Name = "addTestModulesBtn";
-            this.addTestModulesBtn.Size = new System.Drawing.Size(90, 24);
+            this.addTestModulesBtn.Size = new System.Drawing.Size(90, 31);
             this.addTestModulesBtn.TabIndex = 5;
             this.addTestModulesBtn.Text = "TestModules";
             this.addTestModulesBtn.Click += new System.EventHandler(this.AddTestModulesBtn_Click);
-            // 
-            // DeleteFacadeBtn
-            // 
-            this.DeleteFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteFacadeBtn.Location = new System.Drawing.Point(788, 96);
-            this.DeleteFacadeBtn.Name = "DeleteFacadeBtn";
-            this.DeleteFacadeBtn.Size = new System.Drawing.Size(90, 29);
-            this.DeleteFacadeBtn.TabIndex = 4;
-            this.DeleteFacadeBtn.Text = "Удалить фасад";
-            this.DeleteFacadeBtn.Click += new System.EventHandler(this.DeleteFacadeBtn_Click);
-            // 
-            // AddFacadeBtn
-            // 
-            this.AddFacadeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddFacadeBtn.Location = new System.Drawing.Point(788, 61);
-            this.AddFacadeBtn.Name = "AddFacadeBtn";
-            this.AddFacadeBtn.Size = new System.Drawing.Size(90, 29);
-            this.AddFacadeBtn.TabIndex = 3;
-            this.AddFacadeBtn.Text = "Добавить фасад";
-            this.AddFacadeBtn.Click += new System.EventHandler(this.AddFacadeBtn_Click);
             // 
             // selectedModuleInformationDgv
             // 
@@ -209,7 +183,7 @@
             // radButton1
             // 
             this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton1.Location = new System.Drawing.Point(788, 26);
+            this.radButton1.Location = new System.Drawing.Point(788, 23);
             this.radButton1.Name = "radButton1";
             this.radButton1.Size = new System.Drawing.Size(90, 29);
             this.radButton1.TabIndex = 2;
@@ -254,8 +228,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
@@ -267,8 +239,6 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox3;
-        private Telerik.WinControls.UI.RadButton DeleteFacadeBtn;
-        private Telerik.WinControls.UI.RadButton AddFacadeBtn;
         private Telerik.WinControls.UI.RadGridView selectedModuleInformationDgv;
         private Telerik.WinControls.UI.RadButton radButton1;
         private System.Windows.Forms.GroupBox groupBox2;

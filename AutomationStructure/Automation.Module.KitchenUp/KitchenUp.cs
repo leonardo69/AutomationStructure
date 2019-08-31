@@ -12,7 +12,7 @@ namespace Automation.Module.KitchenUp
     {
         private string _calcMode;
         private readonly Dimensions _dimensions;
-        private readonly Facade _facade;
+        private readonly Facades _facades;
         private string _moduleAssembly;
         private string _shelfAssembly;
         private string _shelfsCount;
@@ -21,9 +21,9 @@ namespace Automation.Module.KitchenUp
 
         public KitchenUp()
         {
-            _facade = new Facade();
+            _facades = new Facades();
             var countRows = GetCountRows();
-            _facade.InitFacadeRecords(countRows);
+            _facades.InitFacadeRecords(countRows);
             _dimensions = new Dimensions();
             _shelfsCount = "";
             _dishDrayer = "-";
@@ -32,20 +32,20 @@ namespace Automation.Module.KitchenUp
 
         public override void AddFacade()
         {
-            if (_facade.Records.Count == 4)
+            if (_facades.Records.Count == 4)
                 throw new ArgumentException("Количество фасадов не может быть больше четырёх");
             var facade = new FacadeRecord
             {
-                NumberOnScheme = _facade.Records.Count + 1
+                NumberOnScheme = _facades.Records.Count + 1
             };
-            _facade.Records.Add(facade);
+            _facades.Records.Add(facade);
         }
 
         public override void DeleteFacade()
         {
-            if (_facade.Records.Count == 0)
+            if (_facades.Records.Count == 0)
                 throw new ArgumentException("Количество фасадов не может быть меньше нуля");
-            _facade.Records.RemoveAt(_facade.Records.Count - 1);
+            _facades.Records.RemoveAt(_facades.Records.Count - 1);
         }
 
 
@@ -73,10 +73,10 @@ namespace Automation.Module.KitchenUp
             var formula = IconPath.Split('_')[1];
             if (facadeNumber > 0 && _calcMode == "авт. мод.")
             {
-                _facade.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
-                _facade.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
+                _facades.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
+                _facades.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
                 var calculator = new KitchenUpFacadeCalculator();
-                calculator.CalculateModuleDimensions(_facade, _dimensions, formula);
+                calculator.CalculateModuleDimensions(_facades, _dimensions, formula);
             }
 
             if (!double.TryParse(row["Глубина модуля (мм)"].ToString(), out var depth))
@@ -111,9 +111,9 @@ namespace Automation.Module.KitchenUp
 
             if (facadeNumber <= 0)
                 return;
-            _facade.Records[0].NumberOnScheme = facadeNumber;
-            _facade.Records[0].Type = row["Тип фасада"].ToString();
-            _facade.Records[0].Material = row["Материал фасада"].ToString();
+            _facades.Records[0].NumberOnScheme = facadeNumber;
+            _facades.Records[0].Type = row["Тип фасада"].ToString();
+            _facades.Records[0].Material = row["Материал фасада"].ToString();
 
             for (var i = 0; i < changedInfo.Rows.Count; i++)
             {
@@ -121,12 +121,12 @@ namespace Automation.Module.KitchenUp
                 if (_calcMode == "авт. фас.")
                 {
                     var calculator = new KitchenUpFacadeCalculator();
-                    calculator.CalculateFacadeDimensions(_facade, _dimensions, formula, i);
+                    calculator.CalculateFacadeDimensions(_facades, _dimensions, formula, i);
                 }
                 else
                 {
-                    _facade.Records[i].HorizontalDimension = double.Parse(row["Ширина"].ToString());
-                    _facade.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
+                    _facades.Records[i].HorizontalDimension = double.Parse(row["Ширина"].ToString());
+                    _facades.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
                 }
             }
 
@@ -153,14 +153,14 @@ namespace Automation.Module.KitchenUp
             row["Крепление полки"] = _shelfAssembly;
             row["Кол-во полок"] = _shelfsCount;
 
-            if (_facade.Records.Count != 0)
+            if (_facades.Records.Count != 0)
             {
-                row["№ схемы фасада"] = _facade.Records[0].NumberOnScheme;
-                row["Тип фасада"] = _facade.Records[0].Type;
+                row["№ схемы фасада"] = _facades.Records[0].NumberOnScheme;
+                row["Тип фасада"] = _facades.Records[0].Type;
                 row["Режим расчёта"] = _calcMode;
-                row["Высота"] = _facade.Records[0].VerticalDimension;
-                row["Ширина"] = _facade.Records[0].HorizontalDimension;
-                row["Материал фасада"] = _facade.Records[0].Material;
+                row["Высота"] = _facades.Records[0].VerticalDimension;
+                row["Ширина"] = _facades.Records[0].HorizontalDimension;
+                row["Материал фасада"] = _facades.Records[0].Material;
             }
             else
             {
@@ -169,12 +169,12 @@ namespace Automation.Module.KitchenUp
 
             table.Rows.Add(row);
 
-            for (var i = 1; i < _facade.Records.Count; i++)
+            for (var i = 1; i < _facades.Records.Count; i++)
             {
                 var anotherRow = table.NewRow();
-                anotherRow["№ схемы фасада"] = _facade.Records[i].NumberOnScheme;
-                anotherRow["Высота"] = _facade.Records[i].VerticalDimension;
-                anotherRow["Ширина"] = _facade.Records[i].HorizontalDimension;
+                anotherRow["№ схемы фасада"] = _facades.Records[i].NumberOnScheme;
+                anotherRow["Высота"] = _facades.Records[i].VerticalDimension;
+                anotherRow["Ширина"] = _facades.Records[i].HorizontalDimension;
                 table.Rows.Add(anotherRow);
             }
             
@@ -250,7 +250,7 @@ namespace Automation.Module.KitchenUp
 
         public override Result Calculate()
         {
-            var calculator = new KitchenUpCalculator
+            var calculator = new Calculator
             {
                 Name = Name,
                 Scheme = Scheme,
@@ -259,12 +259,12 @@ namespace Automation.Module.KitchenUp
                 Number = Number,
                 SubScheme = SubScheme,
                 Dimensions = _dimensions,
-                Facade = _facade,
+                Facades = _facades,
                 ShelfAssembly = _shelfAssembly,
                 ShelvesCount = _shelfsCount,
                 Canopies = _canopies
             };
-
+            
 
             CalculationResult = new Result
             {
@@ -283,14 +283,14 @@ namespace Automation.Module.KitchenUp
         public override void CreateReport(string pathToSave)
         {
             if(CalculationResult == null) throw new Exception("Сначала выполните расcчёт");
-            var reportManager = new KitchenUpReports();
+            var reportManager = new Reports();
             reportManager.CreateReport(CalculationResult, pathToSave);
         }
 
         public override void AddReportContent(DocX doc)
         {
             if (CalculationResult == null) throw new Exception("Сначала выполните расcчёт");
-            var reportManager = new KitchenUpReports();
+            var reportManager = new Reports();
             reportManager.AddReportContent(doc, CalculationResult);
         }
     }

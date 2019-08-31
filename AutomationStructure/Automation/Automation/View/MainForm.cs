@@ -20,6 +20,7 @@ namespace Automation.View
         {
             InitializeComponent();
             InitCustomerTable();
+           
         }
 
         private void About_Click(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace Automation.View
         {
             flowLayoutPanel1.Visible = true;
             _presenter.NewProject();
+            var moduleModuleThicknessInfo = ModuleThickness.GetModuleThickness();
             radMenuItem2.Visibility = ElementVisibility.Visible;
         }
 
@@ -116,14 +118,14 @@ namespace Automation.View
         {
             var customerRecord = CustomerTable.GetData(customerDGV, _hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
-            SetMoluleThickness();
+            SetModuleThickness();
         }
 
-        private void SetMoluleThickness()
+        private void SetModuleThickness()
         {
             var thickness = customerDGV.Rows[1].Cells[2].Value;
             if (thickness != null && thickness.ToString() != "опционально")
-                ModuleThickness.SetAllSameValues(thickness.ToString());
+                ModuleThickness.SetValueForKantsThickness(thickness.ToString());
             var plateThickness = customerDGV.Rows[0].Cells[2].Value;
             if (plateThickness != null)
                 ModuleThickness.SetPlateThickness(plateThickness.ToString());
@@ -238,6 +240,22 @@ namespace Automation.View
             panel1.Width = flowLayoutPanel1.Width - 10;
             panelCustomer.Width = panel1.Width;
             modulesPanel.Width = panel1.Width;
+        }
+
+        private void radMenuItem9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMenu1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMenuItem14_Click(object sender, EventArgs e)
+        {
+            var info = ModuleThickness.GetModuleThickness();
+            MessageBox.Show(info);
         }
     }
 }

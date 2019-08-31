@@ -221,55 +221,6 @@ namespace Automation.View
             selectedModuleInformationDgv.Refresh();
         }
 
-        private void AddFacadeBtn_Click(object sender, EventArgs e)
-        {
-            if (modulesLbx.SelectedItem == null)
-            {
-                MessageBox.Show("Не выбран модуль из списка");
-                return;
-            }
-
-            var moduleNumber = modulesLbx.SelectedItem.ToString();
-            try
-            {
-                Presenter.AddFacade(moduleNumber, GetProductType());
-            }
-            catch (ArgumentException exp)
-            {
-                MessageBox.Show(exp.Message);
-                return;
-            }
-
-            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
-            Presenter.UpdateTotalModules(GetProductType());
-            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
-            selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
-        }
-
-        private void DeleteFacadeBtn_Click(object sender, EventArgs e)
-        {
-            if (modulesLbx.SelectedItem == null)
-            {
-                MessageBox.Show("Не выбран модуль из списка");
-                return;
-            }
-
-            var moduleNumber = modulesLbx.SelectedItem.ToString();
-            try
-            {
-                Presenter.DeleteFacade(moduleNumber, GetProductType());
-            }
-            catch (ArgumentException exp)
-            {
-                MessageBox.Show(exp.Message);
-                return;
-            }
-
-            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
-            Presenter.UpdateTotalModules(GetProductType());
-            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
-            selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
-        }
 
         private void AddTestModulesBtn_Click(object sender, EventArgs e)
         {
