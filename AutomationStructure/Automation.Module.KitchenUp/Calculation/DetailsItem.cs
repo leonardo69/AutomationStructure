@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
-namespace Automation.Module.KitchenUp.Details
+namespace Automation.Module.KitchenUp.Calculation
 {
     public class DetailsItem
     {
@@ -71,6 +65,7 @@ namespace Automation.Module.KitchenUp.Details
             var lengthKant = length < 0.1 ? "" : length.ToString(CultureInfo.InvariantCulture);
             return $"{widthKant}       {lengthKant}";
         }
+
     }
 
     public class Kant

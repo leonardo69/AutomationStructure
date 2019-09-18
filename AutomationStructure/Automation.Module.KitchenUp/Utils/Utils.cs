@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Automation.Module.KitchenUp
+namespace Automation.Module.KitchenUp.Utils
 {
     public static class Utils
     {

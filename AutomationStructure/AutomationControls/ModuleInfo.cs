@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Telerik.WinControls.UI;
 
 namespace Automation.Controls
 {
@@ -22,16 +21,9 @@ namespace Automation.Controls
             modulePbx.Load(imagePath);
             mainInfoDgv.DataSource = dimensionsInfo;
             detailsDgv.DataSource = detailsInfo;
-            loopsInfoDgv.DataSource = loopsInfo;
-            shelfInfoDgv.DataSource = shelfInfo;
+            // loopsInfoDgv.DataSource = loopsInfo;
+            // shelfInfoDgv.DataSource = shelfInfo;
             furnitureDgv.DataSource = furnitureInfo;
-        }
-
-        public void SetViewDefinitions(ColumnGroupsViewDefinition dimensionsVd, ColumnGroupsViewDefinition detailsVd, ColumnGroupsViewDefinition furnitureVd)
-        {
-            mainInfoDgv.ViewDefinition = dimensionsVd;
-            detailsDgv.ViewDefinition = detailsVd;
-            furnitureDgv.DataSource = furnitureVd;
         }
 
         private void moduleReportBtn_Click(object sender, EventArgs e)

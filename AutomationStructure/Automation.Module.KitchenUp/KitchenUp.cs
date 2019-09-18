@@ -3,6 +3,10 @@ using System.Data;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Automation.Infrastructure;
+using Automation.Module.KitchenUp.Calculation;
+using Automation.Module.KitchenUp.Core;
+using Automation.Module.KitchenUp.Report;
+using Automation.Module.KitchenUp.ResultTables;
 using Xceed.Words.NET;
 
 namespace Automation.Module.KitchenUp
@@ -10,195 +14,26 @@ namespace Automation.Module.KitchenUp
     [Serializable]
     public class KitchenUp : BaseModule
     {
-        private string _calcMode;
-        private readonly Dimensions _dimensions;
-        private readonly Facades _facades;
-        private string _moduleAssembly;
-        private string _shelfAssembly;
-        private string _shelfsCount;
-        private string _dishDrayer;
-        private string _canopies;
+        private Core.Module _module;
 
         public KitchenUp()
         {
-            _facades = new Facades();
-            var countRows = GetCountRows();
-            _facades.InitFacadeRecords(countRows);
-            _dimensions = new Dimensions();
-            _shelfsCount = "";
-            _dishDrayer = "-";
-            _canopies = "универс. (УХО)";
-        }
-
-        public override void AddFacade()
-        {
-            if (_facades.Records.Count == 4)
-                throw new ArgumentException("Количество фасадов не может быть больше четырёх");
-            var facade = new FacadeRecord
-            {
-                NumberOnScheme = _facades.Records.Count + 1
-            };
-            _facades.Records.Add(facade);
-        }
-
-        public override void DeleteFacade()
-        {
-            if (_facades.Records.Count == 0)
-                throw new ArgumentException("Количество фасадов не может быть меньше нуля");
-            _facades.Records.RemoveAt(_facades.Records.Count - 1);
+            _module = new Core.Module();
         }
 
 
         public override void SetupModule(DataTable changedInfo)
         {
-            var row = changedInfo.Rows[0];
-            Number = row["Номер модуля"].ToString();
-            IconPath = row["Изображение"].ToString();
-            Scheme = row["Форма модуля"].ToString();
-            if (!double.TryParse(row["Высота модуля (мм)"].ToString(), out var height))
-                throw new ArgumentException("Высота модуля должна быть числом");
-            if (height < 0)
-                throw new ArgumentException("Высота модуля не может быть отрицательной");
-            _dimensions.Height = height;
-            if (!double.TryParse(row["Ширина модуля (мм)"].ToString(), out var width))
-                throw new ArgumentException("Ширина модуля должна быть числом");
-            if (width < 0)
-                throw new ArgumentException("Ширина модуля не может быть отрицательной");
-            _dimensions.Width = width;
-
-
-            if (!int.TryParse(row["№ схемы фасада"].ToString(), out var facadeNumber))
-                throw new ArgumentException("№ схемы фасада должен быть целым числом");
-            _calcMode = row["Режим расчёта"].ToString();
-            var formula = IconPath.Split('_')[1];
-            if (facadeNumber > 0 && _calcMode == "авт. мод.")
-            {
-                _facades.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
-                _facades.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
-                var calculator = new KitchenUpFacadeCalculator();
-                calculator.CalculateModuleDimensions(_facades, _dimensions, formula);
-            }
-
-            if (!double.TryParse(row["Глубина модуля (мм)"].ToString(), out var depth))
-                throw new ArgumentException("Глубина модуля должна быть числом");
-            if (depth < 0)
-                throw new ArgumentException("Глубина модуля не может быть отрицательной");
-            _dimensions.Depth = depth;
-            if (!double.TryParse(row["A размер (мм)"].ToString(), out var a))
-                throw new ArgumentException("A размер должен быть числом");
-            if (a < 0)
-                throw new ArgumentException("A размер не может быть отрицательным");
-            _dimensions.A = a;
-            if (!double.TryParse(row["B размер (мм)"].ToString(), out var b))
-                throw new ArgumentException("B размер должен быть числом");
-            if (b < 0)
-                throw new ArgumentException("B размер не может быть отрицательным");
-            _dimensions.B = b;
-            if (!double.TryParse(row["C размер (мм)"].ToString(), out var c))
-                throw new ArgumentException("C размер должен быть числом");
-            if (c < 0)
-                throw new ArgumentException("C размер не может быть отрицательным");
-            _dimensions.C = c;
-            if (!double.TryParse(row["D размер (мм)"].ToString(), out var d))
-                throw new ArgumentException("D размер должен быть числом");
-            if (d < 0)
-                throw new ArgumentException("D размер не может быть отрицательным");
-            _dimensions.D = d;
-            _moduleAssembly = row["Сборка модуля"].ToString();
-            BackPanelAssembly = row["Задняя стенка"].ToString();
-            _shelfAssembly = row["Крепление полки"].ToString();
-            _shelfsCount = row["Кол-во полок"].ToString();
-
-            if (facadeNumber <= 0)
-                return;
-            _facades.Records[0].NumberOnScheme = facadeNumber;
-            _facades.Records[0].Type = row["Тип фасада"].ToString();
-            _facades.Records[0].Material = row["Материал фасада"].ToString();
-
-            for (var i = 0; i < changedInfo.Rows.Count; i++)
-            {
-                row = changedInfo.Rows[i];
-                if (_calcMode == "авт. фас.")
-                {
-                    var calculator = new KitchenUpFacadeCalculator();
-                    calculator.CalculateFacadeDimensions(_facades, _dimensions, formula, i);
-                }
-                else
-                {
-                    _facades.Records[i].HorizontalDimension = double.Parse(row["Ширина"].ToString());
-                    _facades.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
-                }
-            }
-
-
-            _dishDrayer = row["ПОСУДОСУШИЛКА"].ToString();
-            _canopies = row["Навесы на стену"].ToString(); 
+            var changedModule = ModuleMapper.Setup(changedInfo);
+            _module = changedModule;
+            CalculationResult = null;
         }
 
         public override void GetInfoRows(DataTable table)
         {
-            var row = table.NewRow();
-            row["Номер модуля"] = Number;
-            row["Форма модуля"] = Scheme;
-            row["Изображение"] = IconPath;
-            row["Высота модуля (мм)"] = _dimensions.Height;
-            row["Ширина модуля (мм)"] = _dimensions.Width;
-            row["Глубина модуля (мм)"] = _dimensions.Depth;
-            row["A размер (мм)"] = _dimensions.A;
-            row["B размер (мм)"] = _dimensions.B;
-            row["C размер (мм)"] = _dimensions.C;
-            row["D размер (мм)"] = _dimensions.D;
-            row["Сборка модуля"] = _moduleAssembly;
-            row["Задняя стенка"] = BackPanelAssembly;
-            row["Крепление полки"] = _shelfAssembly;
-            row["Кол-во полок"] = _shelfsCount;
-
-            if (_facades.Records.Count != 0)
-            {
-                row["№ схемы фасада"] = _facades.Records[0].NumberOnScheme;
-                row["Тип фасада"] = _facades.Records[0].Type;
-                row["Режим расчёта"] = _calcMode;
-                row["Высота"] = _facades.Records[0].VerticalDimension;
-                row["Ширина"] = _facades.Records[0].HorizontalDimension;
-                row["Материал фасада"] = _facades.Records[0].Material;
-            }
-            else
-            {
-                row["№ схемы фасада"] = 0;
-            }
-
-            table.Rows.Add(row);
-
-            for (var i = 1; i < _facades.Records.Count; i++)
-            {
-                var anotherRow = table.NewRow();
-                anotherRow["№ схемы фасада"] = _facades.Records[i].NumberOnScheme;
-                anotherRow["Высота"] = _facades.Records[i].VerticalDimension;
-                anotherRow["Ширина"] = _facades.Records[i].HorizontalDimension;
-                table.Rows.Add(anotherRow);
-            }
-            
-            row["ПОСУДОСУШИЛКА"] = _dishDrayer;
-            row["Навесы на стену"] = _canopies;
-
+            ModuleMapper.AddModuleInfoRows(table, _module);
         }
 
-        private int GetCountRows()
-        {
-            var count = 1;
-
-            switch (Scheme)
-            {
-                case "1.jpg":
-                    count = 1;
-                    break;
-                case "2+B.jpg":
-                    count = 2;
-                    break;
-            }
-
-            return count;
-        }
 
         public override DataTable GetInfoTable()
         {
@@ -209,30 +44,7 @@ namespace Automation.Module.KitchenUp
 
         public override DataTable GetEmptyTable()
         {
-            var table = new DataTable();
-            table.Columns.Add("Номер модуля");
-            table.Columns.Add("Форма модуля");
-            table.Columns.Add("Изображение");
-            table.Columns.Add("Высота модуля (мм)");
-            table.Columns.Add("Ширина модуля (мм)");
-            table.Columns.Add("Глубина модуля (мм)");
-            table.Columns.Add("A размер (мм)");
-            table.Columns.Add("B размер (мм)");
-            table.Columns.Add("C размер (мм)");
-            table.Columns.Add("D размер (мм)");
-            table.Columns.Add("Сборка модуля");
-            table.Columns.Add("Задняя стенка");
-            table.Columns.Add("Крепление полки");
-            table.Columns.Add("Кол-во полок");
-            table.Columns.Add("№ схемы фасада");
-            table.Columns.Add("Тип фасада");
-            table.Columns.Add("Режим расчёта");
-            table.Columns.Add("Высота");
-            table.Columns.Add("Ширина");
-            table.Columns.Add("Материал фасада");
-            table.Columns.Add("ПОСУДОСУШИЛКА");
-            table.Columns.Add("Навесы на стену");
-            return table;
+            return ModuleMapper.GetEmptyModuleTable();
         }
 
         public override object Clone()
@@ -250,31 +62,53 @@ namespace Automation.Module.KitchenUp
 
         public override Result Calculate()
         {
-            var calculator = new Calculator
+
+            var calculator = new Calculator(
+                _module.Dimensions,
+                _module.Facades,
+                _module.ShelfAssembly,
+                _module.ShelfsCount,
+                Name,
+                Scheme,
+                BackPanelAssembly,
+                Number,
+                SubScheme,
+                IconPath,
+                _module.Canopies)
             {
-                Name = Name,
+//                Name = Name,
                 Scheme = Scheme,
-                IconPath = IconPath,
+                //IconPath = IconPath,
                 BackPanelAssembly = BackPanelAssembly,
                 Number = Number,
                 SubScheme = SubScheme,
-                Dimensions = _dimensions,
-                Facades = _facades,
-                ShelfAssembly = _shelfAssembly,
-                ShelvesCount = _shelfsCount,
-                Canopies = _canopies
+                Dimensions = _module.Dimensions,
+                Facades = _module.Facades,
+                ShelfAssembly = _module.ShelfAssembly,
+                ShelvesCount = _module.ShelfsCount,
+                Canopies = _module.Canopies
             };
-            
+
+            var detailsPresenter = new DetailsPresenter();
+            var mainPresenter = new MainInfoPresenter(Name, IconPath, _module.Dimensions);
+            var furniturePresenter = new FurniturePresenter
+            {
+                Facades = _module.Facades,
+                BackPanelAssembly = _module.BackPanelAssembly,
+                ShelfAssembly = _module.ShelfAssembly
+            };
+            var shelfPresenter = new ShelfPresenter();
+            var loopPresenter = new LoopPresenter();
 
             CalculationResult = new Result
             {
-                ModuleName = calculator.GetModuleName(),
-                ImagePath = calculator.GetImagePath(),
-                MainInfo = calculator.GetMainInfo(),
-                DetailsInfo = calculator.GetDetailsInfo(),
-                FurnitureInfo = calculator.GetFurnitureInfo(),
-                ShelfInfo = calculator.GetShelfInfo(),
-                LoopsInfo = calculator.GetLoopsInfo()
+                ModuleName = mainPresenter.GetModuleName(),
+                ImagePath = mainPresenter.GetModuleBigImagePath(),
+                MainInfo = mainPresenter.GetDimensionInfo(),
+                DetailsInfo = detailsPresenter.GetDetailsInfo(calculator.GetDetails()),
+                FurnitureInfo = furniturePresenter.GetFurnitureInfo(calculator.GetFurnitureItem()),
+                ShelfInfo = shelfPresenter.GetShelfInfo(calculator.GetShelfItem()),
+                LoopsInfo = loopPresenter.GetLoopInfo(calculator.GetLoopsItem())
             };
 
             return CalculationResult;

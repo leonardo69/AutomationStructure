@@ -18,8 +18,6 @@ namespace Automation.Infrastructure
         public string IconPath { get; set; }
         public Result CalculationResult { get; set; }
 
-        public abstract void AddFacade();
-        public abstract void DeleteFacade();
         public abstract void SetupModule(DataTable changedInfo);
         public abstract void GetInfoRows(DataTable table);
         public abstract DataTable GetInfoTable();

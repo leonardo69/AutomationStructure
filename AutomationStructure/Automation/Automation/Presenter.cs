@@ -94,7 +94,7 @@ namespace Automation
 
         internal void AddNewProduct(string nameProduct)
          {
-             _blService.AddNewProduct(nameProduct);
+             _blService.AddNewCategory(nameProduct);
          }
 
         public void UpdateModulesCount(CategoryType type)
@@ -139,17 +139,6 @@ namespace Automation
             
         }
 
-        public void AddFacade(string numberModule, CategoryType type)
-        {
-            _blService.AddFacade(numberModule, type);
-            UpdateTotalModules(type);
-        }
-
-        public void DeleteFacade(string numberModule, CategoryType type)
-        {
-            _blService.DeleteFacade(numberModule, type);
-            UpdateTotalModules(type);
-        }
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, CategoryType type)
         {

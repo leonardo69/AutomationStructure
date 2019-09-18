@@ -144,17 +144,6 @@ namespace Automation.Model
             product.AddSimilarModule(module);
         }
 
-        public void AddFacade(string numberModule, CategoryType type)
-        {
-            var product = _project.Categories.GetCategory(type);
-            product.AddFacade(numberModule);
-        }
-
-        public void DeleteFacade(string numberModule, CategoryType type)
-        {
-            var product = _project.Categories.GetCategory(type);
-            product.DeleteFacade(numberModule);
-        }
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, CategoryType type)
         {

@@ -49,10 +49,6 @@
       <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
       <Name>Automation.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Automation.Module.KitchenDown\Automation.Module.KitchenDown.csproj">
-      <Project>{f939b1a6-2f07-4233-be16-90a11458d95c}</Project>
-      <Name>Automation.Module.KitchenDown</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Automation.Module.KitchenUp\Automation.Module.KitchenUp.csproj">
       <Project>{3d1fe7e7-6eb4-45ca-83ca-ddb5dd5da34b}</Project>
       <Name>Automation.Module.KitchenUp</Name>

@@ -55,17 +55,7 @@ namespace Automation.Model.MainModels
 
         }
 
-        public void AddFacade(string moduleNumber)
-        {
-            var module = _modules.First(x => x.Number == moduleNumber);
-            module.AddFacade();
-        }
-
-        public void DeleteFacade(string moduleNumber)
-        {
-            var module = _modules.First(x => x.Number == moduleNumber);
-            module.DeleteFacade();
-        }
+ 
 
         public void UpdateModule(DataTable data, string moduleNumber)
         {
