@@ -2,7 +2,7 @@
 using System.Data;
 using Automation.Module.KitchenUp.Calculation;
 
-namespace Automation.Module.KitchenUp.ResultTables
+namespace Automation.Module.KitchenUpOneFacade.ResultTables
 {
     public class DetailsPresenter
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
-using Automation.Module.KitchenUp.Calculation;
+using Automation.Module.KitchenUpOneFacade.Calculation;
 
-namespace Automation.Module.KitchenUp.Core
+namespace Automation.Module.KitchenUpOneFacade.Core
 {
     public class ModuleMapper
     {
@@ -41,10 +41,10 @@ namespace Automation.Module.KitchenUp.Core
         /// </summary>
         /// <param name="changedInfo"></param>
         /// <returns></returns>
-        public static Module Setup(DataTable changedInfo)
+        public static Automation.Module.KitchenUpOneFacade.Core.Module Setup(DataTable changedInfo)
         {
 
-            var module = new Module();
+            var module = new Automation.Module.KitchenUpOneFacade.Core.Module();
 
             var row = changedInfo.Rows[0];
             module.Number = row["Номер модуля"].ToString();
@@ -144,7 +144,7 @@ namespace Automation.Module.KitchenUp.Core
             return module;
         }
 
-        public static void AddModuleInfoRows(DataTable table, Module module)
+        public static void AddModuleInfoRows(DataTable table, Automation.Module.KitchenUpOneFacade.Core.Module module)
         {
             var row = table.NewRow();
             row["Номер модуля"] = module.Number;

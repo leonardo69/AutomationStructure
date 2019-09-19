@@ -5,7 +5,7 @@ using System.Linq;
 using Automation.Infrastructure;
 using Xceed.Words.NET;
 
-namespace Automation.Module.KitchenUp.Report
+namespace Automation.Module.KitchenUpOneFacade.Report
 {
     public class Reports
     {

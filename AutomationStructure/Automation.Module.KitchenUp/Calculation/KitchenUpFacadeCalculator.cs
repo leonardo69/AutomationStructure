@@ -1,7 +1,7 @@
 ﻿using System;
 using Automation.Infrastructure;
 
-namespace Automation.Module.KitchenUp.Calculation
+namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     [Serializable]
     class KitchenUpFacadeCalculator

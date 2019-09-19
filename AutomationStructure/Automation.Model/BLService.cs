@@ -33,7 +33,7 @@ namespace Automation.Model
 
         #region Category Methods
 
-        public void AddNewProduct(string nameProduct)
+        public void AddNewCategory(string nameProduct)
         {
             _project.Categories.AddCategory(nameProduct);
         }

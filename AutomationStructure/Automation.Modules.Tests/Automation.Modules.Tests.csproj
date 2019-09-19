@@ -64,9 +64,9 @@
       <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
       <Name>Automation.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Automation.Module.KitchenUp\Automation.Module.KitchenUp.csproj">
+    <ProjectReference Include="..\Automation.Module.KitchenUp\Automation.Module.KitchenUpOneFacade.csproj">
       <Project>{3d1fe7e7-6eb4-45ca-83ca-ddb5dd5da34b}</Project>
-      <Name>Automation.Module.KitchenUp</Name>
+      <Name>Automation.Module.KitchenUpOneFacade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

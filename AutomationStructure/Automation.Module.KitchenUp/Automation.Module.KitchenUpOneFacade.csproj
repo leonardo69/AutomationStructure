@@ -7,8 +7,8 @@
     <ProjectGuid>{3D1FE7E7-6EB4-45CA-83CA-DDB5DD5DA34B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Automation.Module.KitchenUp</RootNamespace>
-    <AssemblyName>Automation.Module.KitchenUp</AssemblyName>
+    <RootNamespace>Automation.Module.KitchenUpOneFacade</RootNamespace>
+    <AssemblyName>Automation.Module.KitchenUpOneFacade</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -55,7 +55,7 @@
     <Compile Include="Calculation\DetailsCalculator.cs" />
     <Compile Include="Calculation\DetailsItem.cs" />
     <Compile Include="ResultTables\DetailsPresenter.cs" />
-    <Compile Include="KitchenUp.cs" />
+    <Compile Include="KitchenUpOneFacade.cs" />
     <Compile Include="Calculation\Calculator.cs" />
     <Compile Include="Calculation\KitchenUpFacadeCalculator.cs" />
     <Compile Include="ResultTables\FurniturePresenter.cs" />

@@ -1,5 +1,6 @@
 ﻿using Automation.Infrastructure;
 using Automation.Module.KitchenUp;
+using Automation.Module.KitchenUpOneFacade;
 
 namespace Automation.ModuleFactory
 {
@@ -11,7 +12,7 @@ namespace Automation.ModuleFactory
             switch (type)
             {
                 case CategoryType.KitchenUp:
-                    module = new KitchenUp();
+                    module = new KitchenUpOneFacade();
                     break;
             }
             return module;

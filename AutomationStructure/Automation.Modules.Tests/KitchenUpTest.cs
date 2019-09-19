@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
-using Automation.Module.KitchenUp;
+using Automation.Module.KitchenUpOneFacade;
 
 namespace Automation.Modules.Tests
 {
@@ -66,7 +66,7 @@ namespace Automation.Modules.Tests
         [TestMethod]
         public void TestCalculate()
         {
-            var module = new KitchenUp();
+            var module = new KitchenUpOneFacade();
             var input=new DataTable();
             AddColumns(input);
             AddRow(input);

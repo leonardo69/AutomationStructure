@@ -3,20 +3,20 @@ using System.Data;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Automation.Infrastructure;
-using Automation.Module.KitchenUp.Calculation;
-using Automation.Module.KitchenUp.Core;
-using Automation.Module.KitchenUp.Report;
-using Automation.Module.KitchenUp.ResultTables;
+using Automation.Module.KitchenUpOneFacade.Calculation;
+using Automation.Module.KitchenUpOneFacade.Core;
+using Automation.Module.KitchenUpOneFacade.Report;
+using Automation.Module.KitchenUpOneFacade.ResultTables;
 using Xceed.Words.NET;
 
-namespace Automation.Module.KitchenUp
+namespace Automation.Module.KitchenUpOneFacade
 {
     [Serializable]
-    public class KitchenUp : BaseModule
+    public class KitchenUpOneFacade : BaseModule
     {
         private Core.Module _module;
 
-        public KitchenUp()
+        public KitchenUpOneFacade()
         {
             _module = new Core.Module();
         }

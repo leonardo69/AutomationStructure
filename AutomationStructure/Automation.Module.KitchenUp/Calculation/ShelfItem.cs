@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Automation.Module.KitchenUp.Calculation
+namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     public class ShelfItem
     {

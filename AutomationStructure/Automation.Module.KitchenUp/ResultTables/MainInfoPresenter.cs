@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Automation.Infrastructure;
 
-namespace Automation.Module.KitchenUp.ResultTables
+namespace Automation.Module.KitchenUpOneFacade.ResultTables
 {
     public class MainInfoPresenter
     {

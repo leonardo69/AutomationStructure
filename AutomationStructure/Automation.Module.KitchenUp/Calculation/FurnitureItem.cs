@@ -1,4 +1,4 @@
-﻿namespace Automation.Module.KitchenUp.Calculation
+﻿namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     public class FurnitureItem
     {

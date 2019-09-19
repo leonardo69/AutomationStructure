@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -9,7 +11,7 @@ namespace Automation.View
 {
     public partial class ModuleConfigurator : RadForm
     {
-        private XDocument _doc;
+        //private XDocument _doc;
 
         private string _imageSubSchemePath;
 
@@ -17,11 +19,13 @@ namespace Automation.View
         {
             InitializeComponent();
             ProductName = productName;
-            LoadSchemeImages(productName);
-            SetupFirstModule();
+            var t = Automation.KitchenUpLib.Properties.Resources.kitchen_up_one_fasade_left;
+            
+            // LoadSchemeImages(productName);
+            // SetupFirstModule();
 
-            radListView1.AllowRemove = false;
-            radListView1.AllowEdit = false;
+            // radListView1.AllowRemove = false;
+            // radListView1.AllowEdit = false;
         }
 
 
@@ -36,16 +40,28 @@ namespace Automation.View
 
         private void LoadSchemeImages(string productName)
         {
-            var pathToInfoFile = Environment.CurrentDirectory + "\\" + productName + "\\info.xml";
+            //var pathToInfoFile = Environment.CurrentDirectory + "\\" + productName + "\\info.xml";
 
-            _doc = XDocument.Load(pathToInfoFile);
+            //_doc = XDocument.Load(pathToInfoFile);
 
-            if (_doc.Root == null) return;
-            var schemeModules = _doc.Root.Elements("type").Select(t => new ModuleItem
-            {
-                Name = t.Attribute("name")?.Value, Folder = t.Attribute("folder")?.Value,
-                ImagePath = t.Attribute("imagePath")?.Value
-            });
+            //if (_doc.Root == null) return;
+            //var schemeModules = _doc.Root.Elements("type").Select(t => new ModuleItem
+            //{
+            //    Name = t.Attribute("name")?.Value,
+            //    Folder = t.Attribute("folder")?.Value,
+            //    ImagePath = t.Attribute("imagePath")?.Value
+            //});
+
+            var schemeModules = KitchenUpLib.Properties.Resources.ResourceManager
+                .GetResourceSet(CultureInfo.CurrentCulture, true, true)
+                .Cast<DictionaryEntry>()
+                .Select(x => new
+                {
+                    Name = x.Key.ToString(),
+                    Image = x.Value
+                }).ToList();
+
+
 
             var moduleItems = schemeModules.ToList();
             if (moduleItems.Count == 0) return;

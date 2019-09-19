@@ -2,9 +2,9 @@
 using System.Data;
 using System.Globalization;
 using Automation.Infrastructure;
-using Automation.Module.KitchenUp.Calculation;
+using Automation.Module.KitchenUpOneFacade.Calculation;
 
-namespace Automation.Module.KitchenUp.ResultTables
+namespace Automation.Module.KitchenUpOneFacade.ResultTables
 {
     class FurniturePresenter
     {

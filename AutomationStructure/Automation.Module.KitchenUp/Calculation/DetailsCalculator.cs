@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Automation.Infrastructure;
-using Automation.Module.KitchenUp.Utils;
+using Automation.Module.KitchenUp.Calculation;
+using Automation.Module.KitchenUpOneFacade.Utils;
 
-namespace Automation.Module.KitchenUp.Calculation
+namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     public class DetailsCalculator
     {

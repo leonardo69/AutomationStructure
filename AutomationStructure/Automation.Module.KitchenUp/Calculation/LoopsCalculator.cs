@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Automation.Infrastructure;
+using Automation.Module.KitchenUp.Calculation;
 
-namespace Automation.Module.KitchenUp.Calculation
+namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     public class LoopsCalculator
     {

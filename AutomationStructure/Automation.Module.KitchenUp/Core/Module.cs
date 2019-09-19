@@ -1,6 +1,6 @@
 ﻿using Automation.Infrastructure;
 
-namespace Automation.Module.KitchenUp.Core
+namespace Automation.Module.KitchenUpOneFacade.Core
 {
     public class Module
     {

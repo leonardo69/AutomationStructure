@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using Automation.Module.KitchenUp.Calculation;
+using Automation.Module.KitchenUpOneFacade.Calculation;
 
-namespace Automation.Module.KitchenUp.ResultTables
+namespace Automation.Module.KitchenUpOneFacade.ResultTables
 {
     public class LoopPresenter
     {
