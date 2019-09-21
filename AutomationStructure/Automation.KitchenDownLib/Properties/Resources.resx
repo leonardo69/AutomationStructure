@@ -117,52 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="kitchen_up_one_fasade_left" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="kitchen_down_one_fasade_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kitchen-down-one-fasade-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

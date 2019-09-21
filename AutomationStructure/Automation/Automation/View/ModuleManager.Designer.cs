@@ -118,7 +118,7 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 82);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 69);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
             // 
@@ -174,6 +174,10 @@
             // 
             // 
             // 
+            this.selectedModuleInformationDgv.MasterTemplate.AllowAddNewRow = false;
+            this.selectedModuleInformationDgv.MasterTemplate.AllowDeleteRow = false;
+            this.selectedModuleInformationDgv.MasterTemplate.AllowEditRow = false;
+            this.selectedModuleInformationDgv.MasterTemplate.EnableGrouping = false;
             this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
             this.selectedModuleInformationDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;

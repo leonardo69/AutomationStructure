@@ -32,7 +32,8 @@ namespace Automation.Model.MainModels
 
         public void AddNewModule(NewModuleData data)
         {
-            var module = GetModuleByType();
+            var module1 = ModuleFactory.ModuleFactory.GetModule(data.ModuleInfo.BuildType, data.Type);
+            var module = module1;
             module.Name = data.Name;
             module.Number = data.Number;
             module.SubScheme = data.SubScheme;
@@ -41,12 +42,6 @@ namespace Automation.Model.MainModels
             _modules.Add(module);
         }
 
-        private BaseModule GetModuleByType()
-        {
-            var module = ModuleFactory.ModuleFactory.GetModule(Type);
-            return module;
-        }
-        
 
         public void DeleteModule(string moduleName)
         {
@@ -54,7 +49,6 @@ namespace Automation.Model.MainModels
             _modules.Remove(module);
 
         }
-
  
 
         public void UpdateModule(DataTable data, string moduleNumber)

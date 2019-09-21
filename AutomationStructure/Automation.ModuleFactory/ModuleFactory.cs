@@ -1,21 +1,33 @@
 ﻿using Automation.Infrastructure;
-using Automation.Module.KitchenUp;
 using Automation.Module.KitchenUpOneFacade;
 
 namespace Automation.ModuleFactory
 {
     public static class ModuleFactory
     {
-        public static BaseModule GetModule(CategoryType type)
+        public static BaseModule GetModule(string moduleBuildName, CategoryType type)
         {
-            BaseModule module = null;
-            switch (type)
+            //var test = Activator.CreateInstance("Automation.Module.KitchenUpOneFacade", "KitchenUpOneFacade");
+            if (type == CategoryType.KitchenUp)
             {
-                case CategoryType.KitchenUp:
-                    module = new KitchenUpOneFacade();
-                    break;
+                switch (moduleBuildName)
+                {
+                    case "KitchenUpOneFacade": 
+                        return new KitchenUpOneFacade();
+
+                }
             }
-            return module;
+
+            if (type == CategoryType.KitchenDown)
+            {
+                switch (moduleBuildName)
+                {
+                    case "KitchenDownOneFacade":
+                        return null;
+                }
+            }
+
+            return null;
         }
     }
 }

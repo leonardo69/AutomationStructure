@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,10 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModule.cs" />
+    <Compile Include="CreateRequest\LibItem.cs" />
+    <Compile Include="CreateRequest\LibModuleInfo.cs" />
     <Compile Include="ModuleThickness.cs" />
-    <Compile Include="ProductType.cs" />
+    <Compile Include="CategoryType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="Utils\CategoryTypeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

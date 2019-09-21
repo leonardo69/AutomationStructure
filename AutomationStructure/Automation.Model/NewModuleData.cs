@@ -1,5 +1,6 @@
 ﻿using System;
 using Automation.Infrastructure;
+using Automation.Infrastructure.CreateRequest;
 
 namespace Automation.Model
 {
@@ -12,5 +13,9 @@ namespace Automation.Model
         public string SubScheme { get; set; }
         public string SubSchemeIconPath { get; set; }
         public CategoryType Type { get; set; }
+        public string BuildType { get; set; }
+
+        public LibModuleInfo ModuleInfo { get; set; }
+
     }
 }

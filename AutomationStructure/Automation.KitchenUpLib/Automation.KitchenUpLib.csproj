@@ -59,5 +59,11 @@
   <ItemGroup>
     <None Include="bin\Debug\kitchen-up-one-fasade-left.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Automation.Infrastructure\Automation.Infrastructure.csproj">
+      <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
+      <Name>Automation.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
