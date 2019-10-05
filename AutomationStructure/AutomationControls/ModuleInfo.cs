@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Automation.Controls
@@ -14,11 +15,11 @@ namespace Automation.Controls
         public EventHandler OnModuleExport;
         public string ModuleName { get; set;}
 
-        public void BindData(string moduleName, string imagePath, DataTable dimensionsInfo, DataTable detailsInfo, DataTable shelfInfo, DataTable furnitureInfo, DataTable loopsInfo)
+        public void BindData(string moduleName, Image image, DataTable dimensionsInfo, DataTable detailsInfo, DataTable shelfInfo, DataTable furnitureInfo, DataTable loopsInfo)
         {
             ModuleName = moduleName;
             moduleNameLbl.Text = moduleName;
-            modulePbx.Load(imagePath);
+            modulePbx.Image = image;
             mainInfoDgv.DataSource = dimensionsInfo;
             detailsDgv.DataSource = detailsInfo;
             // loopsInfoDgv.DataSource = loopsInfo;

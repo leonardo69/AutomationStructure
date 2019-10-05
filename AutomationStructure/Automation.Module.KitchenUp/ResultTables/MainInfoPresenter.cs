@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Drawing;
 using Automation.Infrastructure;
 
 namespace Automation.Module.KitchenUpOneFacade.ResultTables
@@ -9,14 +10,14 @@ namespace Automation.Module.KitchenUpOneFacade.ResultTables
         /// Основные размеры модуля
         /// </summary>
         public Dimensions Dimensions { get; set;}
-        public string IconPath { get; set; }
+        public Image ResultImage { get; set; }
 
         public string Name { get; set; }
 
-        public MainInfoPresenter(string moduleName, string iconPath, Dimensions dimensions)
+        public MainInfoPresenter(string moduleName, Image resultImage, Dimensions dimensions)
         {
             Name = moduleName;
-            IconPath = iconPath;
+            ResultImage = resultImage;
             Dimensions = dimensions;
         }
 
@@ -25,20 +26,11 @@ namespace Automation.Module.KitchenUpOneFacade.ResultTables
             return Name;
         }
 
-        public string GetModuleBigImagePath()
+        public Image GetModuleBigImagePath()
         {
-            return BigImagePath;
+            return ResultImage;
         }
 
-        private string BigImagePath
-        {
-            get
-            {
-                var fullImagePath = IconPath.Split('_');
-                return fullImagePath[0] + "_" +
-                       fullImagePath[1] + "_result.png";
-            }
-        }
 
         public DataTable GetDimensionInfo()
         {

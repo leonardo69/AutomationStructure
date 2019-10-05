@@ -79,7 +79,7 @@ namespace Automation
         
         public void UpdateModuleList(CategoryType type)
         {
-            List<string> modulesNumbers = _blService.GetModulesNumbersByType(type);
+            List<string> modulesNumbers = _blService.GetModulesNamesByCategory(type);
             Manager.UpdateModuleList(modulesNumbers);
         }
         
@@ -146,9 +146,9 @@ namespace Automation
             UpdateTotalModules(type);
         }
 
-        public bool IsModuleExist(string number, CategoryType getTypeCategory)
+        public bool IsModuleExist(string name, CategoryType getTypeCategory)
         {
-            return _blService.IsModuleExist(number, getTypeCategory);
+            return _blService.IsModuleExist(name, getTypeCategory);
         }
 
         public List<Category> GetAllProducts()
@@ -220,7 +220,7 @@ namespace Automation
 
             _blService.UpdateModuleInfo(input,"2", CategoryType.KitchenUp);
 
-            var moduleList = _blService.GetModulesNumbersByType(categoryType);
+            var moduleList = _blService.GetModulesNamesByCategory(categoryType);
 
             Manager.ClearModuleDetailsDgv();
             Manager.UpdateAllModuleInfo(_blService.GetTotalModulesInfo(categoryType));
@@ -230,7 +230,7 @@ namespace Automation
 
         private void AddColumns(DataTable input)
         {
-            input.Columns.Add("Номер модуля");
+            input.Columns.Add("Название модуля");
             input.Columns.Add("Форма модуля");
             input.Columns.Add("Изображение");
             input.Columns.Add("Высота модуля (мм)");
@@ -257,7 +257,7 @@ namespace Automation
         private void AddRow(DataTable input, string moduleNumber, int width, int length, int depth)
         {
             var row = input.NewRow();
-            row["Номер модуля"] = moduleNumber;
+            row["Название модуля"] = moduleNumber;
             row["Форма модуля"] = "Тип фасада 1";
             row["Изображение"] = "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_icon.png";
             row["Высота модуля (мм)"] = width;

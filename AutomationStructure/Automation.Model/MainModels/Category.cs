@@ -14,48 +14,36 @@ namespace Automation.Model.MainModels
         
         private List<BaseModule> _modules;
 
-        public List<string> GetNamesModules()
-        {
-            return _modules.Select(module => module.Name).ToList();
-        }
+        public List<string> GetNamesModules() => _modules.Select(module => module.Name).ToList();
 
-        public Category(string nameProduct)
+        public Category(string name)
         {
             _modules = new List<BaseModule>();
-            Type = GetType(nameProduct);
+            Type = GetType(name);
         }
 
-        public int GetCountModules()
-        {
-            return _modules.Count;
-        }
+        public int GetCountModules() => _modules.Count;
 
         public void AddNewModule(NewModuleData data)
         {
-            var module1 = ModuleFactory.ModuleFactory.GetModule(data.ModuleInfo.BuildType, data.Type);
-            var module = module1;
+            var module = ModuleFactory.ModuleFactory.GetModule(data.ModuleInfo.BuildType, data.Type, data.Name, data.ModuleInfo.Name);
             module.Name = data.Name;
-            module.Number = data.Number;
-            module.SubScheme = data.SubScheme;
-            module.Scheme =  data.Scheme;
-            module.IconPath = data.SubSchemeIconPath;
             _modules.Add(module);
         }
 
 
-        public void DeleteModule(string moduleName)
+        public void DeleteModule(string name)
         {
-            var module = _modules.First(x => x.Number == moduleName);
+            var module = _modules.First(x => x.Name == name);
             _modules.Remove(module);
-
         }
  
 
-        public void UpdateModule(DataTable data, string moduleNumber)
+        public void UpdateModule(DataTable data, string name)
         {
-            var module = _modules.FirstOrDefault(x => x.Number == moduleNumber);
+            var module = _modules.FirstOrDefault(x => x.Name == name);
             if (module == null)
-                throw new ArgumentException($"Модуль {moduleNumber} не найден");
+                throw new ArgumentException($"Модуль {name} не найден");
             module.SetupModule(data);
         }
         
@@ -88,9 +76,9 @@ namespace Automation.Model.MainModels
             return emptyTable;
         }
 
-        public DataTable GetModuleDetailInfoByNumber(string moduleNumber)
+        public DataTable GetModuleDetailInfoByName(string name)
         {
-            var module = _modules.First(x => x.Number == moduleNumber);
+            var module = _modules.First(x => x.Name == name);
             DataTable table = module.GetInfoTable();
             return table;
         }
@@ -102,30 +90,17 @@ namespace Automation.Model.MainModels
             return newCloneModule;
         }
 
-        public void AddSimilarModule(BaseModule module)
-        {
-            _modules.Add(module);
-        }
+        public void AddSimilarModule(BaseModule module) => _modules.Add(module);
 
-        public List<string> GetNumbersModules()
-        {
-            return _modules.Select(module => module.Number).ToList();
-        }
+        public List<string> GetModulesNames() => _modules.Select(module => module.Name).ToList();
 
-        public bool IsModuleExist(string number)
-        {
-            return _modules.Exists(module => module.Number == number);
+        public bool IsModuleExist(string name) => _modules.Exists(module => module.Name == name);
 
-        }
-
-        public List<BaseModule> GetAllModules()
-        {
-            return _modules;
-        }
+        public List<BaseModule> GetAllModules() => _modules;
 
         public void CreateModuleReport(string moduleName, string fileName)
         {
-            var module = _modules.First(x => x.Number == moduleName);
+            var module = _modules.First(x => x.Name == moduleName);
             module.CreateReport(fileName);
         }
 

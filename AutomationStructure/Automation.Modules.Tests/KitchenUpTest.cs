@@ -11,7 +11,7 @@ namespace Automation.Modules.Tests
     {
         private void AddColumns(DataTable input)
         {
-            input.Columns.Add("Номер модуля");
+            input.Columns.Add("Название модуля");
             input.Columns.Add("Форма модуля");
             input.Columns.Add("Изображение");
             input.Columns.Add("Высота модуля (мм)");
@@ -38,7 +38,7 @@ namespace Automation.Modules.Tests
         private void AddRow(DataTable input)
         {
             var row = input.NewRow();
-            row["Номер модуля"] = "1";
+            row["Название модуля"] = "1";
             row["Форма модуля"] = "Тип фасада 1";
             row["Изображение"] = "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_icon.png";
             row["Высота модуля (мм)"] = 100;
@@ -66,7 +66,7 @@ namespace Automation.Modules.Tests
         [TestMethod]
         public void TestCalculate()
         {
-            var module = new KitchenUpOneFacade();
+            var module = new KitchenUpOneFacade("323", "234");
             var input=new DataTable();
             AddColumns(input);
             AddRow(input);
@@ -80,7 +80,7 @@ namespace Automation.Modules.Tests
             PrintTable(result.LoopsInfo);
 
             Assert.AreEqual(result.ModuleName, "1");
-            Assert.AreEqual(result.ImagePath, "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_result.png");
+            Assert.AreEqual(result.ResultImage, "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_result.png");
             var mainInfo = result.MainInfo;
             Assert.AreEqual(mainInfo.Rows[0]["Высота H"], "100");
             Assert.AreEqual(mainInfo.Rows[0]["Ширина W"], "200");

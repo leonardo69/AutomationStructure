@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 
 namespace Automation.Infrastructure
 {
@@ -7,7 +8,7 @@ namespace Automation.Infrastructure
     public class Result
     {
         public string ModuleName { get; set; }
-        public string ImagePath { get; set; }
+        public Image ResultImage { get; set; }
         public DataTable MainInfo { get; set; }
         public DataTable DetailsInfo { get; set; }
         public DataTable ShelfInfo { get; set; }

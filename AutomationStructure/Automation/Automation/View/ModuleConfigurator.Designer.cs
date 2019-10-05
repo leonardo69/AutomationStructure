@@ -35,6 +35,7 @@
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.schemeTxb = new Telerik.WinControls.UI.RadTextBox();
+            this.radDropDownList1 = new Telerik.WinControls.UI.RadDropDownList();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radListView1)).BeginInit();
@@ -42,6 +43,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schemeTxb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Номер модуля:";
+            this.label1.Text = "Название модуля:";
             // 
             // radGroupBox1
             // 
@@ -114,11 +116,20 @@
             this.schemeTxb.Size = new System.Drawing.Size(244, 20);
             this.schemeTxb.TabIndex = 13;
             // 
+            // radDropDownList1
+            // 
+            this.radDropDownList1.Location = new System.Drawing.Point(461, 55);
+            this.radDropDownList1.Name = "radDropDownList1";
+            this.radDropDownList1.Size = new System.Drawing.Size(148, 20);
+            this.radDropDownList1.TabIndex = 14;
+            this.radDropDownList1.Text = "radDropDownList1";
+            // 
             // ModuleConfigurator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 556);
+            this.Controls.Add(this.radDropDownList1);
             this.Controls.Add(this.schemeTxb);
             this.Controls.Add(this.radLabel1);
             this.Controls.Add(this.radButton1);
@@ -142,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schemeTxb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +168,6 @@
         private Telerik.WinControls.UI.RadListView radListView1;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadTextBox schemeTxb;
+        private Telerik.WinControls.UI.RadDropDownList radDropDownList1;
     }
 }

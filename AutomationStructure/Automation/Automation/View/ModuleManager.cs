@@ -59,7 +59,7 @@ namespace Automation.View
         }
 
 
-        private void add_Click(object sender, EventArgs e)
+        private void Add_Click(object sender, EventArgs e)
         {
             var configuratorModule = new ModuleConfigurator(_categoryType);
             configuratorModule.OnApply += SetNewModuleInfo;
@@ -71,26 +71,20 @@ namespace Automation.View
             Presenter.Manager = this;
 
             if (Presenter.IsModuleExist(e.Number, _categoryType))
-            { 
-                MessageBox.Show(@"Такой модуль уже существует. Измените номер модуля");
+            {
+                MessageBox.Show(@"Такой модуль уже существует. Измените Название модуля");
                 return;
             }
 
             Presenter.AddNewModule(new NewModuleData
-                {
-                    Number = e.Number,
-                    ModuleInfo = e.Info,
-                    Type = _categoryType
-                });
+            {
+                Name = e.Number,
+                ModuleInfo = e.Info,
+                Type = _categoryType
+            });
         }
 
-        private string GetIconPath(string pathToImageSubScheme)
-        {
-            pathToImageSubScheme = pathToImageSubScheme.Remove(pathToImageSubScheme.Length - 4) + "_icon.png";
-            return pathToImageSubScheme;
-        }
-
-        private void addSimilarBtn_Click(object sender, EventArgs e)
+        private void AddSimilarBtn_Click(object sender, EventArgs e)
         {
             var similarModule = new SimilarModule();
             similarModule.OnApply += AddSimilarModule;
@@ -101,10 +95,10 @@ namespace Automation.View
         {
             if (!Presenter.IsModuleExist(e.SimilarName, _categoryType))
                 Presenter.AddSimilarModule(e.SimilarName, _categoryType);
-            else MessageBox.Show("Модуль с таким номером уже существует. Введите другой номер");
+            else MessageBox.Show(@"Модуль с таким номером уже существует. Введите другой номер");
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e)
+        private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (modulesLbx.Items.Count != 0)
             {
@@ -135,11 +129,11 @@ namespace Automation.View
 
             Presenter.ShowModuleInformation(moduleNumber, _categoryType);
             Presenter.UpdateTotalModules(_categoryType);
-            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+            selectedModuleInformationDgv.Columns["Название модуля"].ReadOnly = true;
             selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
         }
 
-        private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void ModulesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modulesLbx.SelectedItem == null)
                 return;
@@ -147,7 +141,7 @@ namespace Automation.View
             {
                 var moduleNumber = modulesLbx.SelectedItem.ToString();
                 Presenter.ShowModuleInformation(moduleNumber, _categoryType);
-                selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+                selectedModuleInformationDgv.Columns["Название модуля"].ReadOnly = true;
                 selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
             }
         }

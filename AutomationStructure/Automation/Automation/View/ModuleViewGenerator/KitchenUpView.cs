@@ -14,23 +14,25 @@ namespace Automation.View.ModuleViewGenerator
         private string _columnName = string.Empty;
 
         private DataTable _resultTable;
+        private RadGridView _dgv;
 
 
         private GridViewComboBoxColumn GetBackPanelAssemblyColumns()
         {
-            var column = new GridViewComboBoxColumn();
-
-            column.Name = @"Задняя стенка2";
-            column.HeaderText = @"Задняя стенка";
-            column.FieldName = "Задняя стенка";
-            column.DataSource = new List<string>
+            var column = new GridViewComboBoxColumn
             {
-                "нет",
-                "на гвозди",
-                "в паз",
-                "в четверть",
-                "ЛДСП внутрь",
-                "что это?"
+                Name = @"Задняя стенка2",
+                HeaderText = @"Задняя стенка",
+                FieldName = "Задняя стенка",
+                DataSource = new List<string>
+                {
+                    "нет",
+                    "на гвозди",
+                    "в паз",
+                    "в четверть",
+                    "ЛДСП внутрь",
+                    "что это?"
+                }
             };
             return column;
         }
@@ -178,7 +180,7 @@ namespace Automation.View.ModuleViewGenerator
             return new GridViewComboBoxColumn
             {
                 Name = "ПОСУДОСУШИЛКА2",
-                HeaderText = "ПОСУДОСУШИЛКА",
+                HeaderText = @"ПОСУДОСУШИЛКА",
                 FieldName = "ПОСУДОСУШИЛКА",
                 DataSource = new List<string>
                 {
@@ -195,7 +197,7 @@ namespace Automation.View.ModuleViewGenerator
             return new GridViewComboBoxColumn
             {
                 Name = "Навесы на стену2",
-                HeaderText = "Навесы на стену",
+                HeaderText = @"Навесы на стену",
                 FieldName = "Навесы на стену",
                 DataSource = new List<string>
                 {
@@ -203,7 +205,7 @@ namespace Automation.View.ModuleViewGenerator
                     "универс. (УХО)",
                     "L-образный (ИКЕА)",
                     "регулируемый",
-                    "планка ЛДСП // вставляем между боковыми панелями доску ЛДСП шириной 100 мм", 
+                    "планка ЛДСП // вставляем между боковыми панелями доску ЛДСП шириной 100 мм",
                     "помощь"
                 }
             };
@@ -211,6 +213,7 @@ namespace Automation.View.ModuleViewGenerator
 
         public override void SetupView(RadGridView dgv, DataTable table)
         {
+            _dgv = dgv;
             dgv.Columns.Clear();
             dgv.DataSource = null;
             _resultTable = table;
@@ -267,24 +270,25 @@ namespace Automation.View.ModuleViewGenerator
         {
             if (e.ColumnIndex == 3)
             {
-                var path = _resultTable.Rows[e.RowIndex][2].ToString();
-                var parts = path.Split('_');
-                var bigImagePath = parts[0] + "_" + parts[1] + "_big.png";
+                //var path = _resultTable.Rows[e.RowIndex][2].ToString();
+                //var parts = path.Split('_');
+                //var bigImagePath = parts[0] + "_" + parts[1] + "_big.png";
 
-                var customerHelpForm = Application.OpenForms["BigModuleImageInfo"];
-                if (customerHelpForm == null)
-                {
-                    customerHelpForm = new BigModuleImageInfo(bigImagePath);
-                    customerHelpForm.Show();
-                }
-                else
-                {
-                    customerHelpForm.Focus();
-                }
+                //var customerHelpForm = Application.OpenForms["BigModuleImageInfo"];
+                //if (customerHelpForm == null)
+                //{
+                //    customerHelpForm = new BigModuleImageInfo(bigImagePath);
+                //    customerHelpForm.Show();
+                //}
+                //else
+                //{
+                //    customerHelpForm.Focus();
+                //}
             }
         }
 
-        private GridViewColumnGroup ColumnGroupsAdd(string columnGroupText, IEnumerable<string> columnNames, bool showHeader = false)
+        private GridViewColumnGroup ColumnGroupsAdd(string columnGroupText, IEnumerable<string> columnNames,
+            bool showHeader = false)
         {
             var gridViewColumnGroupRow = new GridViewColumnGroupRow();
             foreach (var columnName in columnNames)
@@ -300,8 +304,8 @@ namespace Automation.View.ModuleViewGenerator
         {
             var view = new ColumnGroupsViewDefinition();
 
-            view.ColumnGroups.Add(ColumnGroupsAdd("Num", new[]{ "Номер модуля"}));
-            view.ColumnGroups.Add(ColumnGroupsAdd("I", new[] { "Icon" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Num", new[] {"Название модуля"}));
+            view.ColumnGroups.Add(ColumnGroupsAdd("I", new[] {"Icon"}));
             view.ColumnGroups.Add(ColumnGroupsAdd("Размеры", new[]
             {
                 "Высота модуля (мм)",
@@ -312,9 +316,9 @@ namespace Automation.View.ModuleViewGenerator
                 "C размер (мм)",
                 "D размер (мм)"
             }, true));
-            view.ColumnGroups.Add(ColumnGroupsAdd("zertg", new[] { "Сборка модуля2" }));
-            view.ColumnGroups.Add(ColumnGroupsAdd("z", new[] { "Задняя стенка2" }));
-            view.ColumnGroups.Add(ColumnGroupsAdd("ppse", new[] { "Крепление полки", "Кол-во полок" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("zertg", new[] {"Сборка модуля2"}));
+            view.ColumnGroups.Add(ColumnGroupsAdd("z", new[] {"Задняя стенка2"}));
+            view.ColumnGroups.Add(ColumnGroupsAdd("ppse", new[] {"Крепление полки", "Кол-во полок"}));
             view.ColumnGroups.Add(ColumnGroupsAdd("Фасад", new[]
             {
                 "№ схемы фасада",
@@ -324,9 +328,9 @@ namespace Automation.View.ModuleViewGenerator
                 "Режим расчёта2",
                 "Материал фасада2"
             }, true));
-            view.ColumnGroups.Add(ColumnGroupsAdd("ПОСУДОСУШИЛКА", new[] { "ПОСУДОСУШИЛКА2" }));
-            view.ColumnGroups.Add(ColumnGroupsAdd("Навесы на стену", new[] { "Навесы на стену2" }));
-            
+            view.ColumnGroups.Add(ColumnGroupsAdd("ПОСУДОСУШИЛКА", new[] {"ПОСУДОСУШИЛКА2"}));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Навесы на стену", new[] {"Навесы на стену2"}));
+
 
             return view;
         }
@@ -374,18 +378,16 @@ namespace Automation.View.ModuleViewGenerator
         {
             try
             {
-                if (e.CellElement.ColumnIndex == 3)
-                    if (_resultTable.Rows[e.RowIndex]["Изображение"].ToString().Length != 0)
-                    {
-                        var pathToImage = Environment.CurrentDirectory + "\\" +
-                                          _resultTable.Rows[e.RowIndex]["Изображение"];
-                        e.CellElement.Image = Image.FromFile(pathToImage);
-                    }
+                if (e.CellElement.ColumnIndex != 3) return;
+
+                var image = (Image) _resultTable.Rows[e.RowIndex]["Изображение"];
+                e.CellElement.Image = image;
             }
             catch (Exception)
             {
-                // ignored
+
             }
+            
         }
     }
 }

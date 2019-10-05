@@ -91,7 +91,7 @@
             this.radButton4.Size = new System.Drawing.Size(75, 34);
             this.radButton4.TabIndex = 3;
             this.radButton4.Text = "Удалить";
-            this.radButton4.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.radButton4.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // radButton3
             // 
@@ -101,7 +101,7 @@
             this.radButton3.TabIndex = 3;
             this.radButton3.Text = "Добавить предыдущий";
             this.radButton3.TextWrap = true;
-            this.radButton3.Click += new System.EventHandler(this.addSimilarBtn_Click);
+            this.radButton3.Click += new System.EventHandler(this.AddSimilarBtn_Click);
             // 
             // radButton2
             // 
@@ -110,7 +110,7 @@
             this.radButton2.Size = new System.Drawing.Size(75, 35);
             this.radButton2.TabIndex = 3;
             this.radButton2.Text = "Добавить";
-            this.radButton2.Click += new System.EventHandler(this.add_Click);
+            this.radButton2.Click += new System.EventHandler(this.Add_Click);
             // 
             // modulesLbx
             // 
@@ -118,9 +118,9 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 69);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 56);
             this.modulesLbx.TabIndex = 0;
-            this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
+            this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.ModulesLbx_SelectedIndexChanged);
             // 
             // allModulesInformationDgv
             // 
@@ -176,7 +176,6 @@
             // 
             this.selectedModuleInformationDgv.MasterTemplate.AllowAddNewRow = false;
             this.selectedModuleInformationDgv.MasterTemplate.AllowDeleteRow = false;
-            this.selectedModuleInformationDgv.MasterTemplate.AllowEditRow = false;
             this.selectedModuleInformationDgv.MasterTemplate.EnableGrouping = false;
             this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";

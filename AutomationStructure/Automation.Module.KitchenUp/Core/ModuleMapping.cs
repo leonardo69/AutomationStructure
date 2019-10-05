@@ -10,9 +10,10 @@ namespace Automation.Module.KitchenUpOneFacade.Core
         public static DataTable GetEmptyModuleTable()
         {
             var table = new DataTable();
-            table.Columns.Add("Номер модуля");
+            table.Columns.Add("Название модуля");
             table.Columns.Add("Форма модуля");
-            table.Columns.Add("Изображение");
+            var imageColumn = new DataColumn("Изображение", typeof(System.Drawing.Bitmap));
+            table.Columns.Add(imageColumn);
             table.Columns.Add("Высота модуля (мм)");
             table.Columns.Add("Ширина модуля (мм)");
             table.Columns.Add("Глубина модуля (мм)");
@@ -41,16 +42,14 @@ namespace Automation.Module.KitchenUpOneFacade.Core
         /// </summary>
         /// <param name="changedInfo"></param>
         /// <returns></returns>
-        public static Automation.Module.KitchenUpOneFacade.Core.Module Setup(DataTable changedInfo)
+        public static Module Setup(DataTable changedInfo)
         {
 
-            var module = new Automation.Module.KitchenUpOneFacade.Core.Module();
+            var module = new Module();
 
             var row = changedInfo.Rows[0];
-            module.Number = row["Номер модуля"].ToString();
-            module.IconPath = row["Изображение"].ToString();
 
-            module.Scheme = row["Форма модуля"].ToString();
+            module.Name = row["Название модуля"].ToString();
 
             if (!double.TryParse(row["Высота модуля (мм)"].ToString(), out var height))
                 throw new ArgumentException("Высота модуля должна быть числом");
@@ -69,13 +68,12 @@ namespace Automation.Module.KitchenUpOneFacade.Core
                 throw new ArgumentException("№ схемы фасада должен быть целым числом");
             module.CalcMode = row["Режим расчёта"].ToString();
 
-            var formula = module.IconPath.Split('_')[1];
             if (facadeNumber > 0 && module.CalcMode == "авт. мод.")
             {
                 module.Facades.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
                 module.Facades.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
                 var calculator = new KitchenUpFacadeCalculator();
-                calculator.CalculateModuleDimensions(module.Facades, module.Dimensions, formula);
+                calculator.CalculateModuleDimensions(module.Facades, module.Dimensions);
             }
 
             if (!double.TryParse(row["Глубина модуля (мм)"].ToString(), out var depth))
@@ -122,20 +120,17 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             module.Facades.Records[0].Type = row["Тип фасада"].ToString();
             module.Facades.Records[0].Material = row["Материал фасада"].ToString();
 
-            for (var i = 0; i < changedInfo.Rows.Count; i++)
-            {
-                row = changedInfo.Rows[i];
                 if (module.CalcMode == "авт. фас.")
                 {
                     var calculator = new KitchenUpFacadeCalculator();
-                    calculator.CalculateFacadeDimensions(module.Facades, module.Dimensions, formula, i);
+                    calculator.CalculateFacadeDimensions(module.Facades, module.Dimensions);
                 }
                 else
                 {
-                    module.Facades.Records[i].HorizontalDimension = double.Parse(row["Ширина"].ToString());
-                    module.Facades.Records[i].VerticalDimension = double.Parse(row["Высота"].ToString());
+                    module.Facades.Records[0].HorizontalDimension = double.Parse(row["Ширина"].ToString());
+                    module.Facades.Records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
                 }
-            }
+
 
 
             module.DishDryer = row["ПОСУДОСУШИЛКА"].ToString();
@@ -144,12 +139,12 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             return module;
         }
 
-        public static void AddModuleInfoRows(DataTable table, Automation.Module.KitchenUpOneFacade.Core.Module module)
+        public static void AddModuleInfoRows(DataTable table, Module module)
         {
             var row = table.NewRow();
-            row["Номер модуля"] = module.Number;
+            row["Название модуля"] = module.Name;
             row["Форма модуля"] = module.Scheme;
-            row["Изображение"] = module.IconPath;
+            row["Изображение"] = module.Icon;
             row["Высота модуля (мм)"] = module.Dimensions.Height;
             row["Ширина модуля (мм)"] = module.Dimensions.Width;
             row["Глубина модуля (мм)"] = module.Dimensions.Depth;

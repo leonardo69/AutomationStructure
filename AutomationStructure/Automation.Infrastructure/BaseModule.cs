@@ -11,11 +11,10 @@ namespace Automation.Infrastructure
 
         public string Name { get; set; }
         public string Scheme { get; set; }
-        
         protected string BackPanelAssembly { get; set;}
-        public string Number { get; set; }
-        public string SubScheme { get; set; }
-        public string IconPath { get; set; }
+
+        //public string Number { get; set; }
+        //public string IconPath { get; set; }
         public Result CalculationResult { get; set; }
 
         public abstract void SetupModule(DataTable changedInfo);

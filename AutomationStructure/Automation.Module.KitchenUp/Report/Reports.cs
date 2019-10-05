@@ -1,5 +1,5 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Automation.Infrastructure;
@@ -43,13 +43,20 @@ namespace Automation.Module.KitchenUpOneFacade.Report
 
         private static Paragraph InsertImage(Result source, DocX doc)
         {
-            var imagePath = Path.Combine(Environment.CurrentDirectory, source.ImagePath);
-            Image img = doc.AddImage(imagePath);
+            Image img = doc.AddImage(ToStream(source.ResultImage, ImageFormat.Jpeg));
             Picture p = img.CreatePicture();
             p.Height = 250;
             p.Width = 250;
             Paragraph par = doc.InsertParagraph().AppendPicture(p);
             return par;
+        }
+
+        public static Stream ToStream(System.Drawing.Image image, ImageFormat format)
+        {
+            var stream = new MemoryStream();
+            image.Save(stream, format);
+            stream.Position = 0;
+            return stream;
         }
 
         private void InsertTable(DataTable table, DocX doc)

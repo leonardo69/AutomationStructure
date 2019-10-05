@@ -6,30 +6,13 @@ namespace Automation.Module.KitchenUpOneFacade.Calculation
 {
     public class Calculator
     {
-        public Dimensions Dimensions;
-        public Facades Facades;
-        public string ShelfAssembly;
-        public string ShelvesCount;
-      
-        public string Scheme { get; set; }
-        public string BackPanelAssembly { get; set; }
-        public string Number { get; set; }
-        public string SubScheme { get; set; }
-        // public string IconPath { get; set; }
-
-        /// <summary>
-        ///     Навес на стену
-        /// </summary>
-        public string Canopies { get; set; }
-
-
         private readonly DetailsCalculator _detailsCalculator;
         private readonly FurnitureCalculator _furnitureCalculator;
         private readonly ShelfCalculator _shelfCalculator;
         private readonly LoopsCalculator _loopsCalculator;
 
         public Calculator(Dimensions dimensions, Facades facades, string shelfAssembly, string shelvesCount,
-            string name, string scheme, string backPanelAssembly, string number, string subScheme, string iconPath, string canopies)
+            string backPanelAssembly, string canopies)
         {
             _detailsCalculator = new DetailsCalculator
             {

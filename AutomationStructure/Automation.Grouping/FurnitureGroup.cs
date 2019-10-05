@@ -70,7 +70,7 @@ namespace Automation.Grouping
         
         private void MapRow(DataRow resultRow, BaseModule module, DataRow row, DataColumnCollection columns)
         {
-            resultRow["№ модуля"] = module.Number;
+            resultRow["№ модуля"] = module.Name;
 
             foreach (DataColumn column in columns)
             {

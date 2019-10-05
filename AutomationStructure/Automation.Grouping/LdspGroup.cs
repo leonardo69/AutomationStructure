@@ -91,7 +91,7 @@ namespace Automation.Grouping
 
         private void MapRow(DataRow resultRow, BaseModule module, DataRow row)
         {
-            resultRow["№ модуля"] = module.Number;
+            resultRow["№ модуля"] = module.Name;
             resultRow["№ детали"] = row["№"];
             resultRow["Наименование"] = row["Наименование"];
             resultRow["firstMM"] = Math.Round(Convert.ToDecimal(row["firstMM"]), 0);

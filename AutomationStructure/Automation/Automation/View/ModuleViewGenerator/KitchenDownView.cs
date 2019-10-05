@@ -300,7 +300,7 @@ namespace Automation.View.ModuleViewGenerator
         {
             var view = new ColumnGroupsViewDefinition();
 
-            view.ColumnGroups.Add(ColumnGroupsAdd("Num", new[] { "Номер модуля" }));
+            view.ColumnGroups.Add(ColumnGroupsAdd("Num", new[] { "Название модуля" }));
             view.ColumnGroups.Add(ColumnGroupsAdd("I", new[] { "Icon" }));
             view.ColumnGroups.Add(ColumnGroupsAdd("Размеры", new[]
             {

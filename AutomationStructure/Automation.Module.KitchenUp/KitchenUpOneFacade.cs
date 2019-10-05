@@ -16,9 +16,13 @@ namespace Automation.Module.KitchenUpOneFacade
     {
         private Core.Module _module;
 
-        public KitchenUpOneFacade()
+        public KitchenUpOneFacade(string name, string scheme)
         {
-            _module = new Core.Module();
+            _module = new Core.Module
+            {
+                Name = name,
+                Scheme = scheme
+            };
         }
 
 
@@ -29,10 +33,7 @@ namespace Automation.Module.KitchenUpOneFacade
             CalculationResult = null;
         }
 
-        public override void GetInfoRows(DataTable table)
-        {
-            ModuleMapper.AddModuleInfoRows(table, _module);
-        }
+        public override void GetInfoRows(DataTable table) => ModuleMapper.AddModuleInfoRows(table, _module);
 
 
         public override DataTable GetInfoTable()
@@ -68,29 +69,11 @@ namespace Automation.Module.KitchenUpOneFacade
                 _module.Facades,
                 _module.ShelfAssembly,
                 _module.ShelfsCount,
-                Name,
-                Scheme,
                 BackPanelAssembly,
-                Number,
-                SubScheme,
-                IconPath,
-                _module.Canopies)
-            {
-//                Name = Name,
-                Scheme = Scheme,
-                //IconPath = IconPath,
-                BackPanelAssembly = BackPanelAssembly,
-                Number = Number,
-                SubScheme = SubScheme,
-                Dimensions = _module.Dimensions,
-                Facades = _module.Facades,
-                ShelfAssembly = _module.ShelfAssembly,
-                ShelvesCount = _module.ShelfsCount,
-                Canopies = _module.Canopies
-            };
+                _module.Canopies);
 
             var detailsPresenter = new DetailsPresenter();
-            var mainPresenter = new MainInfoPresenter(Name, IconPath, _module.Dimensions);
+            var mainPresenter = new MainInfoPresenter(Name, _module.ResultImage, _module.Dimensions);
             var furniturePresenter = new FurniturePresenter
             {
                 Facades = _module.Facades,
@@ -103,11 +86,11 @@ namespace Automation.Module.KitchenUpOneFacade
             CalculationResult = new Result
             {
                 ModuleName = mainPresenter.GetModuleName(),
-                ImagePath = mainPresenter.GetModuleBigImagePath(),
+                ResultImage = mainPresenter.GetModuleBigImagePath(),
                 MainInfo = mainPresenter.GetDimensionInfo(),
                 DetailsInfo = detailsPresenter.GetDetailsInfo(calculator.GetDetails()),
                 FurnitureInfo = furniturePresenter.GetFurnitureInfo(calculator.GetFurnitureItem()),
-                ShelfInfo = shelfPresenter.GetShelfInfo(calculator.GetShelfItem()),
+                ShelfInfo = null, //shelfPresenter.GetShelfInfo(calculator.GetShelfItem()),
                 LoopsInfo = loopPresenter.GetLoopInfo(calculator.GetLoopsItem())
             };
 

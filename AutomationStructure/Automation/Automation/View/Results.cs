@@ -50,14 +50,13 @@ namespace Automation.View
             var category= Presenter.GetCategoryByName(categoryName);
             var modules = category.GetAllModules();  
             
-            var panel = flowLayoutPanel2; //get flow control from page
-           
+            var panel = flowLayoutPanel2;
             
             foreach (var module in modules)
             {
                 var moduleInfo = new ModuleInfo();
                 var result = module.Calculate();
-                moduleInfo.BindData(result.ModuleName, result.ImagePath, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
+                moduleInfo.BindData(result.ModuleName, result.ResultImage, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
                     result.FurnitureInfo, result.LoopsInfo);
                 moduleInfo.Width = flowLayoutPanel2.Width - 25;
                 moduleInfo.OnModuleExport += CreateModuleReport;

@@ -5,15 +5,14 @@ namespace Automation.ModuleFactory
 {
     public static class ModuleFactory
     {
-        public static BaseModule GetModule(string moduleBuildName, CategoryType type)
+        public static BaseModule GetModule(string moduleBuildName, CategoryType type, string moduleName, string schemeName)
         {
-            //var test = Activator.CreateInstance("Automation.Module.KitchenUpOneFacade", "KitchenUpOneFacade");
             if (type == CategoryType.KitchenUp)
             {
                 switch (moduleBuildName)
                 {
                     case "KitchenUpOneFacade": 
-                        return new KitchenUpOneFacade();
+                        return new KitchenUpOneFacade(moduleName, schemeName);
 
                 }
             }
@@ -23,7 +22,7 @@ namespace Automation.ModuleFactory
                 switch (moduleBuildName)
                 {
                     case "KitchenDownOneFacade":
-                        return null;
+                        break;
                 }
             }
 

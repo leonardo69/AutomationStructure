@@ -62,14 +62,14 @@ namespace Automation.Model
         public void ReportModule(string moduleName, CategoryType categoryType, string pathToSave)
         {
             var category = _project.Categories.GetCategory(categoryType);
-            var module = category.GetAllModules().FirstOrDefault(x => x.Number == moduleName);
+            var module = category.GetAllModules().FirstOrDefault(x => x.Name == moduleName);
             module?.CreateReport(pathToSave);
         }
 
-        public bool IsModuleExist(string number, CategoryType type)
+        public bool IsModuleExist(string name, CategoryType type)
         {
             var category = _project.Categories.GetCategory(type);
-            return category.IsModuleExist(number);
+            return category.IsModuleExist(name);
         }
 
 
@@ -86,10 +86,10 @@ namespace Automation.Model
             return product.GetNamesModules();
         }
 
-        public List<string> GetModulesNumbersByType(CategoryType type)
+        public List<string> GetModulesNamesByCategory(CategoryType type)
         {
             var product = _project.Categories.GetCategory(type);
-            return product.GetNumbersModules();
+            return product.GetModulesNames();
         }
 
 
@@ -119,7 +119,7 @@ namespace Automation.Model
         public DataTable GetDetailDataForModule(string moduleName, CategoryType type)
         {
             var product = _project.Categories.GetCategory(type);
-            var moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
+            var moduleInfo = product.GetModuleDetailInfoByName(moduleName);
             return moduleInfo;
         }
 
@@ -140,7 +140,7 @@ namespace Automation.Model
         {
             var product = _project.Categories.GetCategory(type);
             var module = product.GetCloneLastModule();
-            module.Number = similarName;
+            module.Name = similarName;
             product.AddSimilarModule(module);
         }
 
