@@ -7,7 +7,7 @@ namespace Automation.Model.MainModels
     [Serializable]
     public class CustomerInfo
     {
-        private readonly List<CustomerInfoRecord> _records;
+        public readonly List<CustomerInfoRecord> _records;
 
 
         public CustomerInfo()

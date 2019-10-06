@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.productsDgv = new System.Windows.Forms.DataGridView();
+            this.categoriesDataGridView = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -62,8 +62,6 @@
             this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
             this.radMenuItem9 = new Telerik.WinControls.UI.RadMenuItem();
@@ -78,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).BeginInit();
             this.modulesPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -210,9 +208,9 @@
             // 
             // Column9
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column9.HeaderText = "Помощь";
             this.Column9.Name = "Column9";
             this.Column9.Text = "?";
@@ -222,7 +220,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 9);
+            this.label3.Location = new System.Drawing.Point(9, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
@@ -242,7 +240,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.productsDgv);
+            this.groupBox1.Controls.Add(this.categoriesDataGridView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -251,22 +249,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление модулей типов изделий";
             // 
-            // productsDgv
+            // categoriesDataGridView
             // 
-            this.productsDgv.AllowUserToAddRows = false;
-            this.productsDgv.AllowUserToDeleteRows = false;
-            this.productsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoriesDataGridView.AllowUserToAddRows = false;
+            this.categoriesDataGridView.AllowUserToDeleteRows = false;
+            this.categoriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoriesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
             this.Column7,
             this.Column8});
-            this.productsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productsDgv.Location = new System.Drawing.Point(3, 18);
-            this.productsDgv.Name = "productsDgv";
-            this.productsDgv.ReadOnly = true;
-            this.productsDgv.Size = new System.Drawing.Size(1064, 331);
-            this.productsDgv.TabIndex = 2;
-            this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDgv_CellContentClick);
+            this.categoriesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoriesDataGridView.Location = new System.Drawing.Point(3, 18);
+            this.categoriesDataGridView.Name = "categoriesDataGridView";
+            this.categoriesDataGridView.ReadOnly = true;
+            this.categoriesDataGridView.Size = new System.Drawing.Size(1064, 331);
+            this.categoriesDataGridView.TabIndex = 2;
+            this.categoriesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDgv_CellContentClick);
             // 
             // Column6
             // 
@@ -389,19 +387,6 @@
             this.radMenuItem13.Text = "Результаты";
             this.radMenuItem13.Click += new System.EventHandler(this.RadMenuItem13_Click);
             // 
-            // radMenuItem3
-            // 
-            this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem4});
-            this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "Справка";
-            // 
-            // radMenuItem4
-            // 
-            this.radMenuItem4.Name = "radMenuItem4";
-            this.radMenuItem4.Text = "О программе";
-            this.radMenuItem4.Click += new System.EventHandler(this.About_Click);
-            // 
             // radStatusStrip1
             // 
             this.radStatusStrip1.Location = new System.Drawing.Point(0, 744);
@@ -428,7 +413,6 @@
             this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem1,
             this.radMenuItem2,
-            this.radMenuItem3,
             this.radMenuItem9,
             this.radMenuItem15});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
@@ -475,7 +459,7 @@
             this.modulesPanel.ResumeLayout(false);
             this.modulesPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -494,7 +478,7 @@
         private System.Windows.Forms.DataGridView customerDGV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView productsDgv;
+        private System.Windows.Forms.DataGridView categoriesDataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
@@ -506,8 +490,6 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem10;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem11;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;

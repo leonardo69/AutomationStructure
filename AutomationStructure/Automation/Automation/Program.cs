@@ -21,7 +21,7 @@ namespace Automation
             typeof(Form).GetField("defaultIcon", BindingFlags.NonPublic | BindingFlags.Static)?.SetValue(null, Properties.Resources.AppIcon);
             
             var view = new MainForm();
-            view._presenter = new Presenter(new BlService(), view);
+            view.Presenter = new Presenter(new BlService(), view);
             Application.Run(view);
         }
     }

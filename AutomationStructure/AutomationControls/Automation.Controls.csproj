@@ -63,9 +63,6 @@
     <Reference Include="TelerikCommon, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DetailsInfo.cs" />
-    <Compile Include="LoopsInfo.cs" />
-    <Compile Include="MainInfo.cs" />
     <Compile Include="ModuleInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,7 +76,6 @@
       <DependentUpon>ModuleReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShelfInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

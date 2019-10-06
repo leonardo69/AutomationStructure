@@ -207,9 +207,5 @@ namespace Automation.View
         }
 
 
-        private void AddTestModulesBtn_Click(object sender, EventArgs e)
-        {
-            Presenter.AddTestModules();
-        }
     }
 }

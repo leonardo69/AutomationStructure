@@ -38,7 +38,6 @@
             this.modulesLbx = new System.Windows.Forms.ListBox();
             this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.addTestModulesBtn = new Telerik.WinControls.UI.RadButton();
             this.selectedModuleInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,7 +49,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
@@ -118,7 +116,7 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(8, 168);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(75, 56);
+            this.modulesLbx.Size = new System.Drawing.Size(75, 43);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.ModulesLbx_SelectedIndexChanged);
             // 
@@ -139,7 +137,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.addTestModulesBtn);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
             this.groupBox3.Controls.Add(this.radButton1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -149,16 +146,6 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройка выбранного модуля";
-            // 
-            // addTestModulesBtn
-            // 
-            this.addTestModulesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTestModulesBtn.Location = new System.Drawing.Point(788, 61);
-            this.addTestModulesBtn.Name = "addTestModulesBtn";
-            this.addTestModulesBtn.Size = new System.Drawing.Size(90, 31);
-            this.addTestModulesBtn.TabIndex = 5;
-            this.addTestModulesBtn.Text = "TestModules";
-            this.addTestModulesBtn.Click += new System.EventHandler(this.AddTestModulesBtn_Click);
             // 
             // selectedModuleInformationDgv
             // 
@@ -230,7 +217,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.addTestModulesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
@@ -252,6 +238,5 @@
         private System.Windows.Forms.ListBox modulesLbx;
         private Telerik.WinControls.UI.RadGridView allModulesInformationDgv;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Telerik.WinControls.UI.RadButton addTestModulesBtn;
     }
 }

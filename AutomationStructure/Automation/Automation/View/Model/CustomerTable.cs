@@ -59,6 +59,7 @@ namespace Automation.View.Model
             CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[2], PlateThickness.Keys.ToArray());
             CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2], EdgeThicknessDictionary.Keys.ToArray());
             CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2], BackPanelThickness.Keys.ToArray());
+            CellRowsSet((DataGridViewComboBoxCell)dataGridView1.Rows[3].Cells[2], PlateThickness.Keys.ToArray());
 
 
             dataGridView1.Rows[0].Cells[2].Value = "16 мм";

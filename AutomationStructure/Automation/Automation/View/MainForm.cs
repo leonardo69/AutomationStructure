@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Automation.Infrastructure;
+using Automation.Infrastructure.Utils;
+using Automation.Model;
+using Automation.Model.MainModels;
 using Automation.Properties;
 using Automation.View.Helps;
 using Automation.View.Model;
@@ -12,7 +16,7 @@ namespace Automation.View
 {
     public partial class MainForm : RadForm
     {
-        public Presenter _presenter;
+        public Presenter Presenter;
 
         private string _hideThicknessExt;
 
@@ -20,12 +24,7 @@ namespace Automation.View
         {
             InitializeComponent();
             InitCustomerTable();
-           
-        }
-
-        private void About_Click(object sender, EventArgs e)
-        {
-            new About().Show();
+            ModuleThickness.GetModuleThickness();
         }
 
         private void InitCustomerTable()
@@ -34,10 +33,35 @@ namespace Automation.View
             customerDGV.EditingControlShowing += CustomerDGV_EditingControlShowing;
         }
 
+        public void SetCustomerTable(List<CustomerInfoRecord> records)
+        {
+
+            customerDGV.Rows[0].Cells[0].Value = "ЛДСП";
+            customerDGV.Rows[0].Cells[1].Value = records[0].Information;
+            customerDGV.Rows[0].Cells[2].Value = records[0].ThicknessMaterial;
+            customerDGV.Rows[1].Cells[0].Value = "Кромка для ЛДСП";
+            customerDGV.Rows[1].Cells[1].Value = records[1].Information;
+            customerDGV.Rows[1].Cells[2].Value = records[1].ThicknessMaterial;
+            customerDGV.Rows[2].Cells[0].Value = "Задняя стенка";
+            customerDGV.Rows[2].Cells[1].Value = records[2].Information;
+            customerDGV.Rows[2].Cells[2].Value = records[2].ThicknessMaterial;
+            customerDGV.Rows[3].Cells[0].Value = "Фасад";
+            customerDGV.Rows[3].Cells[1].Value = records[3].Information;
+            if (records[3].ThicknessMaterial != " ")
+            {
+                customerDGV.Rows[3].Cells[2].Value = records[3].ThicknessMaterial;
+            }
+            var customerRecord = CustomerTable.GetData(customerDGV, _hideThicknessExt);
+            Presenter.SetCustomer(customerRecord);
+            SetModuleThickness();
+            customerDGV.Refresh();
+        }
+
+   
         public void UpdateThicknessColumn(string thicknessExt)
         {
             _hideThicknessExt = thicknessExt;
-            label2.Text = @"Подробная запись кромки: " + thicknessExt.Substring(0, 30) + " ...";
+            label2.Text = @"Подробная запись кромки: " + thicknessExt.Substring(0, 30) + @" ...";
         }
 
 
@@ -46,18 +70,40 @@ namespace Automation.View
             label3.Text = customerRecord;
         }
 
+        public void SetCategoriesTable(CategoriesCollection categoriesCollection)
+        {
+            panelCustomer.Height = 55;
+            modulesPanel.Visible = true;
+            var allCategories = categoriesCollection.GetAllCategories();
+            foreach (var category in allCategories)
+            {
+                CategoriesUtilsTable.AddCategoryRow(categoriesDataGridView, CategoryTypeInfo.Name(category.Type), category.GetCountModules().ToString());
+            }
+            categoriesDataGridView.Refresh();
+        }
+
+        public void ShowLayout()
+        {
+            flowLayoutPanel1.Visible = true;
+        }
+
         private void OpenProjectMI_Click(object sender, EventArgs e)
         {
             var pathToFile = Dialogs.GetOpenProjectPath();
             if (pathToFile.Length == 0) return;
-            _presenter.OpenProject(pathToFile);
+            Presenter.OpenProject(pathToFile);
         }
 
         private void NewProjectMI_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Visible = true;
-            _presenter.NewProject();
-            var moduleModuleThicknessInfo = ModuleThickness.GetModuleThickness();
+            ShowLayout();
+            Presenter.NewProject();
+            
+            ShowServiceMenu();
+        }
+
+        public void ShowServiceMenu()
+        {
             radMenuItem2.Visibility = ElementVisibility.Visible;
         }
 
@@ -65,7 +111,7 @@ namespace Automation.View
         {
             var pathToFile = Dialogs.GetSaveProjectPath();
             if (pathToFile.Length == 0) return;
-            _presenter.SaveProject(pathToFile);
+            Presenter.SaveProject(pathToFile);
             MessageBox.Show(@"Проект сохранён.", @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -80,8 +126,8 @@ namespace Automation.View
             modulesPanel.Visible = true;
             try
             {
-                _presenter.AddNewProduct("Кухня верхние модули");
-                ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
+                Presenter.AddNewProduct("Кухня верхние модули");
+                CategoriesUtilsTable.AddProductRowDgv(categoriesDataGridView, "Кухня верхние модули");
                 ((RadMenuItem) sender).Enabled = false;
             }
             catch (Exception ex)
@@ -94,8 +140,8 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddProductRowDgv(productsDgv, "Кухня нижние модули");
-            _presenter.AddNewProduct("Кухня нижние модули");
+            CategoriesUtilsTable.AddProductRowDgv(categoriesDataGridView, "Кухня нижние модули");
+            Presenter.AddNewProduct("Кухня нижние модули");
         }
 
         private void Turn_Click(object sender, EventArgs e)
@@ -117,7 +163,7 @@ namespace Automation.View
         private void Button1_Click(object sender, EventArgs e)
         {
             var customerRecord = CustomerTable.GetData(customerDGV, _hideThicknessExt);
-            _presenter.SetCustomer(customerRecord);
+            Presenter.SetCustomer(customerRecord);
             SetModuleThickness();
         }
 
@@ -204,25 +250,25 @@ namespace Automation.View
 
             if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0) return;
             var productName = senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-            new ModuleManager(_presenter, productName).Show();
+            new ModuleManager(Presenter, productName).Show();
         }
 
         public void UpdateProductCount(int count, string nameProduct)
         {
-            for (var i = 0; i < productsDgv.RowCount; i++)
-                if (productsDgv.Rows[i].Cells[0].Value.ToString() == nameProduct)
-                    productsDgv.Rows[i].Cells[1].Value = count;
+            for (var i = 0; i < categoriesDataGridView.RowCount; i++)
+                if (categoriesDataGridView.Rows[i].Cells[0].Value.ToString() == nameProduct)
+                    categoriesDataGridView.Rows[i].Cells[1].Value = count;
         }
 
         private void RadMenuItem13_Click(object sender, EventArgs e)
         {
-            var allProducts = _presenter.GetAllProducts();
+            var allProducts = Presenter.GetAllProducts();
             if (allProducts.Count == 0 || allProducts.Any(x => x.GetCountModules() == 0) )
             {
                 MessageBox.Show(@"Сначала добавьте категорию модулей", @"Инфо ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            new Results(_presenter).Show();
+            new Results(Presenter).Show();
         }
 
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)

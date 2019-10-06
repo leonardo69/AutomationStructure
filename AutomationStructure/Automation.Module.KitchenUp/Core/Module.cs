@@ -1,8 +1,10 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Automation.Infrastructure;
 
 namespace Automation.Module.KitchenUpOneFacade.Core
 {
+    [Serializable]
     public class Module
     {
 
