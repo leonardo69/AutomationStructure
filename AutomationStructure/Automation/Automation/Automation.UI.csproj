@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.WinControls, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.GridView, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2018.2.515.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
@@ -56,6 +57,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\UpModuleDimensionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UpModuleDimensionVariables.Designer.cs">
+      <DependentUpon>UpModuleDimensionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralGlobalVariablesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GeneralGlobalVariablesView.Designer.cs">
+      <DependentUpon>GeneralGlobalVariablesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GlobalVariables.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +134,12 @@
       <DependentUpon>ModuleManager.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="View\UpModuleDimensionVariables.resx">
+      <DependentUpon>UpModuleDimensionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GeneralGlobalVariablesView.resx">
+      <DependentUpon>GeneralGlobalVariablesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GlobalVariables.resx">
       <DependentUpon>GlobalVariables.cs</DependentUpon>
     </EmbeddedResource>

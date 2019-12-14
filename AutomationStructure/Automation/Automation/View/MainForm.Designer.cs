@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
             this.globalSettingsMenu = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -208,9 +209,9 @@
             // 
             // Column9
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column9.HeaderText = "Помощь";
             this.Column9.Name = "Column9";
             this.Column9.Text = "?";
@@ -424,7 +425,8 @@
             // radMenuItem15
             // 
             this.radMenuItem15.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.globalSettingsMenu});
+            this.globalSettingsMenu,
+            this.radMenuItem3});
             this.radMenuItem15.Name = "radMenuItem15";
             this.radMenuItem15.Text = "Настройки";
             // 
@@ -432,6 +434,13 @@
             // 
             this.globalSettingsMenu.Name = "globalSettingsMenu";
             this.globalSettingsMenu.Text = "Глобальные настройки";
+            this.globalSettingsMenu.Click += new System.EventHandler(this.OpenGlobalSettingsDialog);
+            // 
+            // radMenuItem3
+            // 
+            this.radMenuItem3.Name = "radMenuItem3";
+            this.radMenuItem3.Text = "radMenuItem3";
+            this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
             // 
             // MainForm
             // 
@@ -509,6 +518,7 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
         private Telerik.WinControls.UI.RadMenuItem globalSettingsMenu;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
     }
 }
 

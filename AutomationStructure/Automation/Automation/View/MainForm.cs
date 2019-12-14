@@ -303,5 +303,17 @@ namespace Automation.View
             var info = ModuleThickness.GetModuleThickness();
             MessageBox.Show(info);
         }
+
+        private void OpenGlobalSettingsDialog(object sender, EventArgs e)
+        {
+            var dialog = new GlobalVariables();
+            dialog.Show();
+        }
+
+        private void radMenuItem3_Click(object sender, EventArgs e)
+        {
+            var upModuleGlobalVariables = new UpModuleDimensionVariables();
+            upModuleGlobalVariables.Show();
+        }
     }
 }
