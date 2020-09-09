@@ -72,27 +72,27 @@ namespace Automation.View.ModuleViewGenerator
             };
         }
 
-        private GridViewComboBoxColumn GetFacadeType()
-        {
-            var column = new GridViewComboBoxColumn();
-            column.Name = "Тип фасада2";
-            column.HeaderText = @"Тип фасада";
-            column.FieldName = "Тип фасада";
-            column.DataSource = new List<string>
-            {
-                "нет",
-                "накладной",
-                "вкладной ЛДСП",
-                "вкладной 16 мм",
-                "вкладной 18 мм",
-                "вкладной 19 мм",
-                "вкладной 20 мм",
-                "вкладной 21 мм",
-                "вкладной 22 мм",
-                "что это?"
-            };
-            return column;
-        }
+        //private GridViewComboBoxColumn GetFacadeType()
+        //{
+        //    var column = new GridViewComboBoxColumn();
+        //    column.Name = "Тип фасада2";
+        //    column.HeaderText = @"Тип фасада";
+        //    column.FieldName = "Тип фасада";
+        //    column.DataSource = new List<string>
+        //    {
+        //        "нет",
+        //        "накладной",
+        //        "вкладной ЛДСП",
+        //        "вкладной 16 мм",
+        //        "вкладной 18 мм",
+        //        "вкладной 19 мм",
+        //        "вкладной 20 мм",
+        //        "вкладной 21 мм",
+        //        "вкладной 22 мм",
+        //        "что это?"
+        //    };
+        //    return column;
+        //}
 
         private GridViewComboBoxColumn GetShelfPO()
         {
@@ -223,7 +223,7 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns["Задняя стенка"].IsVisible = false;
             dgv.Columns.Remove("Крепление полки");
             dgv.Columns.Remove("Кол-во полок");
-            dgv.Columns["Тип фасада"].IsVisible = false;
+            //dgv.Columns["Тип фасада"].IsVisible = false;
             dgv.Columns["Материал фасада"].IsVisible = false;
             dgv.Columns["Режим расчёта"].IsVisible = false;
             dgv.Columns["Сборка модуля"].IsVisible = false;
@@ -233,7 +233,7 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns.Insert(10, GetModuleAssembly());
             dgv.Columns.Insert(10, GetBackPanelAssemblyColumns());
             dgv.Columns.Insert(20, GetFacadeMaterial());
-            dgv.Columns.Insert(16, GetFacadeType());
+            //dgv.Columns.Insert(16, GetFacadeType());
             dgv.Columns.Insert(17, GetCalculationType());
             dgv.Columns.Insert(11, GetShelfPO());
             dgv.Columns.Insert(12, GetShelfMinus2MM());
@@ -320,7 +320,7 @@ namespace Automation.View.ModuleViewGenerator
                 "№ схемы фасада",
                 "Высота",
                 "Ширина",
-                "Тип фасада2",
+                //"Тип фасада2",
                 "Режим расчёта2",
                 "Материал фасада2"
             }, true));
@@ -333,8 +333,7 @@ namespace Automation.View.ModuleViewGenerator
 
         private void Dgv_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
         {
-            if (e.Column.Name == "Задняя стенка2" ||
-                e.Column.Name == "Тип фасада2")
+            if (e.Column.Name == "Задняя стенка2")
             {
                 _columnName = e.Column.Name;
                 ((RadDropDownListEditorElement)((RadDropDownListEditor)e.ActiveEditor).EditorElement)
@@ -363,10 +362,10 @@ namespace Automation.View.ModuleViewGenerator
                     bigImagePath = parts[0] + "_" + parts[1] + "_stenka-help.png";
                     new BigModuleImageInfo(bigImagePath).Show();
                     break;
-                case "Тип фасада2":
-                    bigImagePath = parts[0] + "_" + parts[1] + "_fasad-help.png";
-                    new BigModuleImageInfo(bigImagePath).Show();
-                    break;
+                //case "Тип фасада2":
+                //    bigImagePath = parts[0] + "_" + parts[1] + "_fasad-help.png";
+                //    new BigModuleImageInfo(bigImagePath).Show();
+                //    break;
             }
         }
 

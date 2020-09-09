@@ -488,7 +488,7 @@ namespace Automation.Module.KitchenUpOneFacade.Calculation
         {
             if (Facades.Records.Count == 0)
                 return 0;
-            if (Facades.Records[0].Type == "нет" || Facades.Records[0].Material == "на заказ глухой" ||
+            if (Facades.Records[0].Material == "на заказ глухой" ||
                 Facades.Records[0].Material == "на заказ витрина" || Facades.Records[0].Material == "на заказ особый")
                 return 0;
             return ModuleThickness.FacadeKant;

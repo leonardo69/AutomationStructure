@@ -38,9 +38,9 @@ namespace Automation.Infrastructure.GlobalSettings
 
     public static class UpModuleShelfsDimensionVariables
     {
-        public static int ShelfDepth;
-        public static int ShelfWidth;
-        public static int GlassShelfDepth;
+        public static int ShelfDepth { get; set; }
+        public static int ShelfWidth { get; set; }
+        public static int GlassShelfDepth { get; set; }
 
         static UpModuleShelfsDimensionVariables()
         {
@@ -61,9 +61,9 @@ namespace Automation.Infrastructure.GlobalSettings
 
     public static class UpModuleBackWallDimensionVariables
     {
-        public static int BackHeight;
-        public static int BackWidth;
-        public static int BackDishesHeight;
+        public static int BackHeight { get; set; }
+        public static int BackWidth { get; set; }
+        public static int BackDishesHeight { get; set; }
 
         static UpModuleBackWallDimensionVariables()
         {
@@ -84,9 +84,9 @@ namespace Automation.Infrastructure.GlobalSettings
 
     public static class UpModuleMountDimensionVariables
     {
-        public static int MinMountPlank;
-        public static int ModuleDepth;
-        public static int MaxMountPlank;
+        public static int MinMountPlank { get; set; }
+        public static int ModuleDepth { get; set; }
+        public static int MaxMountPlank { get; set; }
 
         static UpModuleMountDimensionVariables()
         {
@@ -110,7 +110,7 @@ namespace Automation.Infrastructure.GlobalSettings
 
     public static class UpModuleBoxesDimensionVariables
     {
-        public static DepthValue Depth;
+        public static DepthValue Depth { get; set; }
 
         static UpModuleBoxesDimensionVariables()
         {

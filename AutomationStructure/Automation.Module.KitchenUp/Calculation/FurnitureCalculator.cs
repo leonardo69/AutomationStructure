@@ -40,8 +40,6 @@ namespace Automation.Module.KitchenUpOneFacade.Calculation
         {
             if (Facades.Records.Count == 0)
                 return 0;
-            if (Facades.Records[0].Type == "нет")
-                return 0;
             var height = Facades.Records[0].VerticalDimension;
             if (height < 900)
                 return 2;
@@ -108,9 +106,7 @@ namespace Automation.Module.KitchenUpOneFacade.Calculation
                 backPanel = FL7() * FW7() * 0.001 * FN7();
             double facades = 0;
             if (Facades.Records.Count != 0)
-                if (Facades.Records[0].Type != "нет" &&
-                    (Facades.Records[0].Material == "ЛДСП вертик. фактура" ||
-                     Facades.Records[0].Material == "ЛДСП гориз. фактура"))
+                if (Facades.Records[0].Material == "ЛДСП вертик. фактура" || Facades.Records[0].Material == "ЛДСП гориз. фактура")
                     facades = FL5() * FW5() * 0.001 * FN5();
             return Fl1() * Fw1() * 0.001 * FN1() + Fl2() * Fw2() * 0.001 * FN2() + ldspShelfs + backPanel + facades;
         }

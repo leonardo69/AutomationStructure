@@ -17,6 +17,7 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             table.Columns.Add("Высота модуля (мм)");
             table.Columns.Add("Ширина модуля (мм)");
             table.Columns.Add("Глубина модуля (мм)");
+            table.Columns.Add("Цоколь");
             table.Columns.Add("A размер (мм)");
             table.Columns.Add("B размер (мм)");
             table.Columns.Add("C размер (мм)");
@@ -26,7 +27,7 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             table.Columns.Add("Крепление полки");
             table.Columns.Add("Кол-во полок");
             table.Columns.Add("№ схемы фасада");
-            table.Columns.Add("Тип фасада");
+            //table.Columns.Add("Тип фасада");
             table.Columns.Add("Режим расчёта");
             table.Columns.Add("Высота");
             table.Columns.Add("Ширина");
@@ -82,6 +83,13 @@ namespace Automation.Module.KitchenUpOneFacade.Core
                 throw new ArgumentException("Глубина модуля не может быть отрицательной");
             module.Dimensions.Depth = depth;
 
+            if (!double.TryParse(row["Цоколь"].ToString(), out var pedestal))
+                throw new ArgumentException("Цоколь модуля должен быть числом");
+            if (pedestal < 0)
+                throw new ArgumentException("Цоколь модуля не может быть отрицательным");
+            module.Dimensions.Pedestal = pedestal;
+
+
             if (!double.TryParse(row["A размер (мм)"].ToString(), out var a))
                 throw new ArgumentException("A размер должен быть числом");
             if (a < 0)
@@ -117,7 +125,7 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             module.ShelfsCount = row["Кол-во полок"].ToString();
 
             module.Facades.Records[0].NumberOnScheme = facadeNumber;
-            module.Facades.Records[0].Type = row["Тип фасада"].ToString();
+            // module.Facades.Records[0].Type = row["Тип фасада"].ToString();
             module.Facades.Records[0].Material = row["Материал фасада"].ToString();
 
                 if (module.CalcMode == "авт. фас.")
@@ -148,6 +156,7 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             row["Высота модуля (мм)"] = module.Dimensions.Height;
             row["Ширина модуля (мм)"] = module.Dimensions.Width;
             row["Глубина модуля (мм)"] = module.Dimensions.Depth;
+            row["Цоколь"] = module.Dimensions.Pedestal;
             row["A размер (мм)"] = module.Dimensions.A;
             row["B размер (мм)"] = module.Dimensions.B;
             row["C размер (мм)"] = module.Dimensions.C;
@@ -160,7 +169,7 @@ namespace Automation.Module.KitchenUpOneFacade.Core
             if (module.Facades.Records.Count != 0)
             {
                 row["№ схемы фасада"] = module.Facades.Records[0].NumberOnScheme;
-                row["Тип фасада"] = module.Facades.Records[0].Type;
+                //row["Тип фасада"] = module.Facades.Records[0].Type;
                 row["Режим расчёта"] = module.CalcMode;
                 row["Высота"] = module.Facades.Records[0].VerticalDimension;
                 row["Ширина"] = module.Facades.Records[0].HorizontalDimension;

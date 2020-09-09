@@ -57,23 +57,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\UpModuleDimensionVariables.cs">
+    <Compile Include="View\GlobalVariables\DownModuleDimensionVariables.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UpModuleDimensionVariables.Designer.cs">
+    <Compile Include="View\GlobalVariables\DownModuleDimensionVariables.Designer.cs">
+      <DependentUpon>DownModuleDimensionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GlobalVariables\GeneralGlobalDimensionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GlobalVariables\GeneralGlobalDimensionVariables.Designer.cs">
+      <DependentUpon>GeneralGlobalDimensionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GlobalVariables\UpModuleDimensionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GlobalVariables\UpModuleDimensionVariables.Designer.cs">
       <DependentUpon>UpModuleDimensionVariables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GeneralGlobalVariablesView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GeneralGlobalVariablesView.Designer.cs">
-      <DependentUpon>GeneralGlobalVariablesView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GlobalVariables.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GlobalVariables.Designer.cs">
-      <DependentUpon>GlobalVariables.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Helps\Helper.cs">
       <SubType>Form</SubType>
@@ -134,14 +134,14 @@
       <DependentUpon>ModuleManager.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="View\UpModuleDimensionVariables.resx">
+    <EmbeddedResource Include="View\GlobalVariables\DownModuleDimensionVariables.resx">
+      <DependentUpon>DownModuleDimensionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GlobalVariables\GeneralGlobalDimensionVariables.resx">
+      <DependentUpon>GeneralGlobalDimensionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GlobalVariables\UpModuleDimensionVariables.resx">
       <DependentUpon>UpModuleDimensionVariables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GeneralGlobalVariablesView.resx">
-      <DependentUpon>GeneralGlobalVariablesView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GlobalVariables.resx">
-      <DependentUpon>GlobalVariables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Helps\Helper.resx">
       <DependentUpon>Helper.cs</DependentUpon>

@@ -39,16 +39,18 @@ namespace Automation.Module.KitchenUpOneFacade.ResultTables
 
         private string Mat_txt_1_2()
         {
-            var type = Facades.Records[0].Type;
-            switch (type)
-            {
-                case null:
-                    return "";
-                case "накладной":
-                    return "накладные";
-                default:
-                    return type.Substring(0, Math.Min(8, type.Length)) == "вкладной" ? "вкладные" : "";
-            }
+            //var type = Facades.Records[0].Type;
+            //switch (type)
+            //{
+            //    case null:
+            //        return "";
+            //    case "накладной":
+            //        return "накладные";
+            //    default:
+            //        return type.Substring(0, Math.Min(8, type.Length)) == "вкладной" ? "вкладные" : "";
+            //}
+
+            return "накладные";
         }
 
         private string Mat_txt_2_2()

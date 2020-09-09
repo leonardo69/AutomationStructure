@@ -54,6 +54,11 @@ namespace Automation.Infrastructure
         public double Width { get; set; }
 
         /// <summary>
+        /// Цоколь
+        /// </summary>
+        public double Pedestal { get; set; }
+
+        /// <summary>
         /// Специальный размер
         /// </summary>
         public double A { get; set; }
@@ -103,7 +108,7 @@ namespace Automation.Infrastructure
     {
         public int NumberOnScheme { get; set; }
 
-        public string Type { get; set; }
+        //public string Type { get; set; }
 
         public double VerticalDimension { get; set; }
 

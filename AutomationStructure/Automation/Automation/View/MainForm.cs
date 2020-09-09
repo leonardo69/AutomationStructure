@@ -7,6 +7,7 @@ using Automation.Infrastructure.Utils;
 using Automation.Model;
 using Automation.Model.MainModels;
 using Automation.Properties;
+using Automation.View.GlobalVariables;
 using Automation.View.Helps;
 using Automation.View.Model;
 using Telerik.WinControls;
@@ -306,14 +307,25 @@ namespace Automation.View
 
         private void OpenGlobalSettingsDialog(object sender, EventArgs e)
         {
-            var dialog = new GlobalVariables();
-            dialog.Show();
+            var globarVariables = new GeneralGlobalDimensionVariables();
+            globarVariables.Show();
         }
 
         private void radMenuItem3_Click(object sender, EventArgs e)
         {
             var upModuleGlobalVariables = new UpModuleDimensionVariables();
             upModuleGlobalVariables.Show();
+        }
+
+        private void radMenuItem15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMenuItem4_Click(object sender, EventArgs e)
+        {
+            var downModuleGlobalVariables = new DownModuleDimensionVariables();
+            downModuleGlobalVariables.Show();
         }
     }
 }

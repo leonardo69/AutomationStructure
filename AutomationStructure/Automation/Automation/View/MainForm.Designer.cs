@@ -70,6 +70,7 @@
             this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
             this.globalSettingsMenu = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -426,21 +427,29 @@
             // 
             this.radMenuItem15.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.globalSettingsMenu,
-            this.radMenuItem3});
+            this.radMenuItem3,
+            this.radMenuItem4});
             this.radMenuItem15.Name = "radMenuItem15";
             this.radMenuItem15.Text = "Настройки";
+            this.radMenuItem15.Click += new System.EventHandler(this.radMenuItem15_Click);
             // 
             // globalSettingsMenu
             // 
             this.globalSettingsMenu.Name = "globalSettingsMenu";
-            this.globalSettingsMenu.Text = "Глобальные настройки";
+            this.globalSettingsMenu.Text = "Общие глобальные переменные";
             this.globalSettingsMenu.Click += new System.EventHandler(this.OpenGlobalSettingsDialog);
             // 
             // radMenuItem3
             // 
             this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "radMenuItem3";
+            this.radMenuItem3.Text = "Глобальные переменные верхних модулей";
             this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
+            // 
+            // radMenuItem4
+            // 
+            this.radMenuItem4.Name = "radMenuItem4";
+            this.radMenuItem4.Text = "Глобальные переменные нижних модулей";
+            this.radMenuItem4.Click += new System.EventHandler(this.radMenuItem4_Click);
             // 
             // MainForm
             // 
@@ -519,6 +528,7 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
         private Telerik.WinControls.UI.RadMenuItem globalSettingsMenu;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
     }
 }
 
